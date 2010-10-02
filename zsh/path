@@ -1,0 +1,31 @@
+#!/bin/zsh
+# -*- coding: utf-8 -*-
+
+##
+# ZSH INITIALIZATION FILE
+# Global path setup
+##
+
+# Setting Generic PATH
+path=(                               \
+    .                                \
+    ~/bin                            \
+    ~/sbin                           \
+    /opt/local/bin /opt/bin          \
+    /usr/local/bin /usr/bin /bin     \
+    /opt/local/sbin /opt/sbin        \
+    /usr/local/sbin /usr/sbin /sbin  \
+    /usr/X11R6/bin                   \
+    )
+    
+# Setting PATH for Python 2.7
+if [ -d /Library/Frameworks/Python.framework/Versions/2.7/bin ]; then
+    path = ( /Library/Frameworks/Python.framework/Versions/2.7/bin ${path} )
+fi
+
+# Setting PATH for Python 3.1
+if [ -d /Library/Frameworks/Python.framework/Versions/3.1/bin ]; then
+    path = ( /Library/Frameworks/Python.framework/Versions/3.1/bin ${path} )
+fi
+
+

@@ -1,0 +1,12 @@
+syntax: glob
+*~
+*.elc
+*.pyc
+*.pyo
+*.class
+.svn
+.git
+.DS_Store
+Thumbs.db
+TAGS
+auto-save-list

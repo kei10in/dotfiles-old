@@ -1,0 +1,6 @@
+[ui]
+username = keisuke <kei10in@gmail.com>
+ignore = ~/.hgignore
+[extensions]
+mq =
+color = 
