@@ -148,3 +148,45 @@
 ;;
 
 (setq list-faces-sample-text "abcdefg ABCDEFG にほんご 日本語 アイウエオ")
+
+
+
+;;;; 未整理
+
+;; このブロックは 
+;; http://github.com/elim/dotemacs/blob/master//init-fonts.el
+;; を参照
+;; NTEmacs
+;; http://ntemacsjp.sourceforge.jp/matsuan/FontSettingJp.html
+;; (nt-p
+;;  (setq w32-enable-synthesized-fonts t
+;;        w32-use-w32-font-dialog t)
+
+;;  (cond
+;;   ;; emacs23
+;;   ((<= 23 emacs-major-version)
+;;    (set-default-font "ＭＳ ゴシック-10")
+;;    (set-fontset-font (frame-parameter nil 'font)
+;;                      'japanese-jisx0208
+;;                      '("ＭＳ ゴシック" . "unicode-bmp")))
+
+;;   (t
+;;    (set-face-attribute 'default nil
+;;                        :family "ＭＳ ゴシック"
+;;                        :height 100)
+
+;;    (set-fontset-font "fontset-default"
+;;                      'japanese-jisx0208
+;;                      '("ＭＳ ゴシック*" . "jisx0208-sjis"))
+
+;;    (set-fontset-font "fontset-default"
+;;                      'katakana-jisx0201
+;;                      '("ＭＳ ゴシック*" . "jisx0201-katakana"))
+
+;;    (add-to-list 'face-font-rescale-alist
+;;                 `(,(encode-coding-string
+;;                     ".*ＭＳ.*bold.*iso8859.*" 'emacs-mule) . 0.9))
+
+;;    (add-to-list 'face-font-rescale-alist
+;;                 `(,(encode-coding-string
+;;                     ".*ＭＳ.*bold.*jisx02.*" 'emacs-mule) . 0.95)))))

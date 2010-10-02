@@ -28,64 +28,97 @@
 ;; (add-hook 'minibuffer-setup-hook
 ;; 	  (lambda () (mac-im-set-key-script -17)))
 
-;; フォントの設定
-;(set-default-font "Monaco-10")
-;(setq my-font "-*-*-medium-r-normal--12-*-*-*-*-*-fontset-hiramaru")
-(setq my-font "monako")
-(set-frame-font my-font)
-(add-to-list 'default-frame-alist `(font . ,my-font))
-(when run-emacs23
-  (setq fixed-width-use-QuickDraw-for-ascii t)
-  (setq mac-allow-anti-aliasing t)
-  ;; (set-face-attribute 'default nil
-  ;; 					  :family "monaco"
-  ;; 					  :height 140)
-  (set-fontset-font
-   (frame-parameter nil 'font)
-   'japanese-jisx0208
-   '("Hiragino Maru Gothic Pro" . "iso10646-1"))
-  (set-fontset-font
-   (frame-parameter nil 'font)
-   'japanese-jisx0212
-   '("Hiragino Maru Gothic Pro" . "iso10646-1"))
- ;;; Unicode フォント
-  (set-fontset-font
-   (frame-parameter nil 'font)
-   'mule-unicode-0100-24ff
-   '("monaco" . "iso10646-1"))
-;;; キリル，ギリシア文字設定
-;;; 注意： この設定だけでは古代ギリシア文字、コプト文字は表示できない
-;;; http://socrates.berkeley.edu/~pinax/greekkeys/NAUdownload.html が必要
-;;; キリル文字
-  (set-fontset-font
-   (frame-parameter nil 'font)
-   'cyrillic-iso8859-5
-   '("monaco" . "iso10646-1"))
-;;; ギリシア文字
-  (set-fontset-font
-   (frame-parameter nil 'font)
-   'greek-iso8859-7
-   '("monaco" . "iso10646-1"))
-  (setq face-font-rescale-alist
-		'(("^-apple-hiragino.*" . 1.2)
-		  (".*osaka-bold.*" . 1.2)
-		  (".*osaka-medium.*" . 1.2)
-		  (".*courier-bold-.*-mac-roman" . 1.0)
-		  (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
-		  (".*monaco-bold-.*-mac-roman" . 0.9)
-		  ("-cdac$" . 1.3))))
-
 
 ;; frame　の大きさ
 (setq default-frame-alist
 	  (append
 	   (list
-		'(family . "monaco")
-		'(height . 55)
+        '(height . 55)
 		'(width . 86)
 		)
 	   default-frame-alist)
 	  )
+
+;;; フォントの設定
+
+;; どんな効果があるのかわからない
+;; (setq fixed-width-use-QuickDraw-for-ascii nil)
+
+;; デフォルト ON
+;; (setq mac-allow-anti-aliasing t)
+
+;; ヒラギノ 角ゴ ProN + Monaco
+(create-fontset-from-ascii-font "Monaco-12:slant=normal" nil "MonacoHiraMaru")
+(set-fontset-font "fontset-MonacoHiraMaru"
+                  'ascii
+                  (font-spec :family "Monaco"))
+(set-fontset-font "fontset-MonacoHiraMaru"
+                  'iso-8859-1
+                  (font-spec :family "Monaco")
+                  nil 'prepend)
+(set-fontset-font "fontset-MonacoHiraMaru"
+                  'iso-8859-2
+                  (font-spec :family "Monaco")
+                  nil 'prepend)
+(set-fontset-font "fontset-MonacoHiraMaru"
+                  'iso-8859-3
+                  (font-spec :family "Monaco")
+                  nil 'prepend)
+(set-fontset-font "fontset-MonacoHiraMaru"
+                  'iso-8859-4
+                  (font-spec :family "Monaco")
+                  nil 'prepend)
+(set-fontset-font "fontset-MonacoHiraMaru"
+                  'iso-8859-5
+                  (font-spec :family "Monaco")
+                  nil 'prepend)
+(set-fontset-font "fontset-MonacoHiraMaru"
+                  'iso-8859-6
+                  (font-spec :family "Geeza Pro")
+                  nil 'prepend)
+(set-fontset-font "fontset-MonacoHiraMaru"
+                  'iso-8859-7
+                  (font-spec :family "Moncao")
+                  nil 'prepend)
+(set-fontset-font "fontset-MonacoHiraMaru"
+                  'chinese-gb2312
+                  (font-spec :family "Hiragino Sans GB")
+                  nil 'prepend)
+(set-fontset-font "fontset-MonacoHiraMaru"
+                  'big5
+                  (font-spec :family "Hiragino Sans GB")
+                  nil 'prepend)
+;; (set-fontset-font "fontset-MonacoHiraMaru"
+;;                   '(#x1100 . #x11FF)
+;;                   (font-spec :family "AppleGothic"))
+;; (set-fontset-font "fontset-MonacoHiraMaru"
+;;                   '(#x3130 . #x318F)
+;;                   (font-spec :family "AppleGothic"))
+;; (set-fontset-font "fontset-MonacoHiraMaru"
+;;                   '(#xAC00 . #xD79F)
+;;                   (font-spec :family "AppleGothic"))
+(set-fontset-font "fontset-MonacoHiraMaru"
+                  'japanese-jisx0208
+                  (font-spec :family "Hiragino Kaku Gothic ProN W3" :size 14)
+                  nil 'prepend)
+(set-fontset-font "fontset-MonacoHiraMaru"
+                  'katakana-jisx0201
+                  (font-spec :family "Hiragino Kaku Gothic ProN W3" :size 14)
+                  nil 'prepend)
+(set-fontset-font "fontset-MonacoHiraMaru"
+                  'japanese-jisx0213-2
+                  (font-spec :family "Hiragino Kaku Gothic ProN W3" :size 14)
+                  nil 'prepend)
+(set-fontset-font "fontset-MonacoHiraMaru"
+                  'japanese-jisx0213.2004-1
+                  (font-spec :family "Hiragino Kaku Gothic ProN W3" :size 14)
+                  nil 'prepend)
+
+;; 確認用
+;; (set-frame-font "fontset-MonacoHiraMaru")
+;; 実際に設定する場合は，ここのコメントを解除．
+(add-to-list 'default-frame-alist '(font . "fontset-MonacoHiraMaru"))
+
 
 ;; frame の色を設定する
 (defun my-set-display-for-windowed-frames (frame)
@@ -110,7 +143,8 @@
 (setq ns-pop-up-frames nil)
 
 ;; Set frame Transparency
-;(set-frame-parameter (selected-frame) 'alpha '(90 90))
+;(set-frame-parameter (selected-frame) 'alpha '(90 80))
+(add-to-list 'default-frame-alist '(alpha . (90 80)))
 
 ;; Set face: region background
 ;; On Cocoa Emacs, region background is set to "ns_selection_color" in term/ns-win.el

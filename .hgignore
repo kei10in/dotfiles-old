@@ -3,6 +3,7 @@ syntax: glob
 *.elc
 *.pyc
 .DS_Store
+Thumbs.db
 ac-comphist.dat
 auto-save-list
 zsh/aliases.hosts
