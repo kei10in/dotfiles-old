@@ -1,8 +1,5 @@
 ;; -*- mode: emacs-lisp ; coding: utf-8 -*-
 
-;; Use Quartz 2D anti-aliasing.
-;(setq mac-allow-anti-aliasing t)
-
 ;;
 ;; Japanese Enviroment Configuration
 ;;
@@ -14,38 +11,32 @@
 (set-language-environment 'Japanese)
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8-unix)
-(set-keyboard-coding-system 'sjis-mac)
-(set-clipboard-coding-system 'sjis-mac)
+;(set-keyboard-coding-system 'sjis-mac)
+;(set-clipboard-coding-system 'sjis-mac)
 (set-terminal-coding-system 'utf-8)
 ;(set-buffer-file-coding-system 'sjis-mac)
 (setq file-name-coding-system 'utf-8)
-;(setq default-input-method "MacOSX")
-;;(mac-setup-inline-input-method)
-;; (setq default-input-method "MacOSX-IM-JP")
-;; (set-language-info 'Japanese 'input-method "MacOSX-IM-JP")
-;; (add-hook 'isearch-mode-hook 'mac-im-isearch-mode-setup)
-;; (add-hook 'isearch-mode-end-hook 'mac-im-isearch-mode-cleanup)
-;; (add-hook 'minibuffer-setup-hook
-;; 	  (lambda () (mac-im-set-key-script -17)))
+(setq default-input-method "MacOSX")
 
 
 ;; frame　の大きさ
 (setq default-frame-alist
-	  (append
-	   (list
+      (append
+       (list
         '(height . 55)
-		'(width . 86)
-		)
-	   default-frame-alist)
-	  )
+        '(width . 86)
+        '(background-color . "black")
+        '(foreground-color . "#55FF55")
+        '(cursor-color . "#00AA00")
+        )
+       default-frame-alist)
+      )
+
+;; Use Quartz 2D anti-aliasing.
+;; デフォルトは Non-nil
+(setq mac-allow-anti-aliasing t)
 
 ;;; フォントの設定
-
-;; どんな効果があるのかわからない
-;; (setq fixed-width-use-QuickDraw-for-ascii nil)
-
-;; デフォルト ON
-;; (setq mac-allow-anti-aliasing t)
 
 ;; ヒラギノ 角ゴ ProN + Monaco
 (create-fontset-from-ascii-font "Monaco-12:slant=normal" nil "MonacoHiraKaku")
@@ -119,20 +110,6 @@
 ;; 実際に設定する場合は，ここのコメントを解除．
 (add-to-list 'default-frame-alist '(font . "fontset-MonacoHiraKaku"))
 
-
-;; frame の色を設定する
-(defun my-set-display-for-windowed-frames (frame)
-  "Set display parameters for the current frame the way I like them."
-  (select-frame frame)
-  (set-background-color "black")
-  (set-foreground-color "#55FF55")
-  (set-cursor-color "#00AA00")
-)
-(add-hook 'after-make-frame-functions 'my-set-display-for-windowed-frames)
-(my-set-display-for-windowed-frames (selected-frame))
-
-(setq default-input-method "MacOSX")
-
 ;; swap Commmand and Option
 (setq ns-command-modifier 'meta)
 (setq ns-alternate-modifier 'super)
@@ -144,7 +121,7 @@
 
 ;; Set frame Transparency
 ;(set-frame-parameter (selected-frame) 'alpha '(90 80))
-(add-to-list 'default-frame-alist '(alpha . (90 80)))
+(add-to-list 'default-frame-alist '(alpha . (90 90)))
 
 ;; Set face: region background
 ;; On Cocoa Emacs, region background is set to "ns_selection_color" in term/ns-win.el

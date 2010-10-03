@@ -4,6 +4,7 @@ syntax: glob
 *.pyc
 .DS_Store
 Thumbs.db
+abbrev_defs
 ac-comphist.dat
 auto-save-list
 zsh/aliases.hosts
