@@ -13,18 +13,20 @@
 
 ;; frame の大きさ
 (setq default-frame-alist
-	  (append
-	   (list
-		'(height . 55)
-		'(width . 86)
-		)
-	   default-frame-alist)
-	  )
+      (append
+       (list
+        '(height . 55)
+        '(width . 86)
+        '(background-color . "black")
+        '(foreground-color . "#55FF55")
+        )
+       default-frame-alist)
+      )
 
 
 ;; 等幅フォント設定
 (when (and run-emacs22
-		   (locate-library "fixed-width-fontset"))
+           (locate-library "fixed-width-fontset"))
   (require 'fixed-width-fontset)
   (require 'ntemacs-font)
 
@@ -34,62 +36,66 @@
   (when (x-list-fonts "*ＭＳ ゴシック*")
     (defvar ntemacs-font-encode-family-list-myfont
       `(
-	(ascii . "Consolas")
-	(japanese-jisx0208 . "ＭＳ ゴシック*")
-;	(japanese-jisx0208 . "IPAゴシック*")
-	(katakana-jisx0201 . "ＭＳ ゴシック*")
-	(chinese-gb2312     . "NSimSun*")
-	(chinese-cns11643-1 . "NSimSun*")
-	(chinese-cns11643-2 . "NSimSun*")
-	(chinese-cns11643-3 . "NSimSun*")
-	(chinese-cns11643-4 . "NSimSun*")
-	(chinese-cns11643-5 . "NSimSun*")
-	(chinese-cns11643-6 . "NSimSun*")
-	(chinese-cns11643-7 . "NSimSun*")
-	(chinese-big5-1 . "MingLiU*")
-	(chinese-sisheng . "NSimSun")
-	(korean-ksc5601 . "Dotum*")
-	(thai-tis620 . "Consolas*")
-	(latin-iso8859-3 . "Consolas*")
-	(cyrillic-iso8859-5 . "Consolas")
-	(greek-iso8859-7 . "Consolas*")
-	(hebrew-iso8859-8 . "Consolas*")
-	(latin-iso8859-9 . "Consolas*")
-	(latin-iso8859-15 . "Consolas*")
-	(ipa . "ＭＳ ゴシック*")
-	(ethiopic . "Ethiopia Jiret")
-	(vietnamese-viscii-lower . "Arial Unicode MS*")
-	(vietnamese-viscii-upper . "Arial Unicode MS*")
-	(lao . "Consolas*")
-	(tibetan . "Consolas*")
-	(tibetan-1-column . "Consolas*")
-	(arabic-1-column . "Consolas*")
-	(arabic-2-column . "Consolas*")
-	((,(decode-char 'ucs #x2800) . ,(decode-char 'ucs #x28ff)) . "Braille*") ;; Braille
-	((,(decode-char 'ucs #x5361) . ,(decode-char 'ucs #x5361)) . "NSimSun*")
-	(mule-unicode-0100-24ff . "Consolas*")
-	(mule-unicode-2500-33ff . "Arial Unicode MS*")
-	(mule-unicode-e000-ffff . "Consolas*")
-	))
+    (ascii . "Consolas")
+    (japanese-jisx0208 . "ＭＳ ゴシック*")
+;   (japanese-jisx0208 . "IPAゴシック*")
+    (katakana-jisx0201 . "ＭＳ ゴシック*")
+    (chinese-gb2312     . "NSimSun*")
+    (chinese-cns11643-1 . "NSimSun*")
+    (chinese-cns11643-2 . "NSimSun*")
+    (chinese-cns11643-3 . "NSimSun*")
+    (chinese-cns11643-4 . "NSimSun*")
+    (chinese-cns11643-5 . "NSimSun*")
+    (chinese-cns11643-6 . "NSimSun*")
+    (chinese-cns11643-7 . "NSimSun*")
+    (chinese-big5-1 . "MingLiU*")
+    (chinese-sisheng . "NSimSun")
+    (korean-ksc5601 . "Dotum*")
+    (thai-tis620 . "Consolas*")
+    (latin-iso8859-3 . "Consolas*")
+    (cyrillic-iso8859-5 . "Consolas")
+    (greek-iso8859-7 . "Consolas*")
+    (hebrew-iso8859-8 . "Consolas*")
+    (latin-iso8859-9 . "Consolas*")
+    (latin-iso8859-15 . "Consolas*")
+    (ipa . "ＭＳ ゴシック*")
+    (ethiopic . "Ethiopia Jiret")
+    (vietnamese-viscii-lower . "Arial Unicode MS*")
+    (vietnamese-viscii-upper . "Arial Unicode MS*")
+    (lao . "Consolas*")
+    (tibetan . "Consolas*")
+    (tibetan-1-column . "Consolas*")
+    (arabic-1-column . "Consolas*")
+    (arabic-2-column . "Consolas*")
+    ((,(decode-char 'ucs #x2800) . ,(decode-char 'ucs #x28ff)) . "Braille*") ;; Braille
+    ((,(decode-char 'ucs #x5361) . ,(decode-char 'ucs #x5361)) . "NSimSun*")
+    (mule-unicode-0100-24ff . "Consolas*")
+    (mule-unicode-2500-33ff . "Arial Unicode MS*")
+    (mule-unicode-e000-ffff . "Consolas*")
+    ))
 
     (fixed-width-create-fontset "myfont"
-				ntemacs-font-defined-sizes
-				ntemacs-font-encode-family-list-myfont))
+                ntemacs-font-defined-sizes
+                ntemacs-font-encode-family-list-myfont))
 
   (setq fixed-width-rescale nil)
   (setq w32-use-w32-font-dialog nil)
   (setq w32-enable-synthesized-fonts t)
 
   (setq default-frame-alist
-	(append
-	 (list
-	  '(font . "fontset-myfont")
-	  )
-	 default-frame-alist))
+    (append
+     (list
+      '(font . "fontset-myfont")
+      )
+     default-frame-alist))
   )
 
-;; emacs 23 用フォント設定
+;; NTEmacs 23 用フォント設定
+;; 一部の漢字が中国語フォントで表示されるバグがある。
 (when run-emacs23
+
+  (setq w32-enable-synthesized-fonts t
+        w32-use-w32-font-dialog t)
   
   (create-fontset-from-ascii-font "Consolas-12" nil "ConsolasMeiryo")
   (set-fontset-font "fontset-ConsolasMeiryo"
@@ -160,34 +166,11 @@
                     (font-spec :family "Meiryo" :size 14)
                     nil 'prepend)
 
-  ;; 確認用
+  ;; 確認用。確認したいときは eval-region する。
   ;; (set-frame-font "fontset-ConsolasMeiryo")
   ;; 実際に設定する場合は，ここのコメントを解除．
   (add-to-list 'default-frame-alist '(font . "fontset-ConsolasMeiryo"))
 )
-
-;; NTEmacs だと new-frame に default-fram-alist のフォントが使われない
-(when run-emacs23
-  (defun my-set-frame-font (frame)
-    "Set frame font via new-frame for NTEmacs"
-    (select-frame frame)
-    (set-frame-font "fontset-ConsolasMeiryo")
-    )
-  (add-hook 'after-make-frame-functions 'my-set-frame-font)
-)
-
-
-;; frame の色を設定する
-(defun my-set-display-for-windowed-frames (frame)
-  "Set display parameters for the current frame the way I like them."
-  (select-frame frame)
-  ;; NTEmacs だと default-frame-alist のフォントで new-frame されない
-  (set-frame-font "fontset-ConsolasMeiryo")
-  (set-background-color "black")
-  (set-foreground-color "#55FF55")
-)
-(add-hook 'after-make-frame-functions 'my-set-display-for-windowed-frames)
-(my-set-display-for-windowed-frames (selected-frame))
 
 
 ;; (when (and (featurep 'dos-w32) (locate-library "cygwin-mount"))
@@ -236,45 +219,3 @@
 ;;
 
 (setq list-faces-sample-text "abcdefg ABCDEFG にほんご 日本語 アイウエオ")
-
-
-
-;;;; 未整理
-
-;; このブロックは 
-;; http://github.com/elim/dotemacs/blob/master//init-fonts.el
-;; を参照
-;; NTEmacs
-;; http://ntemacsjp.sourceforge.jp/matsuan/FontSettingJp.html
-;; (nt-p
-;;  (setq w32-enable-synthesized-fonts t
-;;        w32-use-w32-font-dialog t)
-
- ;; (cond
- ;;  ;; emacs23
- ;;  ((<= 23 emacs-major-version)
- ;;   (set-default-font "ＭＳ ゴシック-10")
- ;;   (set-fontset-font (frame-parameter nil 'font)
- ;;                     'japanese-jisx0208
- ;;                     '("ＭＳ ゴシック" . "unicode-bmp")))
-
- ;;  (t
- ;;   (set-face-attribute 'default nil
- ;;                       :family "ＭＳ ゴシック"
- ;;                       :height 100)
-
- ;;   (set-fontset-font "fontset-default"
- ;;                     'japanese-jisx0208
- ;;                     '("ＭＳ ゴシック*" . "jisx0208-sjis"))
-
- ;;   (set-fontset-font "fontset-default"
- ;;                     'katakana-jisx0201
- ;;                     '("ＭＳ ゴシック*" . "jisx0201-katakana"))
-
- ;;   (add-to-list 'face-font-rescale-alist
- ;;                `(,(encode-coding-string
- ;;                    ".*ＭＳ.*bold.*iso8859.*" 'emacs-mule) . 0.9))
-
- ;;   (add-to-list 'face-font-rescale-alist
- ;;                `(,(encode-coding-string
- ;;                    ".*ＭＳ.*bold.*jisx02.*" 'emacs-mule) . 0.95))))
