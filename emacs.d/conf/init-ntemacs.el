@@ -10,6 +10,18 @@
   (set-clipboard-coding-system            'utf-16le)
   (setq file-name-coding-system 'japanese-shift-jis))
 
+
+;; frame の大きさ
+(setq default-frame-alist
+	  (append
+	   (list
+		'(height . 55)
+		'(width . 86)
+		)
+	   default-frame-alist)
+	  )
+
+
 ;; 等幅フォント設定
 (when (and run-emacs22
 		   (locate-library "fixed-width-fontset"))
@@ -78,23 +90,99 @@
 
 ;; emacs 23 用フォント設定
 (when run-emacs23
-  (set-default-font "consolas-10")
+  
+  (create-fontset-from-ascii-font "Consolas-12" nil "ConsolasMeiryo")
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'ascii
+                    (font-spec :family "Consolas" :size 12))
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'iso-8859-1
+                    (font-spec :family "Consolas" :size 12)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'iso-8859-2
+                    (font-spec :family "Consolas" :size 12)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'iso-8859-3
+                    (font-spec :family "Consolas" :size 12)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'iso-8859-4
+                    (font-spec :family "Consolas" :size 12)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'iso-8859-5
+                    (font-spec :family "Consolas" :size 12)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'iso-8859-6
+                    (font-spec :family "Geeza Pro" :size 12)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'iso-8859-7
+                    (font-spec :family "Consolas" :size 12)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'chinese-gb2312
+                    (font-spec :family "SimHei" :size 12)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'big5
+                    (font-spec :family "MingLiU" :size 12)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    '(#x1100 . #x11FF)  ;; ハングル
+                    (font-spec :family "Gulim" :size 12)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    '(#x3130 . #x318F)  ;; ハングル
+                    (font-spec :family "Gulim" :size 12)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    '(#xAC00 . #xD79F)  ;; ハングル
+                    (font-spec :family "Gulim" :size 12)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'japanese-jisx0208
+                    (font-spec :family "Meiryo" :size 14)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'katakana-jisx0201
+                    (font-spec :family "Meiryo" :size 14)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'japanese-jisx0213-2
+                    (font-spec :family "Meiryo" :size 14)
+                    nil 'prepend)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'japanese-jisx0213.2004-1
+                    (font-spec :family "Meiryo" :size 14)
+                    nil 'prepend)
+
+  ;; 確認用
+  ;; (set-frame-font "fontset-ConsolasMeiryo")
+  ;; 実際に設定する場合は，ここのコメントを解除．
+  (add-to-list 'default-frame-alist '(font . "fontset-ConsolasMeiryo"))
 )
 
-;; frame の大きさ
-(setq default-frame-alist
-	  (append
-	   (list
-		'(height . 55)
-		'(width . 86)
-		)
-	   default-frame-alist)
-	  )
+;; NTEmacs だと new-frame に default-fram-alist のフォントが使われない
+(when run-emacs23
+  (defun my-set-frame-font (frame)
+    "Set frame font via new-frame for NTEmacs"
+    (select-frame frame)
+    (set-frame-font "fontset-ConsolasMeiryo")
+    )
+  (add-hook 'after-make-frame-functions 'my-set-frame-font)
+)
+
 
 ;; frame の色を設定する
 (defun my-set-display-for-windowed-frames (frame)
   "Set display parameters for the current frame the way I like them."
   (select-frame frame)
+  ;; NTEmacs だと default-frame-alist のフォントで new-frame されない
+  (set-frame-font "fontset-ConsolasMeiryo")
   (set-background-color "black")
   (set-foreground-color "#55FF55")
 )
@@ -162,31 +250,31 @@
 ;;  (setq w32-enable-synthesized-fonts t
 ;;        w32-use-w32-font-dialog t)
 
-;;  (cond
-;;   ;; emacs23
-;;   ((<= 23 emacs-major-version)
-;;    (set-default-font "ＭＳ ゴシック-10")
-;;    (set-fontset-font (frame-parameter nil 'font)
-;;                      'japanese-jisx0208
-;;                      '("ＭＳ ゴシック" . "unicode-bmp")))
+ ;; (cond
+ ;;  ;; emacs23
+ ;;  ((<= 23 emacs-major-version)
+ ;;   (set-default-font "ＭＳ ゴシック-10")
+ ;;   (set-fontset-font (frame-parameter nil 'font)
+ ;;                     'japanese-jisx0208
+ ;;                     '("ＭＳ ゴシック" . "unicode-bmp")))
 
-;;   (t
-;;    (set-face-attribute 'default nil
-;;                        :family "ＭＳ ゴシック"
-;;                        :height 100)
+ ;;  (t
+ ;;   (set-face-attribute 'default nil
+ ;;                       :family "ＭＳ ゴシック"
+ ;;                       :height 100)
 
-;;    (set-fontset-font "fontset-default"
-;;                      'japanese-jisx0208
-;;                      '("ＭＳ ゴシック*" . "jisx0208-sjis"))
+ ;;   (set-fontset-font "fontset-default"
+ ;;                     'japanese-jisx0208
+ ;;                     '("ＭＳ ゴシック*" . "jisx0208-sjis"))
 
-;;    (set-fontset-font "fontset-default"
-;;                      'katakana-jisx0201
-;;                      '("ＭＳ ゴシック*" . "jisx0201-katakana"))
+ ;;   (set-fontset-font "fontset-default"
+ ;;                     'katakana-jisx0201
+ ;;                     '("ＭＳ ゴシック*" . "jisx0201-katakana"))
 
-;;    (add-to-list 'face-font-rescale-alist
-;;                 `(,(encode-coding-string
-;;                     ".*ＭＳ.*bold.*iso8859.*" 'emacs-mule) . 0.9))
+ ;;   (add-to-list 'face-font-rescale-alist
+ ;;                `(,(encode-coding-string
+ ;;                    ".*ＭＳ.*bold.*iso8859.*" 'emacs-mule) . 0.9))
 
-;;    (add-to-list 'face-font-rescale-alist
-;;                 `(,(encode-coding-string
-;;                     ".*ＭＳ.*bold.*jisx02.*" 'emacs-mule) . 0.95)))))
+ ;;   (add-to-list 'face-font-rescale-alist
+ ;;                `(,(encode-coding-string
+ ;;                    ".*ＭＳ.*bold.*jisx02.*" 'emacs-mule) . 0.95))))
