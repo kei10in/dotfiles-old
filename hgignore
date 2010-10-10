@@ -4,6 +4,7 @@ syntax: glob
 *.pyc
 *.pyo
 *.class
+*.orig
 .svn
 .git
 .DS_Store

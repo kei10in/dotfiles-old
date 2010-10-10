@@ -4,3 +4,4 @@ ignore = ~/.hgignore
 [extensions]
 mq =
 color = 
+rebase =
