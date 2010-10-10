@@ -7,20 +7,30 @@
 (setq flymake-gui-warnings-enabled nil)
 (setq flymake-start-syntax-check-on-newline nil)
 
-; You must prepare pylint by hand
-; See also http://www.emacswiki.org/cgi-bin/wiki/PythonMode
-; (defun flymake-pylint-init ()
-;   (let* ((temp-file (flymake-init-create-temp-buffer-copy
-;                      'flymake-create-temp-inplace))
-;          (local-file (file-relative-name
-;                       temp-file
-;                       (file-name-directory buffer-file-name))))
-;     (list "epylint" (list local-file))))
-; (push '("\\.py\\'" flymake-pylint-init) flymake-allowed-file-name-masks)
-; (add-hook 'python-mode-hook
-;           '(lambda ()
-;              (flymake-mode t)
-;              ))
+;;; You must prepare pylint by hand
+;;; See also http://www.emacswiki.org/cgi-bin/wiki/PythonMode
+(defvar epylint-path
+  (or (executable-find "epylint")
+      (executable-find "epylint-2.6")
+      (executable-find "epylint-2.5")))
+(when epylint-path
+  (defun flymake-pylint-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+           (local-file (file-relative-name
+                        temp-file
+                        (file-name-directory buffer-file-name))))
+      (list epylint-path (list local-file))))
+  (push '("\\.py\\'" flymake-pylint-init) flymake-allowed-file-name-masks)
+  (add-hook 'python-mode-hook
+            '(lambda ()
+               (flymake-mode t)
+               ;; (defadvice flymake-post-syntax-check
+               ;;   (before flymake-force-check-was-interrupted)
+               ;;   (setq flymake-check-was-interrupted t))
+               ;; (ad-activate 'flymake-post-syntax-check)
+               )))
+
 
 ;; For C
 (defun flymake-c-init ()
