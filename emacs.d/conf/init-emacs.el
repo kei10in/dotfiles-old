@@ -5,6 +5,31 @@
 ;; Default major mode
 (setq default-major-mode 'text-mode)
 
+;; デバッグ モード
+(setq debug-on-error t)
+
+;;; Set file search path
+(dolist (dir (list
+              (expand-file-name "~/local/bin")
+              (expand-file-name "~/local/sbin")
+              "/opt/local/bin"
+              "/opt/bin"
+              "/usr/local/bin"
+              "/usr/bin"
+              "/bin"
+              "/opt/local/sbin"
+              "/opt/sbin"
+              "/usr/local/sbin"
+              "/usr/sbin"
+              "/sbin"
+              "/usr/X11R6/bin"
+              ))
+  ;; PATH と exec-path に同じ物を追加します
+  (when (and (file-exists-p dir) (not (member dir exec-path)))
+    (setenv "PATH" (concat dir ":" (getenv "PATH")))
+    (setq exec-path (append (list dir) exec-path))))
+
+
 ;;;============================================================================;
 ;;; Global Appearances
 ;;; 各 Windows mode に関わる設定は別ファイルを参照
@@ -126,6 +151,12 @@
 (setq delete-auto-save-files nil)
 ; Don't make ~/.saves-PID-hostname
 (setq auto-save-list-file-prefix nil)
+
+;;-----------------------------------------------------------------------------;
+;; Exiting Configurations
+;;-----------------------------------------------------------------------------;
+;;; Confirm when exiting emacs
+(setq confirm-kill-emacs 'y-or-n-p)
 
 ;;-----------------------------------------------------------------------------;
 ;; To editable compressed files and prevent info written in Japanese
