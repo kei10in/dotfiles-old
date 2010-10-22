@@ -53,3 +53,10 @@ export GNUTERM="aqua"
 export XMODSIFIERS=@im=SCIM
 export GTK_IM_MODULE=scim
 export USE_XOPENIM=t
+
+## Python
+# virtualenv
+export WORKON_HOME=${HOME}/.virtualenvs
+if VIRTUALENVWRAPPER=`which virtualenvwrapper_bashrc` ; then
+	source ${VIRTUALENVWRAPPER}
+fi
