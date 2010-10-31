@@ -93,12 +93,7 @@
 ;;;------------------------------------;
 (setq-default line-spacing 1)
 
-;;; background and foreground colors
-;;; MUST to move init-ntemacs.el or init-window.el
-;(set-background-color "black")
-;(set-foreground-color "#55FF55")
-(setq frame-background-mode 'dark)
-
+;;; カーソルの点滅
 (blink-cursor-mode t)
 
 ;;;----------------------------------------------------------------------------;

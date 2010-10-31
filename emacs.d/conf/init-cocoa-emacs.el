@@ -18,6 +18,19 @@
 (setq file-name-coding-system 'utf-8)
 (setq default-input-method "MacOSX")
 
+(custom-set-faces
+ '(default ((t
+              (:background "black" :foreground "#55FF55")
+              ;; (:background "white" :foreground "black")
+              )))
+ '(cursor ((((class color)
+             (background dark))
+            (:background "#00AA00"))
+           (((class color)
+             (background light))
+            (:background "#AAAAAA"))
+           (t ())
+)))
 
 ;; frame　の大きさ
 (setq default-frame-alist
@@ -25,9 +38,6 @@
        (list
         '(height . 55)
         '(width . 86)
-        '(background-color . "black")
-        '(foreground-color . "#55FF55")
-        '(cursor-color . "#00AA00")
         )
        default-frame-alist)
       )
@@ -121,8 +131,4 @@
 
 ;; Set frame Transparency
 ;(set-frame-parameter (selected-frame) 'alpha '(90 80))
-(add-to-list 'default-frame-alist '(alpha . (90 90)))
-
-;; Set face: region background
-;; On Cocoa Emacs, region background is set to "ns_selection_color" in term/ns-win.el
-(set-face-background 'region "blue4")
+(add-to-list 'default-frame-alist '(alpha . (98 90)))
