@@ -60,6 +60,10 @@ fi
 ## ENVIRONMENT SETUP
 interactive=1
 
+if [ -r ${zsh_initdir}/path ]; then 
+    source ${zsh_initdir}/path
+fi
+
 if [ -r ${zsh_initdir}/zsh ]; then
     source ${zsh_initdir}/zsh
 fi
@@ -93,7 +97,3 @@ if [ -n $interactive ]; then
 fi
 
 export MANPATH="${HOME}/man:/usr/local/share/man:/usr/local/man/ja_JP.eucJP:/usr/local/man:/usr/share/man"
-
-if [ -r ${zsh_initdir}/path ]; then 
-    source ${zsh_initdir}/path
-fi
