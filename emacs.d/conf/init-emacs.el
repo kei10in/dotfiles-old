@@ -93,6 +93,26 @@
 ;;;------------------------------------;
 (setq-default line-spacing 1)
 
+;;;------------------------------------;
+;;; Emacs Face
+;;;------------------------------------;
+;;; default face
+(custom-set-faces
+ '(default ((t
+              (:background "black" :foreground "#55FF55")
+              ;; (:background "white" :foreground "black")
+              ))))
+;;; cursor face
+(custom-set-faces
+ '(cursor ((((class color)
+             (background dark))
+            (:background "#00AA00"))
+           (((class color)
+             (background light))
+            (:background "#999999"))
+           (t ())
+           )))
+
 ;;; カーソルの点滅
 (blink-cursor-mode t)
 

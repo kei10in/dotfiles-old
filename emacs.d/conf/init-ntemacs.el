@@ -17,8 +17,6 @@
        (list
         '(height . 55)
         '(width . 86)
-        '(background-color . "black")
-        '(foreground-color . "#55FF55")
         )
        default-frame-alist)
       )
@@ -189,13 +187,15 @@
   ;; "MeadowMemo/ファイルを開く時にショートカットを辿る"へのコメント(無し)
   ;; 検索全文Elisp
   ;; 要約
-  ;; 深いディレクトリや別ドライブのディレクトリのファイルを開く際， Windows のショートカットを利用して簡単に開くことができます．
+  ;; 深いディレクトリや別ドライブのディレクトリのファイルを開く際，
+  ;; Windows のショートカットを利用して簡単に開くことができます．
   ;; 情報源
   ;; Wiki でのリクエストをもとに書いたもの．
   ;; 何が問題なのか?
   ;; C-x C-fで別ドライブの深いディレクトリに移動するのは面倒なものです．
   ;; 何ができるのか?
-  ;; 例えば，Gドライブへのショートカットを作っておけば，C-x C-f g-drive.lnk TAB で G ドライブへ移動できます．
+  ;; 例えば，Gドライブへのショートカットを作っておけば，C-x C-f g-drive.lnk TAB で
+  ;; G ドライブへ移動できます．
   ;; 設定方法
   ;; 以下を.emacs に追加します．
 
@@ -215,7 +215,5 @@
              (concat
               (w32-symlinks-parse-symlink file) "/"))
           (insert (w32-symlinks-parse-symlink file)))))))
-
-;;
 
 (setq list-faces-sample-text "abcdefg ABCDEFG にほんご 日本語 アイウエオ")

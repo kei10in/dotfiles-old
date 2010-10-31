@@ -18,20 +18,6 @@
 (setq file-name-coding-system 'utf-8)
 (setq default-input-method "MacOSX")
 
-(custom-set-faces
- '(default ((t
-              (:background "black" :foreground "#55FF55")
-              ;; (:background "white" :foreground "black")
-              )))
- '(cursor ((((class color)
-             (background dark))
-            (:background "#00AA00"))
-           (((class color)
-             (background light))
-            (:background "#AAAAAA"))
-           (t ())
-)))
-
 ;; frame　の大きさ
 (setq default-frame-alist
       (append
