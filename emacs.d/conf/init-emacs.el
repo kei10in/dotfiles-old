@@ -6,7 +6,7 @@
 (setq default-major-mode 'text-mode)
 
 ;; デバッグ モード
-(setq debug-on-error t)
+(setq debug-on-error nil)
 
 ;;; Set file search path
 (dolist (dir (list
@@ -43,11 +43,15 @@
 ;;;------------------------------------;
 ;;; menu bar
 ;;;------------------------------------;
-(menu-bar-mode t)
+;; (if (not run-no-window)
+;;     (menu-bar-mode t)
+;;   (menu-bar-mode nil))
+(menu-bar-mode (if run-no-window nil t))
 ;;;------------------------------------;
 ;;; tool bar
 ;;;------------------------------------;
-(tool-bar-mode -1)
+(if (not run-no-window)
+    (tool-bar-mode -1))
 ;;;------------------------------------;
 ;;; Cursor configurations
 ;;;------------------------------------;
@@ -98,10 +102,18 @@
 ;;;------------------------------------;
 ;;; default face
 (custom-set-faces
- '(default ((t
-              (:background "black" :foreground "#55FF55")
-              ;; (:background "white" :foreground "black")
-              ))))
+ (if run-no-window
+     ;; for console emacs
+     '(default ((t
+                 (:background "black")
+                 ;; (:background "white" :foreground "black")
+                 )))
+   ;; for Cocoa, X, NTEmacs
+   '(default ((t
+               (:background "black" :foreground "#55FF55")
+               ;; (:background "white" :foreground "black")
+               )))
+   ))
 ;;; cursor face
 (custom-set-faces
  '(cursor ((((class color)
