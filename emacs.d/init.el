@@ -77,6 +77,8 @@
 ;(load "init-color-moccur" t)
 (load "init-wdired" t)
 (load "init-term" t)
+(load "init-auto-install" t)
+(load "init-elpa" t)
 
 ;; Configurate X Window System Emacs
 (when
@@ -200,3 +202,4 @@
 ;; reStructured Text
 ;;-------------------------
 (load "init-rst" t)
+
