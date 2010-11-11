@@ -12,4 +12,5 @@
                          (number-to-string (if (< min-w w) w min-w))
                          "d"))))
           (propertize (format fmt line) 'face 'linum))))
+(setq linum-eager nil)
 (global-linum-mode)
