@@ -147,6 +147,10 @@
 ;; * で囲まれたバッファ名は対象外にする．
 (setq uniquify-ignore-buffers-re "*[^*]+*")
 
+;; ファイル作成時にテンプレートが挿入されるようにする．
+(auto-insert-mode)
+(setq auto-insert-directory 
+      (expand-file-name (concat private-lib-dir "./insert/")))
 
 ;;;----------------------------------------------------------------------------;
 ;;; Key bindings

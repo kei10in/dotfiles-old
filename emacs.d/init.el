@@ -80,6 +80,7 @@
 (load "init-auto-install" t)
 (load "init-elpa" t)
 (load "init-goto-chg" t)
+(load "init-redo+" t)
 
 ;; Configurate X Window System Emacs
 (when
