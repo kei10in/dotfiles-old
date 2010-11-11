@@ -79,6 +79,7 @@
 (load "init-term" t)
 (load "init-auto-install" t)
 (load "init-elpa" t)
+(load "init-goto-chg" t)
 
 ;; Configurate X Window System Emacs
 (when

@@ -131,6 +131,23 @@
 ;; Dialog Box を使うかどうか
 (setq use-dialog-box t)
 
+;; switch buffer を強化する
+(iswitchb-mode t)
+(setq iswitchb-delim ", ")
+
+;; バッファの表示形式を変更する．
+(require 'uniquify)
+;; バッファの形式を指定する．
+;; forward        bar/mumble/name  quux/mumble/name
+;; reverse        name\\mumble\\bar  name\\mumble\\quux
+;; post-forward   name|bar/mumble  name|quux/mumble
+;; post-forward-angle-brackets   name<bar/mumble>  name<quux/mumble>
+;; nil            name  name<2>
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+;; * で囲まれたバッファ名は対象外にする．
+(setq uniquify-ignore-buffers-re "*[^*]+*")
+
+
 ;;;----------------------------------------------------------------------------;
 ;;; Key bindings
 ;;;----------------------------------------------------------------------------;
@@ -143,17 +160,25 @@
 (global-set-key (read-kbd-macro "C-%") 'query-replace-regexp)
 (global-set-key "\C-c:" 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c <tab>") 'ff-find-other-file)
+
+;; C-x C-f を find-file-at-point にする
+(ffap-bindings)
+
+;; help
+(global-set-key "\C-x?" 'help)
+(global-set-key "\M-?" 'help-for-help)
+
 ;;-----------------------------------------------------------------
 ;; Open url URLをデフォルトブラウザで開く(C-x c)
 ;;-----------------------------------------------------------------
-(setq browse-url-browser-function 'browse-url-generic)
-(setq browse-url-generic-program "open")
-(global-set-key "\C-x\C-]" 'browse-url-at-point)
-;;;; help
-(global-set-key "\C-x?" 'help)
-(global-set-key "\M-?" 'help-for-help)
+;; (setq browse-url-browser-function 'browse-url-generic)
+;; (setq browse-url-generic-program "open")
+;; (global-set-key "\C-x\C-]" 'browse-url-at-point)
+
+
 ;;;; Delete new-line char by kill-line (t)
 ;(setq kill-whole-line t)
+
 ;; ; マウスホイールの設定
 ;; ;; マウスホイールでのスクロール速度の設定
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 10) ((control) . nil)))
