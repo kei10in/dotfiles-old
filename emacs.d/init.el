@@ -1,4 +1,29 @@
-;; -*- mode: emacs-lisp ; coding: utf-8 -*-
+;;; -*- mode: emacs-lisp; coding: utf-8 -*-
+
+;;; init.el --- Emacs initialization elisp file
+
+;; Copyright (C) 2010  Keisuke Ijuin
+
+;; Author: Keisuke Ijuin <kei10in@gmail.com>
+;; Keywords: emacs.el
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;;; Code:
+
 
 (defvar private-lib-dir "~/.emacs.d/")
 (defvar private-site-lisp-dir (concat private-lib-dir "./site-lisp/"))
@@ -68,19 +93,19 @@
 ;;; Load every single settings
 ;;;-----------------------------------------------------------------
 ;;; User Profile Settings
-(load "init-user-profile" t)
+(require 'init-user-profile)
 ;;; Global Settings
-(load "init-emacs" t)
-(load "init-highlight" t)
-(load "init-hl-line" t)
-(load "init-linum" t)
-;(load "init-color-moccur" t)
-(load "init-wdired" t)
-(load "init-term" t)
-(load "init-auto-install" t)
-(load "init-elpa" t)
-(load "init-goto-chg" t)
-(load "init-redo+" t)
+(require 'init-emacs)
+(require 'init-highlight)
+(require 'init-hl-line)
+(require 'init-linum)
+;(require 'init-color-moccur)
+(require 'init-wdired)
+(require 'init-term)
+(require 'init-auto-install)
+(require 'init-elpa)
+(require 'init-goto-chg)
+(require 'init-redo+)
 
 ;; Configurate X Window System Emacs
 (when
@@ -111,97 +136,66 @@
 ;;;-------------------------
 ;;; Development Environment
 ;;;-------------------------
-(load "init-flymake" t)
-(load "init-cedet" t)
-(load "init-pos-tip" t)
-(load "init-auto-complete" t)
-(load "init-yasnippet" t)
+(require 'init-flymake)
+(require 'init-cedet)
+(require 'init-pos-tip)
+(require 'init-auto-complete)
+(require 'init-yasnippet)
 
 ;;;==================================;
 ;;; Programing Language
 ;;;==================================;
-;;;-------------------------
-;;; cc-mode
-;;;-------------------------
-(load "init-cc" t)
-;;;-------------------------
-;;; C
-;;;-------------------------
-(load "init-c" t)
-;;;-------------------------
-;;; C++
-;;;-------------------------
-(load "init-c++" t)
-;;;-------------------------
-;;; Objective-C
-;;;-------------------------
-(load "init-objc" t)
-;;;-------------------------
-;;; Python
-;;;-------------------------
-(load "init-python" t)
-;;-------------------------
-;; Common Lisp
-;;-------------------------
-(load "init-lisp" t)
-(load "init-slime" t)
-;;-------------------------
-;; Perl
-;;-------------------------
-(load "init-cperl" t)
-(load "init-perl-setperl5lib" t)
-(load "init-perl-flymake" t)
-(load "init-perl-completion" t)
-(load "init-pod" t)
-(load "init-perltidy" t)
-(load "init-perlcritic" t)
+
+;; cc-mode
+(require 'init-cc)
+;; C
+(require 'init-c)
+;; C++
+(require 'init-c++)
+;; Objective-C
+(require 'init-objc)
+;; Python
+(require 'init-python)
+;; ;; Common Lisp
+;; (require 'init-lisp)
+;; (require 'init-slime)
+;; ;; Perl
+;; (require 'init-cperl)
+;; (require 'init-perl-setperl5lib)
+;; (require 'init-perl-flymake)
+;; (require 'init-perl-completion)
+;; (require 'init-pod)
+;; (require 'init-perltidy)
+;; (require 'init-perlcritic)
 ;; (load "init-perlnow")
 ;; (load "init-html-tt")
 ;; (load "init-pde")
-;;-------------------------
-;; JS + AS
-;;-------------------------
-(load "init-actionscript" t)
-(load "init-js2" t)
-;;-------------------------
 ;; Ruby
-;;-------------------------
 ;; (load "init-ruby")
-;;-------------------------
 ;; PHP
-;;-------------------------
-;(load "init-php" t)
-;(load "init-php-flymake" t)
-;;-------------------------
+;(require 'init-php)
+;(require 'init-php-flymake)
 ;; SQL
-;;-------------------------
-;(load "init-sql" t)
-;;-------------------------
+;(require 'init-sql)
 ;; Java
-;;-------------------------
-(load "init-java" t)
-(load "init-scala" t)
-;;-------------------------
-;; JavaScript
-;;-------------------------
-(load "init-javascript" t)
-;;-------------------------
+(require 'init-java)
+;; Scala
+(require 'init-scala)
 ;; scheme
-;;-------------------------
-(load "init-scheme" t)
-;;-------------------------
+;; (require 'init-scheme)
+;; JS + AS
+;; (require 'init-actionscript)
+(require 'init-javascript)
 ;; HTML + CSS
-;;-------------------------
-(load "init-yahtml" t)
-(load "init-nxml" t)
-(load "init-html" t)
-(load "init-html-helper" t)
-(load "init-color-selection" t)
-(load "init-sgml" t)
-(load "init-css" t)
-
-;;-------------------------
+;; (require 'init-yahtml)
+;; (require 'init-nxml)
+(require 'init-html)
+;; (require 'init-html-helper)
+;; (require 'init-color-selection)
+;; (require 'init-sgml)
+(require 'init-css)
 ;; reStructured Text
-;;-------------------------
-(load "init-rst" t)
+(require 'init-rst)
 
+
+;;; init.el ends here
