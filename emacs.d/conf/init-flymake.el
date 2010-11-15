@@ -91,6 +91,19 @@
                       (file-name-directory buffer-file-name))))
 	(list "cl" (list "/nologo" "/W4" "/Wp64" "/Zs" local-file))))
 
+;; For NMake
+(defun flymake-nmake-init ()
+  (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                     'flymake-create-temp-inplace))
+         (local-file (file-relative-name
+                      temp-file
+                      (file-name-directory buffer-file-name))))
+    ;; "/F" "flymake.mak" は Makefile を指定する人用．
+    ;; Makefile が "Makefile" な人はいらない．
+    (list "nmake" (list "/NOLOGO" "/I" "/S" "/F" "flymake.mak"
+                        (concat "CHK_SOURCES=" local-file) "check-syntax"))))
+
+
 ;; overwite default make command
 ;; (defun flymake-get-make-cmdline (source base-dir)
 ;;   (list "make"
@@ -101,20 +114,28 @@
 ;;               "SYNTAX_CHECK_MODE=1")))
 
 (if run-w32
+    ;; for NMake
 	(progn
-	  (push '("\\.c\\'" flymake-vc-init) flymake-allowed-file-name-masks)
-	  (push '("\\.h\\'" flymake-vc-init) flymake-allowed-file-name-masks)
-	  (push '("\\.cc\\'" flymake-vc++-init) flymake-allowed-file-name-masks)
-	  (push '("\\.cpp\\'" flymake-vc++-init) flymake-allowed-file-name-masks)
-	  (push '("\\.hh\\'" flymake-vc++-init) flymake-allowed-file-name-masks)
-	  (push '("\\.hpp\\'" flymake-vc++-init) flymake-allowed-file-name-masks)))
-  ;; (progn
-  ;; 	(push '("\\.c\\'" flymake-c-init) flymake-allowed-file-name-masks)
-  ;; 	(push '("\\.h\\'" flymake-c-init) flymake-allowed-file-name-masks)
-  ;; 	(push '("\\.hh\\'" flymake-cc-init) flymake-allowed-file-name-masks)
-  ;; 	(push '("\\.hpp\\'" flymake-cc-init) flymake-allowed-file-name-masks)))
-
-
+      (push '("\\.c\\'" flymake-nmake-init) flymake-allowed-file-name-masks)
+      (push '("\\.h\\'" flymake-nmake-init) flymake-allowed-file-name-masks)
+      (push '("\\.cc\\'" flymake-nmake-init) flymake-allowed-file-name-masks)
+      (push '("\\.cpp\\'" flymake-nmake-init) flymake-allowed-file-name-masks)
+      (push '("\\.hh\\'" flymake-nmake-init) flymake-allowed-file-name-masks)
+      (push '("\\.hpp\\'" flymake-nmake-init) flymake-allowed-file-name-masks)))
+    ;; for cl
+    ;; (progn
+	;;   (push '("\\.c\\'" flymake-vc-init) flymake-allowed-file-name-masks)
+	;;   (push '("\\.h\\'" flymake-vc-init) flymake-allowed-file-name-masks)
+	;;   (push '("\\.cc\\'" flymake-vc++-init) flymake-allowed-file-name-masks)
+	;;   (push '("\\.cpp\\'" flymake-vc++-init) flymake-allowed-file-name-masks)
+	;;   (push '("\\.hh\\'" flymake-vc++-init) flymake-allowed-file-name-masks)
+	;;   (push '("\\.hpp\\'" flymake-vc++-init) flymake-allowed-file-name-masks)))
+    ;; for MinGW or Cygwin GCC
+    ;; (progn
+    ;;   (push '("\\.c\\'" flymake-c-init) flymake-allowed-file-name-masks)
+    ;;   (push '("\\.h\\'" flymake-c-init) flymake-allowed-file-name-masks)
+    ;;   (push '("\\.hh\\'" flymake-cc-init) flymake-allowed-file-name-masks)
+    ;;   (push '("\\.hpp\\'" flymake-cc-init) flymake-allowed-file-name-masks)))
 
 
 ;; Color Configurations for flymake
