@@ -39,7 +39,8 @@
                          (number-to-string (if (< min-w w) w min-w))
                          "d"))))
           (propertize (format fmt line) 'face 'linum))))
-(setq linum-eager nil)
+;; これを行うと query-replace が正しく動作しない．
+;; (setq linum-eager nil)
 (global-linum-mode)
 
 
