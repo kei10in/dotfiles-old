@@ -27,5 +27,3 @@ fi
 if [ -d /Library/Frameworks/Python.framework/Versions/3.1/bin ]; then
     path=( ${path} /Library/Frameworks/Python.framework/Versions/3.1/bin )
 fi
-
-

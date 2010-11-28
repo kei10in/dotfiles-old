@@ -95,5 +95,3 @@ if [ -n $interactive ]; then
 	    source ${zsh_initdir}/completions
     fi
 fi
-
-export MANPATH="${HOME}/man:/usr/local/share/man:/usr/local/man/ja_JP.eucJP:/usr/local/man:/usr/share/man"
