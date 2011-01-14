@@ -132,6 +132,7 @@
     (and run-no-window
          (load "init-no-window")))
 
+(require 'init-twitter)
 
 ;;;-------------------------
 ;;; Development Environment
