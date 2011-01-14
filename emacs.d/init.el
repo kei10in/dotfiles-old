@@ -197,5 +197,4 @@
 ;; reStructured Text
 (require 'init-rst)
 
-
 ;;; init.el ends here
