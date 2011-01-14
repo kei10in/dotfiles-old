@@ -106,6 +106,7 @@
 (require 'init-elpa)
 (require 'init-goto-chg)
 (require 'init-redo+)
+(require 'init-auto-async-byte-compile)
 
 ;; Configurate X Window System Emacs
 (when

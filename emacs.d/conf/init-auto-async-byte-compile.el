@@ -1,11 +1,9 @@
-;;; -*- mode: emacs-lisp; coding: utf-8 -*-
-
-;;; init-redo+.el --- redo+ command
+;;; init-auto-async-byte-compile.el --- auto-async-byte-compile setting
 
 ;; Copyright (C) 2010  Keisuke Ijuin
 
 ;; Author: Keisuke Ijuin <kei10in@gmail.com>
-;; Keywords: emacs.el
+;; Keywords: lisp, convenience
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -22,21 +20,13 @@
 
 ;;; Commentary:
 
-;; (install-elisp-from-emacswiki "redo+.el")
+;; (install-elisp-from-emacswiki "auto-async-byte-compile.el")
 
 ;;; Code:
 
-(require 'redo+)
+(require 'auto-async-byte-compile)
+(setq auto-async-byte-compile-exclude-files-regexp "/junk/")
+(add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
 
-(global-set-key (kbd "C-?") 'redo)
-
-;; 過去の undo が redo されない様にする．
-(setq undo-no-redo t)
-
-;; 大量の undo に耐えれるようにする．
-(setq undo-limit 60000)
-(setq undo-strong-limit 90000)
-
-
-(provide 'init-redo+)
-;;; init-redo+.el ends here
+(provide 'init-auto-async-byte-compile)
+;;; init-auto-async-byte-compile.el ends here
