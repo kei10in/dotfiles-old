@@ -198,5 +198,7 @@
 (require 'init-css)
 ;; reStructured Text
 (require 'init-rst)
+;; Org Mode
+(require 'init-org)
 
 ;;; init.el ends here
