@@ -1,7 +1,12 @@
 [ui]
 username = keisuke <kei10in@gmail.com>
 ignore = ~/.hgignore
+
 [extensions]
 mq =
-color = 
+color =
 rebase =
+bookmarks =
+
+[bookmarks]
+track.current = True
