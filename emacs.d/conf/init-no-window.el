@@ -1,11 +1,11 @@
 ;;; -*- mode: emacs-lisp; coding: utf-8 -*-
 
-;;; init-auto-install.el --- auto-install command
+;;; init-no-window.el --- emacs -nw setting
 
 ;; Copyright (C) 2010  Keisuke Ijuin
 
 ;; Author: Keisuke Ijuin <kei10in@gmail.com>
-;; Keywords: emacs.el auto-install.el
+;; Keywords: emacs.el console
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -22,20 +22,10 @@
 
 ;;; Commentary:
 
-;; http://www.emacswiki.org/AutoInstall
-;; (install-elisp-from-emacswiki "auto-install.el")
+;; 
 
 ;;; Code:
 
-(require 'auto-install)
-(setq auto-install-directory "~/.emacs.d/site-lisp/")
-(add-to-list 'load-path auto-install-directory)
 
-;; when non nil, add emacs wiki page name to completion candidates 
-(auto-install-update-emacswiki-package-name nil)
-
-;; compatible install-elisp.el
-(auto-install-compatibility-setup)
-
-(provide 'init-auto-install)
-;;; init-auto-install.el ends here
+(provide 'init-no-window)
+;;; init-no-window.el ends here
