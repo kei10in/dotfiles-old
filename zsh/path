@@ -18,6 +18,12 @@ path=(                               \
     /usr/X11R6/bin                   \
     )
     
+
+# Setting PATH for MacPorts Python 2.7
+if [ -d /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin ]; then
+    path=( ${path} /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin )
+fi
+
 # Setting PATH for Python 2.7
 if [ -d /Library/Frameworks/Python.framework/Versions/2.7/bin ]; then
     path=( ${path} /Library/Frameworks/Python.framework/Versions/2.7/bin )
