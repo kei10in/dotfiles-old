@@ -69,67 +69,62 @@
 (set-fontset-font "fontset-MonacoHiraKaku"
                   'iso-8859-1
                   (font-spec :family "Monaco")
-                  nil 'prepend)
+                  nil 'append)
 (set-fontset-font "fontset-MonacoHiraKaku"
                   'iso-8859-2
                   (font-spec :family "Monaco")
-                  nil 'prepend)
+                  nil 'append)
 (set-fontset-font "fontset-MonacoHiraKaku"
                   'iso-8859-3
                   (font-spec :family "Monaco")
-                  nil 'prepend)
+                  nil 'append)
 (set-fontset-font "fontset-MonacoHiraKaku"
                   'iso-8859-4
                   (font-spec :family "Monaco")
-                  nil 'prepend)
+                  nil 'append)
 (set-fontset-font "fontset-MonacoHiraKaku"
                   'iso-8859-5
                   (font-spec :family "Monaco")
-                  nil 'prepend)
+                  nil 'append)
 (set-fontset-font "fontset-MonacoHiraKaku"
                   'iso-8859-6
                   (font-spec :family "Geeza Pro")
-                  nil 'prepend)
+                  nil 'append)
 (set-fontset-font "fontset-MonacoHiraKaku"
                   'iso-8859-7
                   (font-spec :family "Monaco")
-                  nil 'prepend)
-(set-fontset-font "fontset-MonacoHiraKaku"
-                  'chinese-gb2312
-                  (font-spec :family "Hiragino Sans GB")
-                  nil 'prepend)
-(set-fontset-font "fontset-MonacoHiraKaku"
-                  'big5
-                  (font-spec :family "Hiragino Sans GB")
-                  nil 'prepend)
-;; (set-fontset-font "fontset-MonacoHiraKaku"
-;;                   '(#x1100 . #x11FF)
-;;                   (font-spec :family "AppleGothic"))
-;; (set-fontset-font "fontset-MonacoHiraKaku"
-;;                   '(#x3130 . #x318F)
-;;                   (font-spec :family "AppleGothic"))
-;; (set-fontset-font "fontset-MonacoHiraKaku"
-;;                   '(#xAC00 . #xD79F)
-;;                   (font-spec :family "AppleGothic"))
+                  nil 'append)
 (set-fontset-font "fontset-MonacoHiraKaku"
                   'japanese-jisx0208
                   (font-spec :family "Hiragino Kaku Gothic ProN W3" :size 14)
-                  nil 'prepend)
+                  nil 'append)
 (set-fontset-font "fontset-MonacoHiraKaku"
                   'katakana-jisx0201
                   (font-spec :family "Hiragino Kaku Gothic ProN W3" :size 14)
-                  nil 'prepend)
+                  nil 'append)
 (set-fontset-font "fontset-MonacoHiraKaku"
                   'japanese-jisx0213-2
                   (font-spec :family "Hiragino Kaku Gothic ProN W3" :size 14)
-                  nil 'prepend)
+                  nil 'append)
 (set-fontset-font "fontset-MonacoHiraKaku"
                   'japanese-jisx0213.2004-1
                   (font-spec :family "Hiragino Kaku Gothic ProN W3" :size 14)
-                  nil 'prepend)
+                  nil 'append)
+(set-fontset-font "fontset-MonacoHiraKaku"
+                  'chinese-gb2312
+                  (font-spec :family "Hiragino Sans GB" :size 14)
+                  nil 'append)
+(set-fontset-font "fontset-MonacoHiraKaku"
+                  'big5
+                  (font-spec :family "Hiragino Sans GB" :size 14)
+                  nil 'append)
+(set-fontset-font "fontset-MonacoHiraKaku"
+                  'korean-ksc5601
+                  (font-spec :family "PCMyungjo" :size 14)
+                  nil 'append)
 
 ;; 確認用
-;; (set-frame-font "fontset-MonacoHiraKaku")
+;; (set-frameet-font "fontset-MonacoHiraKaku")
 ;; 実際に設定する場合は，ここのコメントを解除．
 (add-to-list 'default-frame-alist '(font . "fontset-MonacoHiraKaku"))
 
