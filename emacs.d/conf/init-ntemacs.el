@@ -115,80 +115,73 @@
   )
 
 ;; NTEmacs 23 用フォント設定
-;; 一部の漢字が中国語フォントで表示されるバグがある。
 (when run-emacs23
 
   (setq w32-enable-synthesized-fonts t
         w32-use-w32-font-dialog t)
   
-  (create-fontset-from-ascii-font "Consolas-12" nil "ConsolasMeiryo")
+  (create-fontset-from-ascii-font "Consolas-10:weight=normal:slant=normal"
+                                  nil "ConsolasMeiryo")
   (set-fontset-font "fontset-ConsolasMeiryo"
                     'ascii
-                    (font-spec :family "Consolas" :size 12))
+                    (font-spec :family "Consolas" :size 10)
+                    nil 'append)
   (set-fontset-font "fontset-ConsolasMeiryo"
                     'iso-8859-1
-                    (font-spec :family "Consolas" :size 12)
-                    nil 'prepend)
+                    (font-spec :family "Consolas" :size 10)
+                    nil 'append)
   (set-fontset-font "fontset-ConsolasMeiryo"
                     'iso-8859-2
-                    (font-spec :family "Consolas" :size 12)
-                    nil 'prepend)
+                    (font-spec :family "Consolas" :size 10)
+                    nil 'append)
   (set-fontset-font "fontset-ConsolasMeiryo"
                     'iso-8859-3
-                    (font-spec :family "Consolas" :size 12)
-                    nil 'prepend)
+                    (font-spec :family "Consolas" :size 10)
+                    nil 'append)
   (set-fontset-font "fontset-ConsolasMeiryo"
                     'iso-8859-4
-                    (font-spec :family "Consolas" :size 12)
-                    nil 'prepend)
+                    (font-spec :family "Consolas" :size 10)
+                    nil 'append)
   (set-fontset-font "fontset-ConsolasMeiryo"
                     'iso-8859-5
-                    (font-spec :family "Consolas" :size 12)
-                    nil 'prepend)
+                    (font-spec :family "Consolas" :size 10)
+                    nil 'append)
   (set-fontset-font "fontset-ConsolasMeiryo"
                     'iso-8859-6
-                    (font-spec :family "Geeza Pro" :size 12)
-                    nil 'prepend)
+                    (font-spec :family "Geeza Pro" :size 10)
+                    nil 'append)
   (set-fontset-font "fontset-ConsolasMeiryo"
                     'iso-8859-7
-                    (font-spec :family "Consolas" :size 12)
-                    nil 'prepend)
-  (set-fontset-font "fontset-ConsolasMeiryo"
-                    'chinese-gb2312
-                    (font-spec :family "SimHei" :size 12)
-                    nil 'prepend)
-  (set-fontset-font "fontset-ConsolasMeiryo"
-                    'big5
-                    (font-spec :family "MingLiU" :size 12)
-                    nil 'prepend)
-  (set-fontset-font "fontset-ConsolasMeiryo"
-                    '(#x1100 . #x11FF)  ;; ハングル
-                    (font-spec :family "Gulim" :size 12)
-                    nil 'prepend)
-  (set-fontset-font "fontset-ConsolasMeiryo"
-                    '(#x3130 . #x318F)  ;; ハングル
-                    (font-spec :family "Gulim" :size 12)
-                    nil 'prepend)
-  (set-fontset-font "fontset-ConsolasMeiryo"
-                    '(#xAC00 . #xD79F)  ;; ハングル
-                    (font-spec :family "Gulim" :size 12)
-                    nil 'prepend)
+                    (font-spec :family "Consolas" :size 10)
+                    nil 'append)
   (set-fontset-font "fontset-ConsolasMeiryo"
                     'japanese-jisx0208
-                    (font-spec :family "Meiryo" :size 14)
-                    nil 'prepend)
+                    (font-spec :family "MS Gothic" :size 14)
+                    nil 'append)
   (set-fontset-font "fontset-ConsolasMeiryo"
                     'katakana-jisx0201
-                    (font-spec :family "Meiryo" :size 14)
-                    nil 'prepend)
+                    (font-spec :family "MS Gothic" :size 14)
+                    nil 'append)
   (set-fontset-font "fontset-ConsolasMeiryo"
                     'japanese-jisx0213-2
-                    (font-spec :family "Meiryo" :size 14)
-                    nil 'prepend)
+                    (font-spec :family "MS Gothic" :size 14)
+                    nil 'append)
   (set-fontset-font "fontset-ConsolasMeiryo"
                     'japanese-jisx0213.2004-1
-                    (font-spec :family "Meiryo" :size 14)
-                    nil 'prepend)
+                    (font-spec :family "MS Gothic" :size 14)
+                    nil 'append)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'chinese-gb2312
+                    (font-spec :family "SimHei" :size 14)
+                    nil 'append)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'big5
+                    (font-spec :family "MingLiU" :size 14)
+                    nil 'append)
+  (set-fontset-font "fontset-ConsolasMeiryo"
+                    'korean-ksc5601
+                    (font-spec :family "Gulim" :size 14)
+                    nil 'append)
 
   ;; 確認用。確認したいときは eval-region する。
   ;; (set-frame-font "fontset-ConsolasMeiryo")
