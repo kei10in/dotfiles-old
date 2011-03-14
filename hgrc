@@ -6,8 +6,10 @@ ignore = ~/.hgignore
 mq =
 color =
 rebase =
+record =
 bookmarks =
 graphlog =
+transplant =
 
 [bookmarks]
 track.current = True

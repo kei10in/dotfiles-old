@@ -8,3 +8,5 @@
 	status = auto
 	branch = auto
 	interactive = auto
+[core]
+	quotepath = false
