@@ -111,21 +111,19 @@
 ;; Configurate X Window System Emacs
 (when
     (and run-x-window-system
+         (require 'init-fontset)
          (load "init-x-window-system")))
 
 ;; Configurate Cocoa Emacs
 (when
     (and run-cocoa-emacs
+         (require 'init-fontset)
          (load "init-cocoa-emacs")))
-
-;; Configurate Carbon Emacs
-(when
-    (and run-carbon-emacs
-         (load "init-carbon-emacs")))
 
 ;; Configurate NTEmacs
 (when
     (and run-ntemacs
+         (require 'init-fontset)
          (load "init-ntemacs")))
 
 ;; Configurate no window Emacs
