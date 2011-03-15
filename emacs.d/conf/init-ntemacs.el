@@ -53,6 +53,7 @@
 (setq w32-use-w32-font-dialog t)
 
 ;;; フォントの設定
+(create-consolas-msgothic)
 (add-to-list 'default-frame-alist '(font . "fontset-ConsolasMSGothic"))
 
 
