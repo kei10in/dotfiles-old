@@ -1,8 +1,6 @@
 [user]
 	name = kei10in
 	email = kei10in@gmail.com
-[gui]
-	recentrepo = /Users/keisuke/Documents/Work/test
 [color]
 	diff = auto
 	status = auto
@@ -10,3 +8,4 @@
 	interactive = auto
 [core]
 	quotepath = false
+	excludesfile = /Users/keisuke/.gitignore

@@ -1,0 +1,16 @@
+*~
+*.o
+*.a
+*.elc
+*.pyc
+*.pyo
+*.class
+*.orig
+.ensime
+.svn
+.hg
+.hgignore
+.DS_Store
+Thumbs.db
+TAGS
+auto-save-list
