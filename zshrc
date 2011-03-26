@@ -95,3 +95,8 @@ if [ -n $interactive ]; then
 	    source ${zsh_initdir}/completions
     fi
 fi
+
+# import site configurations
+if [ -r ${HOME}/.site-zshrc ]; then
+    source ${HOME}/.site-zshrc
+fi
