@@ -26,8 +26,11 @@
 ;;
 ;; http://cx4a.org/software/auto-complete/index.ja.html
 ;; http://cx4a.org/software/auto-complete/manual.ja.html
+;; https://github.com/buzztaiki/auto-complete/blob/master/ac-company.el
 
 ;;; Code:
+
+(require 'init-user-profile)
 
 ;;;----------------------------------------------------------------------;
 ;;; auto complete (for 1.2- )
@@ -39,8 +42,9 @@
 (add-to-list 'load-path
 			 (expand-file-name auto-complete-mode-dir))
 
-(require 'cl)
 (require 'auto-complete-config)
+(global-auto-complete-mode t)
+
 (add-to-list 'ac-dictionary-directories
 			 (concat auto-complete-mode-dir "./dict"))
 
@@ -70,6 +74,9 @@
 (define-key ac-menu-map "\C-n" 'ac-next)
 (define-key ac-menu-map "\C-p" 'ac-previous)
 
+;; 候補の最大件数 デフォルトは 10件
+(setq ac-candidate-max 20)
+
 ;;; Case Sensitive
 ;;; t: 区別しない
 ;;; smart: 大文字が含まれている場合，区別する．
@@ -82,6 +89,10 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(ac-completion-face ((t (:background "blue" :foreground "*" :underline t)))))
+
+
+(require 'ac-company)
+(ac-company-define-source ac-source-company-xcode company-xcode)
 
 
 (provide 'init-auto-complete)

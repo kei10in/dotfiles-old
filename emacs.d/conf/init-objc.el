@@ -28,6 +28,7 @@
 
 ;;; Code:
 
+(require 'init-auto-complete)
 
 ;; M - ;     コメントを挿入
 ;; M C - p   対応する開き括弧へジャンプ (関数の先頭や末尾また関数と関数の間で使うと、
@@ -45,10 +46,14 @@
 (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@protocol" . objc-mode))
 
 
+(setq ac-modes (append ac-modes '(objec-mode)))
 (add-hook 'objc-mode-common-hook 'objc-mode-hook)
 (add-hook 'objc-mode-hook
           '(lambda ()
              (flymake-mode t)
+             ;; http://sakito.jp/emacs/emacsobjectivec.html
+             ;; XCode を利用した補完を有効にする
+             (push 'ac-source-company-xcode ac-sources)
              ))
 
 (provide 'init-objc)
