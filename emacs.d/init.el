@@ -24,74 +24,20 @@
 
 ;;; Code:
 
-
-(defvar private-lib-dir "~/.emacs.d/")
-(defvar private-site-lisp-dir (concat private-lib-dir "./site-lisp/"))
-(defvar private-conf-dir (concat private-lib-dir "./conf/"))
-
-;;-----------------------------------------------------------------
-;; Detect OS
-;;-----------------------------------------------------------------
-(defvar run-unix  (or (equal system-type 'gnu/linux)
-                      (or (equal system-type 'usg-unix-v)
-                          (or  (equal system-type 'berkeley-unix)
-                               (equal system-type 'cygwin)))))
-(defvar run-linux
-  (equal system-type 'gnu/linux))
-(defvar run-system-v
-  (equal system-type 'usg-unix-v))
-(defvar run-bsd
-  (equal system-type 'berkeley-unix))
-(defvar run-cygwin ;; cygwinもunixグループにしておく
-  (equal system-type 'cygwin))
-(defvar run-w32
-  (and (null run-unix)
-       (or (equal system-type 'windows-nt)
-           (equal system-type 'ms-dos))))
-(defvar run-darwin (equal system-type 'darwin))
-
-;;-----------------------------------------------------------------
-;; Detect Emacsen versions
-;;-----------------------------------------------------------------
-(defvar run-emacs20
-  (and (equal emacs-major-version 20)
-       (null (featurep 'xemacs))))
-(defvar run-emacs21
-  (and (equal emacs-major-version 21)
-       (null (featurep 'xemacs))))
-(defvar run-emacs22
-  (and (equal emacs-major-version 22)
-       (null (featurep 'xemacs))))
-(defvar run-emacs23
-  (and (equal emacs-major-version 23)
-       (null (featurep 'xemacs))))
-(defvar run-x-window-system (equal window-system 'x))
-(defvar run-xemacs (featurep 'xemacs))
-(defvar run-xemacs-no-mule
-  (and run-xemacs (not (featurep 'mule))))
-(defvar run-no-window (equal window-system nil))
-(defvar run-carbon-emacs (and run-darwin (equal window-system 'mac)))
-(defvar run-cocoa-emacs (and run-darwin (equal window-system 'ns)))
-;;; windows emacs
-(defvar run-meadow (featurep 'meadow))
-(defvar run-meadow1 (and run-meadow run-emacs20))
-(defvar run-meadow2 (and run-meadow run-emacs21))
-(defvar run-meadow3 (and run-meadow run-emacs22))
-(defvar run-ntemacs (or (featurep 'meadow-ntemacs) (featurep 'w32-win)))
-
 ;;;-----------------------------------------------------------------
 ;;; Regist private configuration pathes to load-path
 ;;;-----------------------------------------------------------------
 (setq load-path
       (append (list
-               (expand-file-name private-site-lisp-dir)
-               (expand-file-name private-conf-dir)
+               (expand-file-name "~/.emacs.d/site-lisp/")
+               (expand-file-name "~/.emacs.d/conf/")
                )
               load-path))
 
 ;;;-----------------------------------------------------------------
 ;;; Load every single settings
 ;;;-----------------------------------------------------------------
+(require 'detectenv)
 ;;; User Profile Settings
 (require 'init-user-profile)
 ;;; Global Settings

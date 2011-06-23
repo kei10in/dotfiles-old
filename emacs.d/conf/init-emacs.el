@@ -27,8 +27,12 @@
 ;;; Code:
 
 
+(require 'detectenv)
+(require 'init-user-profile)
+
+
 ;; Default major mode
-(setq default-major-mode 'text-mode)
+(setq major-mode 'text-mode)
 
 ;; デバッグ モード
 (setq debug-on-error nil)
@@ -157,6 +161,7 @@
 (setq use-dialog-box t)
 
 ;; switch buffer を強化する
+(require 'iswitchb)
 (iswitchb-mode t)
 (setq iswitchb-delim ", ")
 
@@ -173,16 +178,18 @@
 (setq uniquify-ignore-buffers-re "*[^*]+*")
 
 ;; ファイル作成時にテンプレートが挿入されるようにする．
+(require 'autoinsert)
 (auto-insert-mode)
-(setq auto-insert-directory 
+(setq auto-insert-directory
       (expand-file-name (concat private-lib-dir "./insert/")))
 
 ;;;----------------------------------------------------------------------------;
 ;;; Key bindings
 ;;;----------------------------------------------------------------------------;
 ;;; Modify C-h to Backspace.
-(load "term/bobcat")
-(terminal-init-bobcat)
+;; (load "term/bobcat")
+;; (terminal-init-bobcat)
+(global-set-key "\C-h" 'backward-delete-char)
 ;;; Delete region by C-h
 (delete-selection-mode 1)
 ;;; Modify C-% to query-replace-regexp
@@ -193,6 +200,8 @@
 
 ;; Find File
 ;; C-x C-f を find-file-at-point にする
+(require 'find-file)
+(global-set-key (kbd "C-c <tab>") 'ff-find-other-file)
 (ffap-bindings)
 (setq ff-other-file-alist
       '(("\\.mm?$" (".h"))
@@ -203,7 +212,7 @@
         ("\\.h$"   (".c" ".cc" ".C" ".CC" ".cxx" ".cpp" ".CPP" ".m" ".mm"))
         
         ("\\.C$"   (".H"  ".hh" ".h"))
-        ("\\.H$"   (".c" ".C"  ".CC" ".cpp", ".CPP"))
+        ("\\.H$"   (".c" ".C"  ".CC" ".cpp" ".CPP"))
         
         ("\\.CC$"  (".HH" ".H"  ".hh" ".h"))
         ("\\.HH$"  (".cc" ".CC"))
@@ -289,11 +298,6 @@
 ;(setq gc-cons-threshold (* 64 (* 1024 1024)))
 
 ;;-----------------------------------------------------------------
-;; Open path under the cursor (move caret to path and C-x f)
-;;-----------------------------------------------------------------
-(ffap-bindings)
-
-;;-----------------------------------------------------------------
 ;; Add private info directory
 ;;-----------------------------------------------------------------
 ;(setq Info-default-directory-list
@@ -304,29 +308,29 @@
 ;; Emacs辞典p.395
 ;; http://www.pqrs.org/~tekezo/emacs/doc/wide-character/index.html
 ;;-----------------------------------------------------------------
-(when run-emacs22
-  (utf-translate-cjk-set-unicode-range
-   '((#x00a2 . #x00a3)
-	 (#x00a7 . #x00a8)
-	 (#x00ac . #x00ac)
-	 (#x00b0 . #x00b1)
-	 (#x00b4 . #x00b4)
-	 (#x00b6 . #x00b6)
-	 (#x00d7 . #x00d7)
-	 (#X00f7 . #x00f7)
-	 (#x0370 . #x03ff)
-	 (#x0400 . #x04FF)
-	 (#x2000 . #x206F)
-	 (#x2100 . #x214F)
-	 (#x2190 . #x21FF)
-	 (#x2200 . #x22FF)
-	 (#x2300 . #x23FF)
-	 (#x2500 . #x257F)
-	 (#x25A0 . #x25FF)
-	 (#x2600 . #x26FF)
-	 (#x2e80 . #xd7a3)
-	 (#xff00 . #xffef)))
-  )
+;; (when run-emacs22
+;;   (utf-translate-cjk-set-unicode-range
+;;    '((#x00a2 . #x00a3)
+;; 	 (#x00a7 . #x00a8)
+;; 	 (#x00ac . #x00ac)
+;; 	 (#x00b0 . #x00b1)
+;; 	 (#x00b4 . #x00b4)
+;; 	 (#x00b6 . #x00b6)
+;; 	 (#x00d7 . #x00d7)
+;; 	 (#X00f7 . #x00f7)
+;; 	 (#x0370 . #x03ff)
+;; 	 (#x0400 . #x04FF)
+;; 	 (#x2000 . #x206F)
+;; 	 (#x2100 . #x214F)
+;; 	 (#x2190 . #x21FF)
+;; 	 (#x2200 . #x22FF)
+;; 	 (#x2300 . #x23FF)
+;; 	 (#x2500 . #x257F)
+;; 	 (#x25A0 . #x25FF)
+;; 	 (#x2600 . #x26FF)
+;; 	 (#x2e80 . #xd7a3)
+;; 	 (#xff00 . #xffef)))
+;;   )
 
 
 (provide 'init-emacs)
