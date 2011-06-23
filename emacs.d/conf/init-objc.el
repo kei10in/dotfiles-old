@@ -22,7 +22,9 @@
 
 ;;; Commentary:
 
+;; Objective-C mode
 ;; 
+;; http://sakito.jp/emacs/emacsobjectivec.html
 
 ;;; Code:
 
@@ -36,15 +38,18 @@
 ;; M - .     CTAGSで関数にジャンプ
 ;; M - +     CTAGSでジャンプしてた時に元の場所に戻る
 
-(defun win-c-mode-hook ()
-  (c-set-style "windows-c"))
+
+;; http://sakito.jp/emacs/emacsobjectivec.html
+(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@implementation" . objc-mode))
+(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@interface" . objc-mode))
+(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@protocol" . objc-mode))
+
 
 (add-hook 'objc-mode-common-hook 'objc-mode-hook)
 (add-hook 'objc-mode-hook
           '(lambda ()
              (flymake-mode t)
              ))
-
 
 (provide 'init-objc)
 ;;; init-objc.el ends here

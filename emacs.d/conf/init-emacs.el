@@ -190,8 +190,29 @@
 (global-set-key "\C-c:" 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c <tab>") 'ff-find-other-file)
 
+
+;; Find File
 ;; C-x C-f を find-file-at-point にする
 (ffap-bindings)
+(setq ff-other-file-alist
+      '(("\\.mm?$" (".h"))
+        ("\\.cc$"  (".hh" ".h"))
+        ("\\.hh$"  (".cc" ".C"))
+        
+        ("\\.c$"   (".h" ".H"))
+        ("\\.h$"   (".c" ".cc" ".C" ".CC" ".cxx" ".cpp" ".CPP" ".m" ".mm"))
+        
+        ("\\.C$"   (".H"  ".hh" ".h"))
+        ("\\.H$"   (".c" ".C"  ".CC" ".cpp", ".CPP"))
+        
+        ("\\.CC$"  (".HH" ".H"  ".hh" ".h"))
+        ("\\.HH$"  (".cc" ".CC"))
+        
+        ("\\.cxx$" (".hh" ".h"))
+        ("\\.Cpp$" (".hpp" ".hh" ".h"))
+        
+        ("\\.hpp$" (".cpp" ".c"))))
+
 
 ;; help
 (global-set-key "\C-x?" 'help)
