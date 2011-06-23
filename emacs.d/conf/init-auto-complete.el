@@ -37,7 +37,7 @@
 ;;;----------------------------------------------------------------------;
 ;; add auto complete directory to load-path 
 (defvar auto-complete-mode-dir
-  (concat private-site-lisp-dir "./auto-complete"))
+  (concat private-site-lisp-dir "./auto-complete/"))
 
 (add-to-list 'load-path
 			 (expand-file-name auto-complete-mode-dir))
@@ -46,10 +46,7 @@
 (global-auto-complete-mode t)
 
 (add-to-list 'ac-dictionary-directories
-			 (concat auto-complete-mode-dir "./dict"))
-
-(defun ac-cc-mode-setup ()
-  (setq ac-sources (append '(ac-source-yasnippet ac-source-gtags) ac-sources)))
+			 (concat auto-complete-mode-dir "dict/"))
 
 ;; 各 major mode での ac-sources の設定
 (ac-config-default)
