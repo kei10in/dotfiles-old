@@ -1,11 +1,11 @@
 ;;; -*- mode: emacs-lisp; coding: utf-8 -*-
 
-;;; init-redo+.el --- redo+ command
+;;; init-redo+.el --- global undo configurations
 
 ;; Copyright (C) 2010  Keisuke Ijuin
 
 ;; Author: Keisuke Ijuin <kei10in@gmail.com>
-;; Keywords: emacs.el
+;; Keywords: extensions
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -23,20 +23,23 @@
 ;;; Commentary:
 
 ;; (install-elisp-from-emacswiki "redo+.el")
+;; http://www.dr-qubit.org/emacs.php#undo-tree
 
 ;;; Code:
 
-(require 'redo+)
+;; (require 'redo+)
+;; (global-set-key (kbd "C-?") 'redo)
 
-(global-set-key (kbd "C-?") 'redo)
+(require 'undo-tree)
+(global-undo-tree-mode)
 
 ;; 過去の undo が redo されない様にする．
-(setq undo-no-redo t)
+;;(setq undo-no-redo t)
 
 ;; 大量の undo に耐えれるようにする．
 (setq undo-limit 60000)
 (setq undo-strong-limit 90000)
 
 
-(provide 'init-redo+)
-;;; init-redo+.el ends here
+(provide 'init-undo)
+;;; init-undo.el ends here

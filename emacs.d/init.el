@@ -51,7 +51,7 @@
 (require 'init-auto-install)
 (require 'init-elpa)
 (require 'init-goto-chg)
-(require 'init-redo+)
+(require 'init-undo)
 (require 'init-auto-async-byte-compile)
 
 ;; Configurate X Window System Emacs
