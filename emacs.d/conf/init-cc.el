@@ -138,15 +138,26 @@
 (c-add-style "my-c" my-c-style)
 
 
+(defun newline-skeleton-pair-insert-brace ()
+  (interactive)
+  (if (and (eq (char-before) ?{)
+           (or (eq last-command 'yank)
+               (eq last-command 'self-insert-command)
+               (eq last-command 'c-electric-brace)))
+      (progn
+        (newline-and-indent)
+        (save-excursion (insert "\n}") (indent-according-to-mode)))
+    (newline-and-indent)))
+
+
 (add-hook 'c-mode-common-hook
           '(lambda ()
-             (local-set-key (kbd "RET") 'newline-and-indent)
+             (local-set-key (kbd "RET") 'newline-skeleton-pair-insert-brace)
              (c-set-style "my-c")
              ;; (c-set-style "windows-c")
              ;; (google-set-c-style)
              ))
 
- 
 ;; (add-hook 'c-mode-common-hook 'win-c-mode-hook)
 
 (provide 'init-cc)
