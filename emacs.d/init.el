@@ -87,7 +87,7 @@
 (require 'init-pos-tip)
 (require 'init-auto-complete)
 (require 'init-yasnippet)
-(require 'init-smartchr)
+;; (require 'init-smartchr)
 
 ;;;==================================;
 ;;; Programing Language
