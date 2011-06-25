@@ -194,9 +194,8 @@
 (delete-selection-mode 1)
 ;;; Modify C-% to query-replace-regexp
 (global-set-key (read-kbd-macro "C-%") 'query-replace-regexp)
-(global-set-key "\C-c:" 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c :") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c <tab>") 'ff-find-other-file)
-
 
 ;; Find File
 ;; C-x C-f を find-file-at-point にする

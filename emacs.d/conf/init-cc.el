@@ -79,5 +79,11 @@
 (c-add-style "windows-c" windows-c-style)
 
 
+(add-hook 'c-mode-common-hook
+          '(lambda ()
+             (local-set-key (kbd "RET") 'newline-and-indent)))
+
+
+
 (provide 'init-cc)
 ;;; init-cc.el ends here
