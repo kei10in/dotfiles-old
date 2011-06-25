@@ -35,12 +35,6 @@
 ;; M - .     CTAGSで関数にジャンプ
 ;; M - +     CTAGSでジャンプしてた時に元の場所に戻る
 
-(defun win-c-mode-hook ()
-  (c-set-style "windows-c"))
-
-;(add-hook 'c-mode-common-hook 'win-c-mode-hook)
-
-(add-hook 'c-mode-common-hook 'google-set-c-style)
 
 (add-hook 'c-mode-hook
           '(lambda ()

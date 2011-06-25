@@ -79,11 +79,75 @@
 (c-add-style "windows-c" windows-c-style)
 
 
+(defconst my-c-style
+  `((c-basic-offset . 4)
+    (indent-tabs-mode . nil)
+    (c-comment-only-line-offset . 0)
+    (c-hanging-braces-alist . ((defun-open before after)
+                               (defun-close before after)
+                               (class-open after)
+                               (class-close before after)
+                               (namespace-open after)
+                               (inline-open after)
+                               (inline-close before after)
+                               (block-open before after)
+                               (block-close . c-snug-do-while)
+                               (extern-lang-open after)
+                               (extern-lang-close before after)
+                               (statement-case-open after)
+                               (substatement-open after)))
+    (c-hanging-colons-alist . ((case-label)
+                               (label after)
+                               (access-label after)
+                               (member-init-intro before)
+                               (inher-intro)))
+    (c-hanging-semi&comma-criteria . nil)
+    (c-indent-comments-syntactically-p . nil)
+    (comment-column . 40)
+    (c-cleanup-list . (brace-else-brace
+                       brace-elseif-brace
+                       brace-catch-brace
+                       empty-defun-braces
+                       defun-close-semi
+                       list-close-comma
+                       scope-operator))
+    (c-offsets-alist . ((arglist-intro google-c-lineup-expression-plus-4)
+                        (func-decl-cont . +)
+                        (member-init-intro . +)
+                        (inher-intro . +)
+                        (comment-intro . 0)
+                        (arglist-close . c-lineup-arglist)
+                        (topmost-intro . 0)
+                        (block-open . 0)
+                        (inline-open . 0)
+                        (substatement-open . 0)
+                        (statement-cont
+                         .
+                         (,(when (fboundp 'c-no-indent-after-java-annotations)
+                             'c-no-indent-after-java-annotations)
+                          ,(when (fboundp 'c-lineup-assignments)
+                             'c-lineup-assignments)
+                          +))
+                        (label . /)
+                        (case-label . +)
+                        (statement-case-open . +)
+                        (statement-case-intro . +) ; case w/o {
+                        (access-label . /)
+                        (innamespace . 0))))
+  "My Own C/C++ Programming Style")
+(c-add-style "my-c" my-c-style)
+
+
 (add-hook 'c-mode-common-hook
           '(lambda ()
-             (local-set-key (kbd "RET") 'newline-and-indent)))
+             (local-set-key (kbd "RET") 'newline-and-indent)
+             (c-set-style "my-c")
+             ;; (c-set-style "windows-c")
+             ;; (google-set-c-style)
+             ))
 
-
+ 
+;; (add-hook 'c-mode-common-hook 'win-c-mode-hook)
 
 (provide 'init-cc)
 ;;; init-cc.el ends here
