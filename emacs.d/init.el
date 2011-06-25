@@ -78,6 +78,7 @@
          (load "init-no-window")))
 
 (require 'init-twitter)
+(require 'init-anything)
 
 ;;;-------------------------
 ;;; Development Environment
