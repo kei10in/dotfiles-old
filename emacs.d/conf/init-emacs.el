@@ -187,9 +187,12 @@
 ;;; Key bindings
 ;;;----------------------------------------------------------------------------;
 ;;; Modify C-h to Backspace.
-;; (load "term/bobcat")
-;; (terminal-init-bobcat)
-(global-set-key "\C-h" 'backward-delete-char)
+(defun terminal-init-bobcat ()
+  "Terminal initialization function for bobcat."
+  ;; HP terminals usually encourage using ^H as the rubout character
+  (keyboard-translate ?\177 ?\^h)
+  (keyboard-translate ?\^h ?\177))
+(terminal-init-bobcat)
 ;;; Delete region by C-h
 (delete-selection-mode 1)
 ;;; Modify C-% to query-replace-regexp
