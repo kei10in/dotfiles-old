@@ -199,6 +199,7 @@
 (global-set-key (read-kbd-macro "C-%") 'query-replace-regexp)
 (global-set-key (kbd "C-c :") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-c <tab>") 'ff-find-other-file)
+(global-unset-key (kbd "C-z"))
 
 ;; Find File
 ;; C-x C-f を find-file-at-point にする
