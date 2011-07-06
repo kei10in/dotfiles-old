@@ -32,6 +32,8 @@
 (add-to-list 'load-path
              (expand-file-name anything-mode-dir))
 
+(global-set-key (kbd "C-x b") 'anything-for-files)
+
 
 (require 'anything-startup)
 
