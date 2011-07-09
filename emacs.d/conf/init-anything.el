@@ -32,10 +32,21 @@
 (add-to-list 'load-path
              (expand-file-name anything-mode-dir))
 
+(require 'anything-startup)
+
+
 (global-set-key (kbd "C-x b") 'anything-for-files)
 
+(setq anything-for-files-prefered-list
+  '(anything-c-source-ffap-line
+    anything-c-source-ffap-guesser
+    anything-c-source-buffers+
+    anything-c-source-files-in-current-dir+
+    anything-c-source-recentf
+    anything-c-source-bookmarks
+    anything-c-source-file-cache
+    anything-c-source-locate))
 
-(require 'anything-startup)
 
 (provide 'init-anything)
 ;;; init-anything.el ends here
