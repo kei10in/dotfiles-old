@@ -161,9 +161,9 @@
 (setq use-dialog-box t)
 
 ;; switch buffer を強化する
-(require 'iswitchb)
-(iswitchb-mode t)
-(setq iswitchb-delim ", ")
+;; (require 'iswitchb)
+;; (iswitchb-mode t)
+;; (setq iswitchb-delim ", ")
 
 ;; バッファの表示形式を変更する．
 (require 'uniquify)
