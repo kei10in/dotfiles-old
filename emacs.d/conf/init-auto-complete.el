@@ -77,8 +77,8 @@
 ;;; Case Sensitive
 ;;; t: 区別しない
 ;;; smart: 大文字が含まれている場合，区別する．
-;;; nil: 区別しない
-(setq ac-ignore-case 'smart)
+;;; nil: 区別する
+(setq ac-ignore-case nil)
 
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
