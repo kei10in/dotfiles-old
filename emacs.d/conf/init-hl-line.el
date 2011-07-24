@@ -38,18 +38,14 @@
 
 (require 'hl-line)
 (global-hl-line-mode)
-(defface hlline-face
-  '((((class color)
+(custom-set-faces 
+ '(hl-line
+   ((((class color)
       (background dark))
      (:background "#222244"))
     (((class color)
       (background light))
-     (:background "LightSteelBlue1"))
-     (t
-     ()))
-  "*Face used by hl-line.")
-;(setq hl-line-face 'underline)
-(setq hl-line-face 'hlline-face)
+     (:background "LightSteelBlue1")))))
 
 
 (provide 'init-hl-line)
