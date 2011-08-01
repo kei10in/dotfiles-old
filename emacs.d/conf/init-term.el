@@ -32,13 +32,13 @@
 ;;; http://sakito.jp/emacs/emacsshell.html
 ;;;
 
+(require 'multi-term)
+
 (defvar my-term-default-bg-color (face-background 'default))
 (defvar my-term-default-fb-color (face-foreground 'default))
-(custom-set-variables
- '(term-default-bg-color 'my-term-default-bg-color)
- '(term-default-fg-color 'my-term-default-fg-color))
+(setq term-default-bg-color 'my-term-default-bg-color)
+(setq term-default-fg-color 'my-term-default-fg-color)
 
-(require 'multi-term)
 
 
 (provide 'init-term)
