@@ -1,17 +1,18 @@
 [user]
 	name = kei10in
 	email = kei10in@gmail.com
-[color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
 [core]
 	quotepath = false
-	excludesfile = /Users/keisuke/.gitignore
+	excludesfile = ~/.gitignore
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+[color]
+	ui = auto
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Development/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
