@@ -22,12 +22,12 @@
 
 ;;; Commentary:
 
-;; 
+;; (install-elisp-from-emacswiki "linum-ex.el")
 
 ;;; Code:
 
 
-(require 'linum)
+(require 'linum-ex)
 ;;; 最低幅を設定したうえで，常に右寄せで表示させる
 (setq linum-format
       '(lambda (line)

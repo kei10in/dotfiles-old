@@ -1,8 +1,13 @@
-;;; linum.el --- Display line numbers to the left of buffers
+;;; linum-ex.el --- Display line numbers to the left of buffers
 
+;; originally derived from linum.el, which is
 ;; Copyright (C) 2007, 2008  Markus Triska
 
+;; modifications in linum-ex.el provided by: Dino Chiesa
+
 ;; Author: Markus Triska <markus.triska@gmx.at>
+;; Last saved: <2011-May-23 12:47:18>
+;;
 ;; Keywords: convenience
 
 ;; This file is free software; you can redistribute it and/or modify
@@ -22,17 +27,66 @@
 
 ;;; Commentary:
 
-;; Display line numbers for the current buffer. Copy linum.el to your
+;; Display line numbers for the current buffer. Copy linum-ex.el to your
 ;; load-path and add to your .emacs:
 
-;;    (require 'linum)
+;;    (require 'linum-ex)
 
 ;; Then toggle display of line numbers with M-x linum-mode. To enable
 ;; line numbering in all buffers, use M-x global-linum-mode.
 
+;; =======================================================
+;;
+;; Dino Chiesa Mon, 23 May 2011  12:00
+;;
+;; notes on changes.
+;;
+;; The problem with the original linum module is that it updated the
+;; line numbers after every scroll and possibly every command. This
+;; works for small files but not for files with 100,000+ lines. Even
+;; with linum-delay turned on, linum had the effect of "Freezing" the
+;; display when the user was continuously scrolling.  It also introduced
+;; noticeable delays when scrolling only momentarily.
+;;
+;; One idea for working around that is to use run-with-idle-timer, and
+;; only update the line numbers when emacs is idle. One can set a single
+;; timer, for, say 0.1s, and then when emacs goes idle for that period,
+;; the line numbers will be updated. Seems like the perfect fit,
+;; but there's a problem: a timer created via run-with-idle-timer
+;; gets canceled after being delayed 10 times.
+;;
+;; So if the after-scroll event sets up a timer via run-with-idle-timer,
+;; only when no timer has been set, the timer may get canceled silently,
+;; by timer.el . Look at `timer-max-repeats'.
+;;
+;; This happens if emacs is busy for 1s, as for example when the user is
+;; holding pgdn to continuously scroll through a large document.  If the
+;; timer doesn't fire, then the line numbers don't ever get updated.
+;;
+;; To avoid that pitfall, this code can set run-with-idle-timer for
+;; every scroll event, and handle the delay explicitly, right here.  The
+;; way to do it is, within the after-scroll event, store the "last
+;; scrolled" time, and then call `run-with-idle-timer'. There may be
+;; other outstanding timer events, but we don't care.  In the function
+;; that gets called when the timer fires, check to see if a reasonable
+;; interval (Say 0.1s) has elapsed since the last scroll event. If so,
+;; do linum-update. If not, it means scrolling is still happening, so,
+;; do nothing. All this applies only if linum-delay is non-nil.
+;;
+;; The result is that timers fire constantly while the user is
+;; continuously scrolling, but the line numbers get updated only after
+;; the user stops scrolling.  The user experiences no delay while
+;; scrolling, but (unfortunately) gets no line numbers either.  The user
+;; sees updated line numbers immediately when he stops.
+;;
+;; =======================================================
+
+
 ;;; Code:
 
-(defconst linum-version "0.9wza")
+(require 'timer)
+
+(defconst linum-version "0.991")
 
 (defvar linum-overlays nil "Overlays used in this buffer.")
 (defvar linum-available nil "Overlays available for reuse.")
@@ -72,6 +126,19 @@ and you have to scroll or press C-l to update the numbers."
   :group 'linum
   :type 'boolean)
 
+(defvar linum--delay-time 0.1
+  "Delay time.  See also `linum-delay'")
+
+(defvar linum--last-scroll nil
+  "Time of last scroll event. See also `linum-delay'")
+
+(defvar linum--last-cmd nil
+  "Time of last command. See also `linum-delay'")
+
+(defvar linum--win nil
+  "Window of the last scroll event. See also `linum-delay'")
+
+
 ;;;###autoload
 (define-minor-mode linum-mode
   "Toggle display of line numbers in the left marginal area."
@@ -79,9 +146,7 @@ and you have to scroll or press C-l to update the numbers."
   (if linum-mode
       (progn
         (if linum-eager
-            (add-hook 'post-command-hook (if linum-delay
-                                             'linum-schedule
-                                           'linum-update-current) nil t)
+            (add-hook 'post-command-hook 'linum-post-command)
           (add-hook 'after-change-functions 'linum-after-change nil t))
         (add-hook 'window-scroll-functions 'linum-after-scroll nil t)
         ;; mistake in Emacs: window-size-change-functions cannot be local
@@ -89,9 +154,11 @@ and you have to scroll or press C-l to update the numbers."
         (add-hook 'change-major-mode-hook 'linum-delete-overlays nil t)
         (add-hook 'window-configuration-change-hook
                   'linum-after-config nil t)
+        (set (make-local-variable 'linum--win) nil)
+        (set (make-local-variable 'linum--last-scroll) nil)
+        (set (make-local-variable 'linum--last-cmd) nil)
         (linum-update-current))
-    (remove-hook 'post-command-hook 'linum-update-current t)
-    (remove-hook 'post-command-hook 'linum-schedule t)
+    (remove-hook 'post-command-hook 'linum-post-command t)
     (remove-hook 'window-size-change-functions 'linum-after-size)
     (remove-hook 'window-scroll-functions 'linum-after-scroll t)
     (remove-hook 'after-change-functions 'linum-after-change t)
@@ -127,7 +194,10 @@ and you have to scroll or press C-l to update the numbers."
         (mapc #'linum-update-window
               (get-buffer-window-list buffer nil 'visible)))
       (mapc #'delete-overlay linum-available)
-      (setq linum-available nil))))
+      (setq linum-available nil
+            linum--last-cmd nil
+            linum--last-scroll nil))))
+
 
 (defun linum-update-window (win)
   "Update line numbers for the portion visible in window WIN."
@@ -175,18 +245,43 @@ and you have to scroll or press C-l to update the numbers."
             (string-match "\n" (buffer-substring-no-properties beg end)))
     (linum-update-current)))
 
+(defun linum--after-scroll-fired ()
+  (if linum--last-scroll
+      (let ((now  (current-time))
+            (one-moment-after-scroll (timer-relative-time linum--last-scroll linum--delay-time)))
+        (if (time-less-p one-moment-after-scroll now)
+            (linum-update linum--win)))))
+
 (defun linum-after-scroll (win start)
-  (linum-update (window-buffer win)))
+  (if linum-delay
+      (progn
+        (setq linum--win (window-buffer win))
+        (setq linum--last-scroll (current-time))
+        (run-with-idle-timer linum--delay-time nil 'linum--after-scroll-fired))
+    (linum-update (window-buffer win))))
+
+
+(defun linum--post-command-fired ()
+  (if linum--last-cmd
+      (let ((now  (current-time))
+            (one-moment-after-cmd (timer-relative-time linum--last-cmd linum--delay-time)))
+        (if (time-less-p one-moment-after-cmd now)
+            (linum-update-current)))))
+
+(defun linum-post-command ()
+  (if linum-delay
+      (progn
+        (setq linum--win (window-buffer win))
+        (setq linum--last-cmd (current-time))
+        (run-with-idle-timer linum--delay-time nil 'linum--post-command-fired))
+    (linum-update-current)))
 
 (defun linum-after-size (frame)
   (linum-after-config))
 
-(defun linum-schedule ()
-  ;; schedule an update; the delay gives Emacs a chance for display changes
-  (run-with-idle-timer 0 nil #'linum-update-current))
-
 (defun linum-after-config ()
   (walk-windows (lambda (w) (linum-update (window-buffer w))) nil 'visible))
 
-(provide 'linum)
-;;; linum.el ends here
+
+(provide 'linum-ex)
+;;; linum-ex.el ends here
