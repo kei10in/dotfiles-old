@@ -96,5 +96,14 @@
  (expand-file-name (concat yasnippet-mode-dir "snippets/")))
 
 
+(require 'init-autoinsert)
+
+;; auto insertion snippet for C and C++ header file
+(define-auto-insert "\\.\\([hH]\\|[hH][hH]\\|[hH][pP][pP]\\)$"
+  (lambda ()
+    (insert "once")
+    (yas/expand)))
+
+
 (provide 'init-yasnippet)
 ;;; init-yasnippet.el ends here
