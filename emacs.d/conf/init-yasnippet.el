@@ -22,19 +22,23 @@
 
 ;;; Commentary:
 
-;; 
+;; (install-elisp-from-emacswiki "yasnippet.el")
 
 ;;; Code:
 
+
+(require 'init-user-profile)
+(defvar yasnippet-mode-dir
+  (concat private-site-lisp-dir "yasnippet/"))
+(add-to-list 'load-path
+		 (expand-file-name yasnippet-mode-dir))
 
 ;;-----------------------------------------------------------------
 ;; yasnippet
 ;; http://yasnippet.googlecode.com/svn/trunk/yasnippet.el
 ;; http://code.google.com/p/yasnippet/
-(defvar yasnippet-mode-dir
-  (concat private-site-lisp-dir "yasnippet/"))
-(add-to-list 'load-path
-		 (expand-file-name yasnippet-mode-dir))
+;; http://www.emacswiki.org/emacs/Yasnippet
+(require 'yasnippet-config)
 (require 'yasnippet)
 
 ;;-----------------------------------------------------------------
