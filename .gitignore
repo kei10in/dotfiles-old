@@ -1,0 +1,12 @@
+syntax: glob
+*~
+*.elc
+*.pyc
+.DS_Store
+Thumbs.db
+abbrev_defs
+ac-comphist.dat
+auto-save-list
+zsh/aliases.hosts
+elpa/archive-contents
+elpa/builtin-packages
