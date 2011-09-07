@@ -102,6 +102,8 @@
 (require 'init-c++)
 ;; Objective-C
 (require 'init-objc)
+;; C#
+(require 'init-csharp)
 ;; Python
 (require 'init-python)
 ;; ;; Common Lisp
