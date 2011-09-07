@@ -1,13 +1,19 @@
 syntax: glob
+
+# emacs generating files
 *~
-*.elc
-*.pyc
-*.pyo
-*.class
 *.orig
+.ensime
+auto-save-list
+
+# other vcs files
 .svn
 .git
+.gitignore
+
+# OS
 .DS_Store
 Thumbs.db
+
+# Others
 TAGS
-auto-save-list

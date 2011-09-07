@@ -1,16 +1,17 @@
+# emacs generating files
 *~
-*.o
-*.a
-*.elc
-*.pyc
-*.pyo
-*.class
 *.orig
 .ensime
+auto-save-list
+
+# other vcs files
 .svn
 .hg
 .hgignore
+
+# OS 
 .DS_Store
 Thumbs.db
+
+# Others
 TAGS
-auto-save-list
