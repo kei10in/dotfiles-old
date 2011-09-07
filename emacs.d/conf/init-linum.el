@@ -41,7 +41,7 @@
           (propertize (format fmt line) 'face 'linum))))
 ;; これを行うと query-replace が正しく動作しない．
 ;; (setq linum-eager nil)
-(global-linum-mode)
+;; (global-linum-mode)
 
 
 (provide 'init-linum)

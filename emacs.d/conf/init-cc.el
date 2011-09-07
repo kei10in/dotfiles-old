@@ -27,6 +27,7 @@
 ;;; Code:
 
 
+(require 'init-linum)
 (require 'google-c-style)
 
 (defconst windows-c-style
@@ -153,6 +154,7 @@
 (add-hook 'c-mode-common-hook
           '(lambda ()
              (local-set-key (kbd "RET") 'newline-skeleton-pair-insert-brace)
+             (linum-mode)
              (c-set-style "my-c")
              ;; (c-set-style "windows-c")
              ;; (google-set-c-style)
