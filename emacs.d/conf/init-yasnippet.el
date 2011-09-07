@@ -61,11 +61,6 @@
 ;; http://d.hatena.ne.jp/antipop/20080315/1205604544
 ;;-----------------------------------------------------------------
 
-(setq yas/window-system-popup-function
-      #'yas/dropdown-list-popup-for-template)
-(setq yas/text-popup-function
-      #'yas/dropdown-list-popup-for-template)
-
 ;;-----------------------------------------------------------------
 ;; コメントやリテラルではスニペットを展開しない
 ;;-----------------------------------------------------------------
@@ -93,11 +88,10 @@
                (flymake-mode-on)
                (setq flymake-is-active-flag nil))))
 
-(yas/initialize)
 
-;;-----------------------------------------------------------------
+;;; initialize yasnippet:
+(yas/initialize)
 ;; yasnippetのsnippetを置いてあるディレクトリ
-;;-----------------------------------------------------------------
 (yas/load-directory 
  (expand-file-name (concat yasnippet-mode-dir "snippets/")))
 
