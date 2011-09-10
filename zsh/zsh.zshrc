@@ -18,9 +18,6 @@ PROMPT3="OK? %r? "	# Spell correction prompt
 #SPROMPT="%r is correct? [n,y,a,e]: "
 SPROMPT="OK? %r? "
     
-## Language
-    lang=ja_JP.UTF-8
-#dspmbyte=utf8
 
 ## History
     autoload history-search-end

@@ -24,7 +24,21 @@
 
 zsh_initdir=~/.zsh
 
+zsh_path=${zsh_initdir}/path.zshenv
+zsh_shell=${zsh_initdir}/shell.zshenv
+zsh_environment=${zsh_initdir}/environment.zshenv
 
-if [ -r ${zsh_initdir}/path.zshenv ]; then 
-    source ${zsh_initdir}/path.zshenv
+
+if [ -r ${zsh_path} ]; then 
+    source ${zsh_path}
+fi
+
+
+if [ -r ${zsh_shell} ]; then
+    source ${zsh_shell}
+fi
+
+
+if [ -r ${zsh_environment} ]; then
+    source ${zsh_environment}
 fi
