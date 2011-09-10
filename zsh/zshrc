@@ -60,13 +60,13 @@ fi
 ## ENVIRONMENT SETUP
 interactive=1
 
-if [ -r ${zsh_initdir}/zsh ]; then
-    source ${zsh_initdir}/zsh
+if [ -r ${zsh_initdir}/zsh.zshrc ]; then
+    source ${zsh_initdir}/zsh.zshrc
 fi
 
 if [ -z ${ENV_SET} ]; then   # Top-most shell
-    if [ -r ${zsh_initdir}/environment ] && [ -n $PROMPT -o -n $XSESSION ]; then
-	    source ${zsh_initdir}/environment
+    if [ -r ${zsh_initdir}/environment.zshrc ] && [ -n $PROMPT -o -n $XSESSION ]; then
+	    source ${zsh_initdir}/environment.zshrc
     fi
 else                       # NON ENV_SET, 2nd+ shells
     #noop
@@ -84,11 +84,11 @@ fi
 
 if [ -n $interactive ]; then
   # These aren't useful for non-interactive sessions
-    if [ -r ${zsh_initdir}/aliases ] && [ -z $noalias ]; then
-	    source ${zsh_initdir}/aliases
+    if [ -r ${zsh_initdir}/aliases.zshrc ] && [ -z $noalias ]; then
+	    source ${zsh_initdir}/aliases.zshrc
     fi
-    if [ -r ${zsh_initdir}/completions ] && [ -z $noalias ]; then
-	    source ${zsh_initdir}/completions
+    if [ -r ${zsh_initdir}/completions.zshrc ] && [ -z $noalias ]; then
+	    source ${zsh_initdir}/completions.zshrc
     fi
 fi
 
