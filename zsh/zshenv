@@ -21,3 +21,10 @@
 #     1) ~/.zlogout
 ##
 
+
+zsh_initdir=~/.zsh
+
+
+if [ -r ${zsh_initdir}/path.zshenv ]; then 
+    source ${zsh_initdir}/path.zshenv
+fi
