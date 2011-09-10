@@ -21,6 +21,6 @@
 #     1) ~/.zlogout
 ##
 
-if [ -r ~/.zsh/zshrc ]; then
-    source ~/.zsh/zshrc
+if [ -r ~/.zsh/zshenv ]; then
+    source ~/.zsh/zshenv
 fi
