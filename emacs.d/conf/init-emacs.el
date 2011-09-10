@@ -201,23 +201,20 @@
 (global-set-key (kbd "C-c <tab>") 'ff-find-other-file)
 (ffap-bindings)
 (setq ff-other-file-alist
-      '(("\\.mm?$" (".h"))
-        ("\\.cc$"  (".hh" ".h"))
-        ("\\.hh$"  (".cc" ".C"))
+      '(
+        ("\\.[hH][pP][pP]$" (".cpp" ".CPP" ".cxx" ".CXX"))
+        ("\\.[cC][pP][pP]$" (".hpp" ".HPP" ".h"))
+
+        ("\\.[hH][hH]$"  (".cc" ".CC"))
+        ("\\.[cC][cC]$"  (".hh" ".HH" ".h" ".H"))
+
+        ("\\.[cC][xX][xX]$" (".hh" ".h"))
         
-        ("\\.c$"   (".h" ".H"))
-        ("\\.h$"   (".c" ".cc" ".C" ".CC" ".cxx" ".cpp" ".CPP" ".m" ".mm"))
+        ("\\.[hH]$"   (".cpp" ".CPP" ".cc" ".CC" ".c" ".C" ".cxx" ".m" ".mm"))
+        ("\\.[cC]$"   (".h" ".H"))
         
-        ("\\.C$"   (".H"  ".hh" ".h"))
-        ("\\.H$"   (".c" ".C"  ".CC" ".cpp" ".CPP"))
-        
-        ("\\.CC$"  (".HH" ".H"  ".hh" ".h"))
-        ("\\.HH$"  (".cc" ".CC"))
-        
-        ("\\.cxx$" (".hh" ".h"))
-        ("\\.Cpp$" (".hpp" ".hh" ".h"))
-        
-        ("\\.hpp$" (".cpp" ".c"))))
+        ("\\.mm?$" (".h"))
+        ))
 
 
 ;; help
