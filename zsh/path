@@ -6,16 +6,18 @@
 # Global path setup
 ##
 
+
+# To prevent duplicated path
+typeset -U path
+
 # Setting Generic PATH
-path=(                               \
-    .                                \
-    ~/bin                            \
-    ~/sbin                           \
-    /opt/local/bin /opt/bin          \
-    /usr/local/bin /usr/bin /bin     \
-    /opt/local/sbin /opt/sbin        \
-    /usr/local/sbin /usr/sbin /sbin  \
-    /usr/X11R6/bin                   \
+path=(
+    .
+    {~,~/usr}/bin(N-/)
+    {~,~/usr}/sbin(N-/)
+    {/opt/local,/opt,/usr/local,/usr,}/bin(N-/)
+    {/opt/local,/opt,/usr/local,/usr,}/sbin(N-/)
+    /usr/X11R6/bin(N-/)
     )
     
 
