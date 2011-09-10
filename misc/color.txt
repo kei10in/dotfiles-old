@@ -1,0 +1,24 @@
+[Basic]
+Text = 127, 255, 127
+BoldText = 0, 187, 0
+SelectedText = 0, 57, 0
+Background = 0, 0, 0
+Cursor = 0, 187, 0
+
+[ANSI]
+Black_0 = 0, 0, 0
+Red_1 = 187, 64, 64
+Green_2 = 64, 187, 64
+Yellow_3 = 187, 187, 64
+Blue_4 = 64, 187, 64
+Magenta_5 = 187, 64, 187
+Cyan_6 = 64, 187, 187
+White_7 = 187, 187,187
+BlackBold_8 = 160, 160, 160
+RedBold_9 = 255, 160, 160
+Green_10 = 160, 255, 160
+YellowBold_11 = 255, 255, 160
+BlueBold_12 = 160, 160, 255
+MagentaBold_13 = 255, 160, 255
+CyanBold_14 = 160, 255, 255
+WhiteBold_15 = 255, 255, 255
