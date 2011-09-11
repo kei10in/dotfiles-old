@@ -51,36 +51,6 @@ if [ -r ${zsh_environment} ]; then
 fi
 
 
-host=`hostname`
-host=`echo $host | tr A-Z a-z`
-
-user=`whoami`
-
-export HOST="${host}"
-export USER="${user}"
-
-# User ID
-if [ -z $uid ]; then
-    uid=`id | cut -d = -f 2 | cut -d \( -f 1`
-fi
-
-# MISCELLANEOUS SETS
-if [ -z $version ]; then
-    verion="unknown"
-fi
-
-# Non-root users
-if [ ! $uid ]; then
-    unset autologout
-else
-  # Avoid closing of Terminal windows when logged in as root
-    if [ -n "${TERM_PROGRAM}" -a -n "${SHLVL}" ]; then
-	    if [ "$SHLVL" -eq "1" ]; then
-	        unset autologout
-	    fi
-    fi
-fi
-
 # import site configurations
 if [ -r ${HOME}/.site-zshrc ]; then
     source ${HOME}/.site-zshrc

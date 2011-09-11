@@ -6,11 +6,6 @@
 # Global environment variable setup
 ##
 
-umask 022            # files created are -rw-r--r--
-
-## Global Set up
-export LANG=${lang}
-# export LC_ALL=${lang}
 # export PAGER='lv -Ou8 -c'
 export PAGER='less -R'
 export EDITOR="emacs"
