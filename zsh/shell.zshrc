@@ -7,6 +7,9 @@
 ##
 
 
+# Keybind
+bindkey -e
+
 ## Set up prompt
 autoload -U colors; colors
 # [HOSTNAME:CWD] USER_NAME% _
