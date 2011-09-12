@@ -31,6 +31,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000              # Number of commands saved as history
 SAVEHIST=10000
 setopt hist_ignore_dups     # Ignore duplication command history list
+setopt hist_ignore_space    # Don't add history the command starting with space
 setopt share_history        # Share command history data 
 
 ## Word Completions
