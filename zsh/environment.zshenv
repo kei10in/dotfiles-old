@@ -27,7 +27,17 @@ export BOOST_ROOT=/opt/local/include
 
 
 ## Grep
-export GREP_OPTIONS="-I --color"
+export GREP_OPTIONS="-Ir"
+# Exclude vcs directories
+if grep --help | grep -q -- --exclude-dir; then
+    GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
+    GREP_OPTIONS="--exclude-dir=.hg $GREP_OPTIONS"
+    GREP_OPTIONS="--exclude-dir=.svn $GREP_OPTIONS"
+fi
+# colorize if enable
+if grep --help | grep -q -- --color; then
+    GREP_OPTIONS="--color $GREP_OPTIONS"
+fi
 
 ## less
 export LESSCHARSET=utf-8
