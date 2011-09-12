@@ -12,8 +12,17 @@ bindkey -e
 
 ## Set up prompt
 autoload -U colors; colors
-# [HOSTNAME:CWD] USER_NAME% _
-PROMPT="[%{${fg_bold[red]}%}%m:%{$fg_bold[blue]%}%3C%{${reset_color}%}] %n%#%b "
+setopt prompt_subst
+setopt prompt_percent
+setopt transient_rprompt
+# Prompt Format
+# ${CURRENT_DIR}
+# [${USER_NAME}@${HOSTNAME}]%#
+prompt_current_directory="%{${fg_bold[blue]}%}%~%{${reset_color}%}"
+prompt_host="%{${fg_bold[cyan]}%}%n%{${reset_color}%}%{${fg_bold[red]}%}@%m%{${reset_color}%}"
+prompt_bar="${prompt_current_directory}"
+prompt_left="[${prompt_host}]%# "
+PROMPT="${prompt_bar}"$'\n'"${prompt_left}"
 #PROMPT="[%m:%3C] %n%#%b "
 PROMPT2="%_ -> "	# if/while prompt
 PROMPT3="OK? %r? "	# Spell correction prompt
