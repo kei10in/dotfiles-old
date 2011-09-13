@@ -27,7 +27,7 @@ export BOOST_ROOT=/opt/local/include
 
 
 ## Grep
-export GREP_OPTIONS="-Ir"
+export GREP_OPTIONS="-EIr"
 # Exclude vcs directories
 if grep --help | grep -q -- --exclude-dir; then
     GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
