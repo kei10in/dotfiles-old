@@ -46,6 +46,7 @@
 (require 'init-hl-line)
 (require 'init-linum)
 ;(require 'init-color-moccur)
+(require 'init-grep)
 (require 'init-wdired)
 (require 'init-term)
 (require 'init-auto-install)
