@@ -132,6 +132,8 @@
 (require 'init-java)
 ;; Scala
 (require 'init-scala)
+;; Groovy
+(require 'init-groovy)
 ;; scheme
 ;; (require 'init-scheme)
 ;; JS + AS
