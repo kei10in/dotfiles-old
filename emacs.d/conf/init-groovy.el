@@ -44,6 +44,10 @@
              ;; (groovy-electric-mode)
              ))
 
+(require 'init-auto-complete)
+(setq ac-modes (append ac-modes '(groovy-mode)))
+(setq ac-modes (append ac-modes '(grails-mode)))
+
 
 (provide 'init-groovy)
 ;;; init-groovy.el ends here
