@@ -91,9 +91,9 @@
 (require 'yasnippet) ;; not yasnippet-bundle
 
 ;;; Backward compatibility
-(unless (fboundp 'yas/snippet-table) ;for auto-complete-yasnippet.el and anything-c-yasnippet.el
-  (defalias 'yas/snippet-table 'yas/snippet-table-get-create)
-  (defalias 'yas/snippet-table-parent 'yas/snippet-table-parents))
+;; (unless (fboundp 'yas/snippet-table) ;for auto-complete-yasnippet.el and anything-c-yasnippet.el
+;;   (defalias 'yas/snippet-table 'yas/snippet-table-get-create)
+;;   (defalias 'yas/snippet-table-parent 'yas/snippet-table-parents))
 
 ;;; Setup
 (defun yas/setup (package-directory)
