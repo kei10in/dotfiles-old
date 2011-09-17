@@ -6,6 +6,9 @@
 # Global path setup
 ##
 
+# Zsh function path
+fpath=(~/.zsh/site-functions/ ${fpath})
+
 
 # To prevent duplicated path
 typeset -U path
@@ -18,6 +21,7 @@ path=(
     {/opt/local,/opt,/usr/local,/usr,}/bin(N-/)
     {/opt/local,/opt,/usr/local,/usr,}/sbin(N-/)
     /usr/X11R6/bin(N-/)
+    ${path}
     )
     
 
@@ -35,3 +39,13 @@ fi
 if [ -d /Library/Frameworks/Python.framework/Versions/3.1/bin ]; then
     path=( ${path} /Library/Frameworks/Python.framework/Versions/3.1/bin )
 fi
+
+# Platform oriented path
+case "${OSTYPE}" in
+    linux*)
+        ;;
+    darwin*)
+        ;;
+    cygwin*)
+        ;;
+esac
