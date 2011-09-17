@@ -75,8 +75,9 @@
 (defvar run-meadow1 (and run-meadow run-emacs20))
 (defvar run-meadow2 (and run-meadow run-emacs21))
 (defvar run-meadow3 (and run-meadow run-emacs22))
-(defvar run-ntemacs (or (featurep 'meadow-ntemacs) (featurep 'w32-win)))
-
+(defvar run-ntemacs (and (or (featurep 'meadow-ntemacs) (featurep 'w32-win))
+                         (equal window-system 'w32)))
+  
 
 
 (provide 'detectenv)
