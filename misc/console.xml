@@ -109,7 +109,7 @@
 			</background>
 		</tab>
 		<tab title="Git Bash" use_default_icon="0">
-			<console shell="C:\Program Files (x86)\Git\bin\bash.exe" init_dir="%HOME%" run_as_user="0" user=""/>
+			<console shell="C:\Program Files (x86)\Git\bin\bash.exe --login -i" init_dir="%HOME%" run_as_user="0" user=""/>
 			<cursor style="0" r="0" g="187" b="0"/>
 			<background type="0" r="0" g="0" b="0">
 				<image file="" relative="0" extend="0" position="0">
