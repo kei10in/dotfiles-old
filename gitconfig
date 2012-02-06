@@ -8,6 +8,7 @@
 	st = status
 	co = checkout
 	ci = commit
+	glog = log --graph --decorate
 [color]
 	ui = auto
 [difftool "sourcetree"]
