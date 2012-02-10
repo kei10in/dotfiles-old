@@ -151,5 +151,7 @@
 (require 'init-rst)
 ;; Org Mode
 (require 'init-org)
+;; info Mode
+(require 'init-info)
 
 ;;; init.el ends here
