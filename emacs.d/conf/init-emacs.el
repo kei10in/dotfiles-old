@@ -143,6 +143,7 @@
                ;; (:background "white" :foreground "black")
                )))
    ))
+
 ;;; cursor face
 (custom-set-faces
  '(cursor ((((class color)
@@ -153,6 +154,17 @@
             (:background "#999999"))
            (t ())
            )))
+
+;;; highlight face
+(custom-set-faces 
+ '(highlight
+   ((((class color)
+      (background dark))
+     (:background "#222244"))
+    (((class color)
+      (background light))
+     (:background "LightSteelBlue1")))))
+
 
 ;;; カーソルの点滅
 (blink-cursor-mode t)

@@ -48,5 +48,26 @@
     anything-c-source-locate))
 
 
+;;; anything faces
+(custom-set-faces
+ '(anything-ff-directory ((((class color)
+                            (background dark))
+                           (:foreground "LightSkyBlue"))
+                          (((class color)
+                            (background light))
+                           (:foreground "Blue1"))
+                          (t ())
+                          ))
+ '(anything-ff-file ((((class color)
+                       (background dark))
+                      (:foreground "PaleGreen"))
+                     (((class color)
+                       (background light))
+                      (:foreground "black"))
+                     (t ())
+                     ))
+ )
+
+
 (provide 'init-anything)
 ;;; init-anything.el ends here
