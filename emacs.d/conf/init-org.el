@@ -32,5 +32,41 @@
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WAITING(w)" "DOING(d)" "|" "DONE(x)" "CANCEL(c)")))
 
+;; Org Mode Faces
+(custom-set-faces
+ '(org-level-1
+   ((((class color) (background dark)) (:foreground "LightSkyBlue"))
+    (((class color) (background light)) (:inherit outline-1))
+    (t nil)))
+ '(org-level-2
+   ((((class color) (background dark)) (:foreground "LightGoldenrod"))
+    (((class color) (background light)) (:inherit outline-2))
+    (t nil)))
+ '(org-level-3
+   ((((class color) (background dark)) (:foreground "orchid"))
+    (((class color) (background light)) (:inherit outline-3))
+    (t nil)))
+ '(org-level-4
+   ((((class color) (background dark)) (:foreground "RoyalBlue"))
+    (((class color) (background light)) (:inherit outline-4))
+    (t nil)))
+ '(org-level-5
+   ((((class color) (background dark)) (:foreground "OliveDrab"))
+    (((class color) (background light)) (:inherit outline-5))
+    (t nil)))
+ '(org-level-6
+   ((((class color) (background dark)) (:foreground "brown"))
+    (((class color) (background light)) (:foreground outline-6))
+    (t nil)))
+ '(org-level-7
+   ((((class color) (background dark)) (:foreground "DeepSkyBlue4"))
+    (((class color) (background light)) (:foreground outline-7))
+    (t nil)))
+ '(org-level-8
+   ((((class color) (background dark)) (:foreground "chartreuse4"))
+    (t ())))
+)
+
+
 (provide 'init-org)
 ;;; init-org.el ends here
