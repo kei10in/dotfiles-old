@@ -21,13 +21,30 @@
 ;;; Commentary:
 
 ;; (install-elisp-from-emacswiki "igrep.el")
+;; (install-elisp-from-emacswiki "grep-a-lot.el")
+;; (install-elisp-from-emacswiki "grep-edit.el")
 
 ;;; Code:
 
 
 (require 'igrep)
+(require 'grep-a-lot)
+(require 'grep-edit)
+
+(grep-a-lot-setup-keys)
+
+;; for igrep users
+(grep-a-lot-advise igrep)
 
 (setq igrep-options "--exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg -EIr")
+
+;;
+(custom-set-faces
+ '(grep-edit-face
+   ((((class color) (background dark)) (:background "#442222"))
+    (((class color) (background light)) (:background "#442222"))
+    (t nil)))
+)
 
 (provide 'init-grep)
 ;;; init-grep.el ends here
