@@ -32,6 +32,8 @@
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WAITING(w)" "DOING(d)" "|" "DONE(x)" "CANCEL(c)")))
 
+(setq org-log-done t)
+
 ;; Org Mode Faces
 (custom-set-faces
  '(org-level-1
