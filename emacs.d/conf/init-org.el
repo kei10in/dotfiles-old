@@ -30,16 +30,15 @@
 
 (setq org-use-fast-todo-selection t)
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "WAITING(w)" "DOING(d)" "|" "DONE(x)" "CANCEL(c)")))
+      '("TODO(t)" "WAITING(w)" "TODAY(y)" "DOING(d)" "|" "DONE(x)" "CANCEL(c)"))
+(setq org-agenda-files '("~/Documents/Work/OrgNote/index.org"))
 
 (setq org-log-done t)
 
-
 ;; Org Mode Keybinds
-(define-key org-mode-map (kbd "C-c <") 'rst-shift-region-left)
-(define-key org-mode-map (kbd "C-c >") 'rst-shift-region-right)
-
-
+(define-key org-mode-map (kbd "<tab>") 'org-metaright)
+(define-key org-mode-map (kbd "<S-tab>") 'org-metaleft)
+(define-key org-mode-map (kbd "C-c a") 'org-agenda)
 
 ;; Org Mode Faces
 (custom-set-faces
