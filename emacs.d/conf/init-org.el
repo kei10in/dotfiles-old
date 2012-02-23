@@ -34,39 +34,46 @@
 
 (setq org-log-done t)
 
+
+;; Org Mode Keybinds
+(define-key org-mode-map (kbd "C-c <") 'rst-shift-region-left)
+(define-key org-mode-map (kbd "C-c >") 'rst-shift-region-right)
+
+
+
 ;; Org Mode Faces
 (custom-set-faces
  '(org-level-1
-   ((((class color) (background dark)) (:foreground "LightSkyBlue"))
+   ((((class color) (background dark)) (:foreground "#A0FFFF"))
     (((class color) (background light)) (:inherit outline-1))
     (t nil)))
  '(org-level-2
-   ((((class color) (background dark)) (:foreground "LightGoldenrod"))
+   ((((class color) (background dark)) (:foreground "#A0A0FF"))
     (((class color) (background light)) (:inherit outline-2))
     (t nil)))
  '(org-level-3
-   ((((class color) (background dark)) (:foreground "orchid"))
+   ((((class color) (background dark)) (:foreground "#FFA0FF"))
     (((class color) (background light)) (:inherit outline-3))
     (t nil)))
  '(org-level-4
-   ((((class color) (background dark)) (:foreground "RoyalBlue"))
+   ((((class color) (background dark)) (:foreground "#FFA0A0"))
     (((class color) (background light)) (:inherit outline-4))
     (t nil)))
  '(org-level-5
-   ((((class color) (background dark)) (:foreground "OliveDrab"))
+   ((((class color) (background dark)) (:foreground "#FFFFA0"))
     (((class color) (background light)) (:inherit outline-5))
     (t nil)))
  '(org-level-6
-   ((((class color) (background dark)) (:foreground "brown"))
+   ((((class color) (background dark)) (:foreground "#C0FFC0"))
     (((class color) (background light)) (:foreground outline-6))
     (t nil)))
  '(org-level-7
-   ((((class color) (background dark)) (:foreground "DeepSkyBlue4"))
+   ((((class color) (background dark)) (:foreground "#C0C0FF"))
     (((class color) (background light)) (:foreground outline-7))
     (t nil)))
  '(org-level-8
-   ((((class color) (background dark)) (:foreground "chartreuse4"))
-    (t ())))
+   ((((class color) (background dark)) (:foreground "#FFC0C0"))
+    (t nil)))
 )
 
 

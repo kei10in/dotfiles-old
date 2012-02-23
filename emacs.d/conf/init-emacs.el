@@ -139,7 +139,7 @@
                  )))
    ;; for Cocoa, X, NTEmacs
    '(default ((t
-               (:background "black" :foreground "#55FF55")
+               (:background "black" :foreground "#80FF80")
                ;; (:background "white" :foreground "black")
                )))
    ))
@@ -148,7 +148,7 @@
 (custom-set-faces
  '(cursor ((((class color)
              (background dark))
-            (:background "#00AA00"))
+            (:background "#00bb00"))
            (((class color)
              (background light))
             (:background "#999999"))
