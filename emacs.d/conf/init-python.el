@@ -29,15 +29,24 @@
 
 
 ;;;
-;;; https://launchpad.net/python-mode
+;;; * An Emacs mode for editing Python code (python-mode.el)
+;;;   https://launchpad.net/python-mode
+;;;
+;;; * Simple Python Completion Source for Auto-Complete (ac-python.el)
+;;;   http://chrispoole.com/project/ac-python/
 ;;;
 
-(require 'python-mode)
+
+(require 'python)
+
+;; (require 'python-mode)
 ;; (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
 ;; (setq interpreter-mode-alist (cons '("python" . python-mode)
 ;; 								   interpreter-mode-alist))
 ;; (autoload 'python-mode "python-mode" "Python editing mode." t)
 
+(require 'init-auto-complete)
+(require 'ac-python)
 
 (provide 'init-python)
 ;;; init-python.el ends here
