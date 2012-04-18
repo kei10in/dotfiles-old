@@ -20,7 +20,7 @@
 
 ;;; Commentary:
 
-;; (auto-install-bath "anything")
+;; (auto-install-batch "anything")
 
 ;;; Code:
 
