@@ -34,7 +34,7 @@
 (setq user-mail-address "kei10in@gmail.com")
 
 (defvar private-lib-dir "~/.emacs.d/")
-(defvar private-site-lisp-dir (concat private-lib-dir "./site-lisp/"))
+(defvar private-lisp-dir (concat private-lib-dir "./lisp/"))
 (defvar private-conf-dir (concat private-lib-dir "./conf/"))
 
 (provide 'init-user-profile)

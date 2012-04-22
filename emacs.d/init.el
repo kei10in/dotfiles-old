@@ -29,6 +29,7 @@
 ;;;-----------------------------------------------------------------
 (setq load-path
       (append (list
+               (expand-file-name "~/.emacs.d/lisp/")
                (expand-file-name "~/.emacs.d/site-lisp/")
                (expand-file-name "~/.emacs.d/conf/")
                )

@@ -31,7 +31,7 @@
 ;;;   Ruby
 ;;;-----------------------;
 (defvar ruby-mode-dir
-  (concat private-site-lisp-dir "./ruby"))
+  (concat private-lisp-dir "./ruby"))
 (add-to-list 'load-path
 			 (expand-file-name ruby-mode-dir))
 

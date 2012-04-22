@@ -37,7 +37,7 @@
 ;;;----------------------------------------------------------------------;
 ;; add auto complete directory to load-path 
 (defvar auto-complete-mode-dir
-  (concat private-site-lisp-dir "./auto-complete/"))
+  (concat private-lisp-dir "./auto-complete/"))
 
 (add-to-list 'load-path
 			 (expand-file-name auto-complete-mode-dir))

@@ -33,7 +33,7 @@
 
 ;;; Scala-mode
 (defvar scala-mode-dir
-  (concat private-site-lisp-dir "./scala"))
+  (concat private-lisp-dir "./scala"))
 (add-to-list 'load-path
 			 (expand-file-name scala-mode-dir))
 
@@ -42,7 +42,7 @@
 
 ;;; ENSIME
 (defvar ensime-dir
-  (concat private-site-lisp-dir "./ensime/elisp/"))
+  (concat private-lisp-dir "./ensime/elisp/"))
 (add-to-list 'load-path
 			 (expand-file-name ensime-dir))
 

@@ -27,7 +27,7 @@
 (require 'init-user-profile)
 
 (defvar anything-mode-dir
-  (concat private-site-lisp-dir "anything/"))
+  (concat private-lisp-dir "anything/"))
 
 (add-to-list 'load-path
              (expand-file-name anything-mode-dir))

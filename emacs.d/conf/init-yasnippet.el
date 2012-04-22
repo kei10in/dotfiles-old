@@ -29,7 +29,7 @@
 
 (require 'init-user-profile)
 (defvar yasnippet-mode-dir
-  (concat private-site-lisp-dir "yasnippet/"))
+  (concat private-lisp-dir "yasnippet/"))
 (add-to-list 'load-path
 		 (expand-file-name yasnippet-mode-dir))
 

@@ -28,7 +28,7 @@
 (require 'init-user-profile)
 
 (defvar groovy-mode-dir
-  (concat private-site-lisp-dir "groovy/"))
+  (concat private-lisp-dir "groovy/"))
 (add-to-list 'load-path
              (expand-file-name groovy-mode-dir))
 
