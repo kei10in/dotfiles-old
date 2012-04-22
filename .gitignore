@@ -10,3 +10,6 @@ auto-save-list
 zsh/aliases.hosts
 elpa/archive-contents
 elpa/builtin-packages
+
+# site mechanism
+zsh/site-*
