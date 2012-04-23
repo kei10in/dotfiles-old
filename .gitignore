@@ -11,5 +11,12 @@ zsh/aliases.hosts
 elpa/archive-contents
 elpa/builtin-packages
 
+# ipython
+ipython/profile_*/db
+ipython/profile_*/history.sqlite
+ipython/profile_*/log
+ipython/profile_*/pid
+ipython/profile_*/security
+
 # site mechanism
 zsh/site-*
