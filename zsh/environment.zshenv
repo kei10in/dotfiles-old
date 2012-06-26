@@ -27,7 +27,6 @@ export BOOST_ROOT=/opt/local/include
 
 
 ## Grep
-export GREP_OPTIONS="-EIr"
 # Exclude vcs directories
 if grep --help | grep -q -- --exclude-dir; then
     GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
@@ -38,6 +37,7 @@ fi
 if grep --help | grep -q -- --color; then
     GREP_OPTIONS="--color $GREP_OPTIONS"
 fi
+export GREP_OPTIONS="-EIr"
 
 ## less
 export LESSCHARSET=utf-8
@@ -65,5 +65,6 @@ export PYTHONSTARTUP=~/.pythonstartup.py
 # virtualenv
 export WORKON_HOME=${HOME}/.virtualenvs
 if VIRTUALENVWRAPPER=`which virtualenvwrapper.sh` ; then
+    export VIRTUALENVWRAPPER_PYTHON=python3.2
 	source ${VIRTUALENVWRAPPER}
 fi
