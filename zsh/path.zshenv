@@ -40,10 +40,10 @@ if [ -d /opt/local/Library/Frameworks/Python.framework/Versions/3.2/bin ]; then
     path=( ${path} /opt/local/Library/Frameworks/Python.framework/Versions/3.2/bin )
 fi
 
-# # Setting PATH for Python 3.2
-# if [ -d /Library/Frameworks/Python.framework/Versions/3.2/bin ]; then
-#     path=( ${path} /Library/Frameworks/Python.framework/Versions/3.2/bin )
-# fi
+# Setting PATH for Python 3.2
+if [ -d /Library/Frameworks/Python.framework/Versions/3.2/bin ]; then
+    path=( ${path} /Library/Frameworks/Python.framework/Versions/3.2/bin )
+fi
 
 # Platform oriented path
 case "${OSTYPE}" in
