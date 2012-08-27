@@ -14,17 +14,18 @@ export EDITOR="emacs"
 export MANPATH=/opt/local/share/man:${MANPATH}
 
 ## GCC
-export CFLAGS=-I/opt/local/include
-export CPPFLAGS=${CFLAGS}
-export LDFLAGS=-L/opt/local/lib
-
-export C_INCLUDE_PATH=/opt/loca/include
-export CPLUS_INCLUDE_PATH=/opt/local/include
-export LIBRARY_PATH=/opt/local/lib
-export LD_LIBRARY_PATH=/opt/local/lib
-export DYLD_FALLBACK_LIBRARY_PATH=/opt/local/lib
-export BOOST_ROOT=/opt/local/include
-
+if where port >& /dev/null; then
+    export CFLAGS=-I/opt/local/include
+    export CPPFLAGS=${CFLAGS}
+    export LDFLAGS=-L/opt/local/lib
+    
+    export C_INCLUDE_PATH=/opt/loca/include
+    export CPLUS_INCLUDE_PATH=/opt/local/include
+    export LIBRARY_PATH=/opt/local/lib
+    export LD_LIBRARY_PATH=/opt/local/lib
+    export DYLD_FALLBACK_LIBRARY_PATH=/opt/local/lib
+    export BOOST_ROOT=/opt/local/include
+fi
 
 ## Grep
 # Exclude vcs directories
