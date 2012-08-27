@@ -32,6 +32,8 @@
  '(cursor ((t (:background "#999999"))))
  '(highlight ((t (:background "LightSteelBlue1"))))
  '(hl-line ((t (:background "LightSteelBlue1"))))
+ '(flymake-errline ((t (:background "LightPink"))))
+ '(flymake-warnline ((t (:background "LightBlue2"))))
  ;; anything mode face
  '(anything-ff-directory ((t (:foreground "Blue1"))))
  '(anything-ff-file ((t (:foreground "black"))))

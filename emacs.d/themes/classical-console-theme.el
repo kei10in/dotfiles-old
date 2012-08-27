@@ -33,6 +33,8 @@
  '(cursor ((t (:background "#00bb00"))))
  '(highlight ((t (:background "#222244"))))
  '(hl-line ((t (:background "#222244"))))
+ '(flymake-errline ((t (:background "brown4"))))
+ '(flymake-warnline ((t (:background "MidnightBlue"))))
  ;; Org Mode face
  '(org-level-1 ((t (:foreground "#A0FFFF"))))
  '(org-level-2 ((t (:foreground "#A0A0FF"))))
