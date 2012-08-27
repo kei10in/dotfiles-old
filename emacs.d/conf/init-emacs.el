@@ -126,46 +126,6 @@
 ;;;------------------------------------;
 (setq-default line-spacing 1)
 
-;;;------------------------------------;
-;;; Emacs Face
-;;;------------------------------------;
-;;; default face
-(custom-set-faces
- (if run-no-window
-     ;; for console emacs
-     '(default ((t
-                 (:background "black")
-                 ;; (:background "white" :foreground "black")
-                 )))
-   ;; for Cocoa, X, NTEmacs
-   '(default ((t
-               (:background "black" :foreground "#80FF80")
-               ;; (:background "white" :foreground "black")
-               )))
-   ))
-
-;;; cursor face
-(custom-set-faces
- '(cursor ((((class color)
-             (background dark))
-            (:background "#00bb00"))
-           (((class color)
-             (background light))
-            (:background "#999999"))
-           (t ())
-           )))
-
-;;; highlight face
-(custom-set-faces 
- '(highlight
-   ((((class color)
-      (background dark))
-     (:background "#222244"))
-    (((class color)
-      (background light))
-     (:background "LightSteelBlue1")))))
-
-
 ;;; カーソルの点滅
 (blink-cursor-mode t)
 

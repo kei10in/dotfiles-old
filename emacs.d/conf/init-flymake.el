@@ -26,6 +26,7 @@
 
 ;;; Code:
 
+(require 'detectenv)
 
 ;;;-----------------------;
 ;;; flymake
@@ -137,23 +138,6 @@
     ;;   (push '("\\.hh\\'" flymake-cc-init) flymake-allowed-file-name-masks)
     ;;   (push '("\\.hpp\\'" flymake-cc-init) flymake-allowed-file-name-masks)))
 
-
-;; Color Configurations for flymake
-(custom-set-faces
- '(flymake-errline
-   ((((class color)
-      (background dark))
-     (:background "brown4"))
-	(((class color)
-	  (background light))
-	 (:background "LightPink"))))
- '(flymake-warnline
-   ((((class color)
-      (background dark))
-     (:background "MidnightBlue"))
-	(((class color)
-	  (background light))
-	 (:background "LightBlue2")))))
 
 (defun flymake-display-err-minibuf () 
   "Displays the error/warning for the current line in the minibuffer"

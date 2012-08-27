@@ -80,14 +80,6 @@
 ;;; nil: 区別する
 (setq ac-ignore-case nil)
 
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(ac-completion-face ((t (:background "blue" :foreground "*" :underline t)))))
-
-
 (require 'ac-company)
 (ac-company-define-source ac-source-company-xcode company-xcode)
 

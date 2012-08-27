@@ -50,53 +50,6 @@
 (define-key rst-mode-map (kbd "C-c <") 'rst-shift-region-left)
 (define-key rst-mode-map (kbd "C-c >") 'rst-shift-region-right)
 
-;; Face Configuration
-(custom-set-faces
- '(rst-level-1-face
-   ((((class color) (background dark))
-     (:foreground "LightSkyBlue" :background "gray15"))
-    (((class color) (background light))
-     (:foreground "Blue1" :background "gray85"))
-    (t ())
-    ))
- '(rst-level-2-face
-   ((((class color) (background dark))
-     (:foreground "LightGoldenrod" :background "gray22"))
-    (((class color) (background light))
-     (:foreground "DarkGoldenrod" :background "gray78"))
-    (t ())
-    ))
- '(rst-level-3-face
-   ((((class color) (background dark))
-     (:foreground "Cyan1" :background "gray29"))
-    (((class color) (background light))
-     (:foreground "Purple" :background "gray71"))
-    (t ())
-    ))
- '(rst-level-4-face
-   ((((class color) (background dark))
-     (:foreground "chocolate1" :background "gray36"))
-    (((class color) (background light))
-     (:foreground "Firebrick" :background "gray64"))
-    (t ())
-    ))
- '(rst-level-5-face
-   ((((class color) (background dark))
-     (:foreground "PaleGreen" :background "gray43"))
-    (((class color) (background light))
-     (:foreground "ForestGreen" :background "gray57"))
-    (t ())
-    ))
- '(rst-level-6-face
-   ((((class color) (background dark))
-     (:foreground "Aquamarine" :background "gray50"))
-    (((class color)
-      (background light))
-     (:foreground "CadetBlue" :background "gray50"))
-    (t ())
-    ))
- )
-
 
 (provide 'init-rst)
 ;;; init-rst.el ends here

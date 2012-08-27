@@ -26,27 +26,8 @@
 
 ;;; Code:
 
-
-;;;--------------------------------------------------------------------;
-;;; line highlight
-;;; The possible attributes are `:family', `:width', `:height',
-;;; `:weight', `:slant', `:underline', `:overline', `:strike-through',
-;;; `:box', `:foreground', `:background', `:stipple', `:inverse-video',
-;;; and `:inherit'.
-;;;--------------------------------------------------------------------;
-
-
 (require 'hl-line)
 (global-hl-line-mode)
-(custom-set-faces 
- '(hl-line
-   ((((class color)
-      (background dark))
-     (:background "#222244"))
-    (((class color)
-      (background light))
-     (:background "LightSteelBlue1")))))
-
 
 (provide 'init-hl-line)
 ;;; init-hl-line.el ends here

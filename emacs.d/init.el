@@ -35,6 +35,8 @@
                )
               load-path))
 
+(setq custom-theme-directory (expand-file-name "~/.emacs.d/themes/"))
+
 ;;;-----------------------------------------------------------------
 ;;; Load every single settings
 ;;;-----------------------------------------------------------------
@@ -105,7 +107,7 @@
 ;; Objective-C
 (require 'init-objc)
 ;; C#
-(require 'init-csharp)
+; (require 'init-csharp)
 ;; Python
 (require 'init-python)
 ;; ;; Common Lisp
@@ -154,5 +156,7 @@
 (require 'init-org)
 ;; info Mode
 (require 'init-info)
+
+(load-theme 'classical-console t)
 
 ;;; init.el ends here
