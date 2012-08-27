@@ -60,6 +60,7 @@
 (setq mac-allow-anti-aliasing t)
 
 ;;; フォントの設定
+(require 'init-fontset)
 (create-monaco-hirakaku)
 (add-to-list 'default-frame-alist '(font . "fontset-MonacoHiraKaku"))
 
