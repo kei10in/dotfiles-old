@@ -28,17 +28,7 @@
 
 
 (require 'linum-ex)
-;;; 最低幅を設定したうえで，常に右寄せで表示させる
-(setq linum-format
-      '(lambda (line)
-        (let ((fmt
-               (let ((min-w 4)
-                     (w (length (number-to-string
-                                 (count-lines (point-min) (point-max))))))
-                 (concat "%"
-                         (number-to-string (if (< min-w w) w min-w))
-                         "d"))))
-          (propertize (format fmt line) 'face 'linum))))
+(setq linum-format "%4d")
 ;; これを行うと query-replace が正しく動作しない．
 ;; (setq linum-eager nil)
 ;; (global-linum-mode)
