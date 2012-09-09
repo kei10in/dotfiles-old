@@ -40,6 +40,7 @@
 
 (defvar installing-package-list
   '(
+    undo-tree
     ))
 
 (loop for x in installing-package-list
