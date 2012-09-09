@@ -56,7 +56,7 @@
 (require 'init-elpa)
 (require 'init-goto-chg)
 (require 'init-undo)
-(require 'init-auto-async-byte-compile)
+;; (require 'init-auto-async-byte-compile)
 
 ;; Configurate X Window System Emacs
 (when
