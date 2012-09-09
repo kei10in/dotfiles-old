@@ -1,11 +1,11 @@
 ;;; -*- mode: emacs-lisp; coding: utf-8 -*-
 
-;;; init-auto-install.el --- auto-install command
+;;; init-package.el --- package management configuraitons
 
 ;; Copyright (C) 2010  Keisuke Ijuin
 
 ;; Author: Keisuke Ijuin <kei10in@gmail.com>
-;; Keywords: emacs.el auto-install.el
+;; Keywords: elisp tools
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -22,11 +22,21 @@
 
 ;;; Commentary:
 
+;; Auto Install
 ;; http://www.emacswiki.org/AutoInstall
 ;; (install-elisp-from-emacswiki "auto-install.el")
 
 ;;; Code:
 
+
+;;; emacs default package system
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
+
+;;; auto-install
 (require 'auto-install)
 (setq auto-install-directory "~/.emacs.d/site-lisp/")
 (add-to-list 'load-path auto-install-directory)
@@ -37,5 +47,5 @@
 ;; compatible install-elisp.el
 (auto-install-compatibility-setup)
 
-(provide 'init-auto-install)
-;;; init-auto-install.el ends here
+(provide 'init-package)
+;;; init-package.el ends here
