@@ -45,6 +45,7 @@
 (require 'init-user-profile)
 ;;; Global Settings
 (require 'init-emacs)
+(require 'init-package)
 (require 'init-highlight)
 (require 'init-hl-line)
 (require 'init-linum)
@@ -52,7 +53,6 @@
 (require 'init-grep)
 (require 'init-wdired)
 (require 'init-term)
-(require 'init-package)
 (require 'init-goto-chg)
 (require 'init-undo)
 ;; (require 'init-auto-async-byte-compile)

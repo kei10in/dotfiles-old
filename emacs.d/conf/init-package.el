@@ -36,6 +36,17 @@
 (package-initialize)
 
 
+(require 'cl)
+
+(defvar installing-package-list
+  '(
+    ))
+
+(loop for x in installing-package-list
+      when (not (package-installed-p x))
+      do (package-install x))
+
+  
 ;;; auto-install
 (require 'auto-install)
 (setq auto-install-directory "~/.emacs.d/site-lisp/")
