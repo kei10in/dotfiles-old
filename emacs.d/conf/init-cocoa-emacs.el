@@ -46,14 +46,14 @@
 (setq default-input-method "MacOSX")
 
 ;; frame　の大きさ
-(setq default-frame-alist
-      (append
-       (list
-        '(height . 55)
-        '(width . 86)
-        )
-       default-frame-alist)
-      )
+;; (setq default-frame-alist
+;;       (append
+;;        (list
+;;         '(height . 55)
+;;         '(width . 86)
+;;         )
+;;        default-frame-alist)
+;;       )
 
 ;; Use Quartz 2D anti-aliasing.
 ;; デフォルトは Non-nil
