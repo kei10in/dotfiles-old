@@ -33,7 +33,6 @@
              (expand-file-name groovy-mode-dir))
 
 (require 'groovy-mode)
-(require 'groovy-electric)
 
 (add-to-list 'auto-mode-alist '("\.groovy$" . groovy-mode))
 (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))

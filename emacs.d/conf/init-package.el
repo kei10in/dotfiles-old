@@ -53,6 +53,9 @@
     python-mode
     php-mode
     js2-mode
+    groovy-mode
+    grails-mode
+    inf-groovy
     doc-mode
     twittering-mode
     multi-term
