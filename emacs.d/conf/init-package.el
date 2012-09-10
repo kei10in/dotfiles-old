@@ -50,6 +50,7 @@
     yasnippet
     scala-mode
     ruby-mode
+    php-mode
     ))
 
 (loop for x in installing-package-list
