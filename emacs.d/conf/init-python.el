@@ -45,8 +45,5 @@
 ;; 								   interpreter-mode-alist))
 ;; (autoload 'python-mode "python-mode" "Python editing mode." t)
 
-(require 'init-auto-complete)
-(require 'ac-python)
-
 (provide 'init-python)
 ;;; init-python.el ends here

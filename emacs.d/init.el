@@ -55,7 +55,6 @@
 (require 'init-term)
 (require 'init-goto-chg)
 (require 'init-undo)
-;; (require 'init-auto-async-byte-compile)
 
 ;; Configurate X Window System Emacs
 (when
@@ -87,11 +86,9 @@
 ;;; Development Environment
 ;;;-------------------------
 (require 'init-flymake)
-(require 'init-cedet)
 (require 'init-pos-tip)
 (require 'init-auto-complete)
 (require 'init-yasnippet)
-;; (require 'init-smartchr)
 
 ;;;==================================;
 ;;; Programing Language
