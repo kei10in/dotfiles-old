@@ -28,10 +28,6 @@
 
 
 (require 'init-user-profile)
-(defvar yasnippet-mode-dir
-  (concat private-lisp-dir "yasnippet/"))
-(add-to-list 'load-path
-		 (expand-file-name yasnippet-mode-dir))
 
 ;;-----------------------------------------------------------------
 ;; yasnippet
@@ -40,14 +36,7 @@
 ;; http://www.emacswiki.org/emacs/Yasnippet
 (require 'yasnippet-config)
 (require 'yasnippet)
-
-;;-----------------------------------------------------------------
-;; 自分用スニペットディレクトリ(リストで複数指定可)
-;; http://d.hatena.ne.jp/antipop/20080315/1205604544
-;; svn co http://svn.coderepos.org/share/config/yasnippet/common yasnippet-snippets
-;; でcheck out
-;;-----------------------------------------------------------------
-;(defvar my-snippet-directories (list (expand-file-name "~/.emacs.d/yasnippet-snippets")))
+(yas-global-mode 1)
 
 ;;-----------------------------------------------------------------
 ;; snippetの定義方法
@@ -87,14 +76,6 @@
              (when flymake-is-active-flag
                (flymake-mode-on)
                (setq flymake-is-active-flag nil))))
-
-
-;;; initialize yasnippet:
-(yas/initialize)
-;; yasnippetのsnippetを置いてあるディレクトリ
-(yas/load-directory 
- (expand-file-name (concat yasnippet-mode-dir "snippets/")))
-
 
 (require 'init-autoinsert)
 

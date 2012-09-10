@@ -46,6 +46,7 @@
     auto-complete
     goto-chg
     google-c-style
+    yasnippet
     ))
 
 (loop for x in installing-package-list
