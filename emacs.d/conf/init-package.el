@@ -48,6 +48,7 @@
     google-c-style
     yasnippet
     scala-mode
+    ruby-mode
     ))
 
 (loop for x in installing-package-list
