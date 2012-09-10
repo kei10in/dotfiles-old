@@ -46,6 +46,7 @@
     auto-complete
     goto-chg
     google-c-style
+    info+
     yasnippet
     scala-mode
     ruby-mode
