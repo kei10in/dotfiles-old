@@ -80,9 +80,5 @@
 ;;; nil: 区別する
 (setq ac-ignore-case nil)
 
-(require 'ac-company)
-(ac-company-define-source ac-source-company-xcode company-xcode)
-
-
 (provide 'init-auto-complete)
 ;;; init-auto-complete.el ends here

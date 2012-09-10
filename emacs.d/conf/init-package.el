@@ -43,6 +43,7 @@
     undo-tree
     igrep
     grep-a-lot
+    auto-complete
     ))
 
 (loop for x in installing-package-list
