@@ -41,6 +41,8 @@
 (defvar installing-package-list
   '(
     undo-tree
+    igrep
+    grep-a-lot
     ))
 
 (loop for x in installing-package-list
