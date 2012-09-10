@@ -47,6 +47,7 @@
     goto-chg
     google-c-style
     yasnippet
+    scala-mode
     ))
 
 (loop for x in installing-package-list
