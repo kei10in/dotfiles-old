@@ -50,6 +50,7 @@
     yasnippet
     scala-mode
     ruby-mode
+    python-mode
     php-mode
     js2-mode
     doc-mode
