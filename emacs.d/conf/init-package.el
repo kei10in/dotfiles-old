@@ -47,6 +47,7 @@
     goto-chg
     google-c-style
     info+
+    pos-tip
     yasnippet
     scala-mode
     ruby-mode
