@@ -53,6 +53,7 @@
     php-mode
     js2-mode
     twittering-mode
+    multi-term
     ))
 
 (loop for x in installing-package-list
