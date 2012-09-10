@@ -51,6 +51,7 @@
     scala-mode
     ruby-mode
     php-mode
+    js2-mode
     twittering-mode
     ))
 
