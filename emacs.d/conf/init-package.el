@@ -44,6 +44,7 @@
     igrep
     grep-a-lot
     auto-complete
+    goto-chg
     ))
 
 (loop for x in installing-package-list
