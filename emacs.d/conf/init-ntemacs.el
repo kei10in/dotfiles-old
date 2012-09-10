@@ -36,6 +36,17 @@
   (set-clipboard-coding-system            'utf-16le)
   (setq file-name-coding-system 'japanese-shift-jis))
 
+;;; Input method
+;; use standard ime
+(setq default-input-method "W32-IME")
+;; IME status on mode line
+(setq-default w32-ime-mode-line-state-indicator "[Aa]")
+(setq w32-ime-mode-line-state-indicator-list '("[Aa]" "[あ]" "[Aa]"))
+;; take over ime status on moving buffer
+(setq w32-ime-buffer-switch-p nil)
+
+(w32-ime-initialize)
+
 
 ;; frame の大きさ
 (setq default-frame-alist
