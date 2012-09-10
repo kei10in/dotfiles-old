@@ -51,6 +51,7 @@
     scala-mode
     ruby-mode
     php-mode
+    twittering-mode
     ))
 
 (loop for x in installing-package-list
