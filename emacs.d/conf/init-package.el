@@ -52,6 +52,7 @@
     ruby-mode
     php-mode
     js2-mode
+    doc-mode
     twittering-mode
     multi-term
     ))
