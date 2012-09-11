@@ -62,11 +62,17 @@
     multi-term
     ))
 
-(loop for x in installing-package-list
-      when (not (package-installed-p x))
-      do (package-install x))
 
-  
+(let ((not-installed (loop for x in installing-package-list
+                            when (not (package-installed-p x))
+                            collect x)))
+  (when not-installed
+    (progn
+      (package-refresh-contents)
+      (dolist (pkg not-installed)
+        (package-install pkg)))))
+
+
 ;;; auto-install
 (require 'auto-install)
 (setq auto-install-directory "~/.emacs.d/site-lisp/")
