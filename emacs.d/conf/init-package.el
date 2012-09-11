@@ -67,10 +67,9 @@
                             when (not (package-installed-p x))
                             collect x)))
   (when not-installed
-    (progn
-      (package-refresh-contents)
-      (dolist (pkg not-installed)
-        (package-install pkg)))))
+    (package-refresh-contents)
+    (dolist (pkg not-installed)
+        (package-install pkg))))
 
 
 ;;; auto-install
