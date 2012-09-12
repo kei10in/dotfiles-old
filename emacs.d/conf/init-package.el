@@ -44,6 +44,7 @@
     igrep
     grep-a-lot
     auto-complete
+    auto-complete-clang
     goto-chg
     google-c-style
     info+

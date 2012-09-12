@@ -43,6 +43,7 @@
 			 (expand-file-name auto-complete-mode-dir))
 
 (require 'auto-complete-config)
+(require 'auto-complete-clang)
 (global-auto-complete-mode t)
 
 (add-to-list 'ac-dictionary-directories
@@ -79,6 +80,20 @@
 ;;; smart: 大文字が含まれている場合，区別する．
 ;;; nil: 区別する
 (setq ac-ignore-case nil)
+
+
+(setq-default ac-sources
+              '(ac-source-abbrev
+                ac-source-dictionary
+                ac-source-words-in-same-mode-buffers))
+
+(defun my-ac-common-setup ())
+(defun my-ac-cc-mode-setup ()
+  (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
+
+(add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
+(add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
+(add-hook 'auto-complete-mode-hook 'my-ac-common-setup)
 
 (provide 'init-auto-complete)
 ;;; init-auto-complete.el ends here
