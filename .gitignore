@@ -1,14 +1,16 @@
 syntax: glob
 *~
-*.elc
 *.pyc
 .DS_Store
 Thumbs.db
 abbrev_defs
+zsh/aliases.hosts
+
+# emacs
+*.elc
+emacs.d/elpa/archives
 ac-comphist.dat
 auto-save-list
-zsh/aliases.hosts
-emacs.d/elpa/
 
 # ipython
 ipython/profile_*/db
