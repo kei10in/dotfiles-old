@@ -45,6 +45,11 @@ if [ -d /Library/Frameworks/Python.framework/Versions/3.2/bin ]; then
     path=( ${path} /Library/Frameworks/Python.framework/Versions/3.2/bin )
 fi
 
+# Setting PATH for Python 3.3
+if [ -d /Library/Frameworks/Python.framework/Versions/3.3/bin ]; then
+    path=( ${path} /Library/Frameworks/Python.framework/Versions/3.3/bin )
+fi
+
 # Platform oriented path
 case "${OSTYPE}" in
     linux*)
