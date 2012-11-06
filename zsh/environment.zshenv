@@ -26,6 +26,13 @@ if where port >& /dev/null; then
     export DYLD_FALLBACK_LIBRARY_PATH=/opt/local/lib
     export BOOST_ROOT=/opt/local/include
 fi
+if where brew >& /dev/null; then
+    if [ -d /usr/local/opt/readline ]; then
+        export CFLAGS="${CFLAGS} -I/usr/local/opt/readline/include"
+        export CPPFLAGS=${CFLAGS}
+        export LDFLAGS="${LDFLAGS} -L/usr/local/opt/readline/lib"
+    fi
+fi    
 
 ## Grep
 # Exclude vcs directories
