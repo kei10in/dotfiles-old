@@ -70,7 +70,7 @@ class InstallCommandGenerator(object):
         for src, dst in self._app.file_symlinks:
             yield self._create_symlink_command(src, dst)
 
-    def _create_symlink_command(self, src, dst, target_is_directory=True):
+    def _create_symlink_command(self, src, dst, target_is_directory=False):
         source = os.path.join(self._env.repositorydir, src)
         destination = dst
         return SymlinkCommand(source, destination, target_is_directory)
@@ -102,8 +102,8 @@ class SymlinkCommand(object):
         print(msg.format(self.src, self.dst), file=sys.stderr)
 
         try:
-            source = os.path.expanduser(self.src)
-            destination = os.path.expanduser(self.dst)
+            source = os.path.expanduser(self.src.replace('/', os.path.sep))
+            destination = os.path.expanduser(self.dst.replace('/', os.path.sep))
             symlink(source, destination, self.target_is_directory)
         except OSError as e:
             print('{}: {}'.format(self.dst, e.strerror), file=sys.stderr)
