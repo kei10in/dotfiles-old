@@ -29,11 +29,21 @@
 
 (custom-theme-set-faces
  'lighter
+ '(default ((t (:background "white" :foreground "black"))))
  '(cursor ((t (:background "#999999"))))
  '(highlight ((t (:background "LightSteelBlue1"))))
  '(hl-line ((t (:background "LightSteelBlue1"))))
  '(flymake-errline ((t (:background "LightPink"))))
  '(flymake-warnline ((t (:background "LightBlue2"))))
+ ;; Org Mode face
+ '(org-level-1 ((t (:foreground "Blue1"))))
+ '(org-level-2 ((t (:foreground "DarkGoldenrod"))))
+ '(org-level-3 ((t (:foreground "Purple"))))
+ '(org-level-4 ((t (:foreground "Firebrick"))))
+ '(org-level-5 ((t (:foreground "ForestGreen"))))
+ '(org-level-6 ((t (:foreground "CadetBlue"))))
+ '(org-level-7 ((t (:foreground "Orchid"))))
+ '(org-level-8 ((t (:foreground "RosyBrown"))))
  ;; anything mode face
  '(anything-ff-directory ((t (:foreground "Blue1"))))
  '(anything-ff-file ((t (:foreground "black"))))
