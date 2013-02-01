@@ -21,3 +21,7 @@ ipython/profile_*/security
 
 # site mechanism
 zsh/site-*
+
+# sbt
+sbt/boot
+sbt/target
