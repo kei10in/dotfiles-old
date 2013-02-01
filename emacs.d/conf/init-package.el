@@ -50,7 +50,6 @@
     info+
     pos-tip
     yasnippet
-    scala-mode
     ruby-mode
     python-mode
     php-mode
