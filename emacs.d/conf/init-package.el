@@ -54,6 +54,7 @@
     python-mode
     php-mode
     js2-mode
+    scala-mode2
     groovy-mode
     grails-mode
     inf-groovy
