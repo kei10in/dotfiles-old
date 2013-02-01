@@ -63,6 +63,7 @@
 (require 'init-fontset)
 (create-monaco-hirakaku)
 (add-to-list 'default-frame-alist '(font . "fontset-MonacoHiraKaku"))
+(setq face-font-rescale-alist (create-monaco-hirakaku-face-font-rescale-alist))
 
 ;; swap Commmand and Option
 (setq ns-command-modifier 'meta)

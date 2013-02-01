@@ -33,22 +33,22 @@
 ;;;
 (defun create-monaco-hirakaku ()
   "Create font set, Monaco + ヒラギノ 角ゴ ProN for Cocoa Emacs."
-  (let (fontset-name (create-fontset-from-ascii-font
-                      "Monaco-12:slant=normal" nil "MonacoHiraKaku"))
+  (let ((fontset-name (create-fontset-from-ascii-font
+                      "Monaco-12:slant=normal" nil "MonacoHiraKaku")))
     (set-fontset-font fontset-name 'chinese-gb2312 
-                      (font-spec :family "Hiragino Sans GB" :size 14))
+                      (font-spec :family "Hiragino Sans GB"))
     (set-fontset-font fontset-name 'big5
-                      (font-spec :family "Hiragino Sans GB" :size 14))
+                      (font-spec :family "Hiragino Sans GB"))
     (set-fontset-font fontset-name 'korean-ksc5601
-                      (font-spec :family "PCMyungjo" :size 14))
+                      (font-spec :family "PCMyungjo"))
     (set-fontset-font fontset-name 'japanese-jisx0208
-                      (font-spec :family "Hiragino Kaku Gothic ProN W3" :size 14))
+                      (font-spec :family "Hiragino Kaku Gothic ProN W3"))
     (set-fontset-font fontset-name 'katakana-jisx0201
-                      (font-spec :family "Hiragino Kaku Gothic ProN W3" :size 14))
+                      (font-spec :family "Hiragino Kaku Gothic ProN W3"))
     (set-fontset-font fontset-name 'japanese-jisx0213-2
-                      (font-spec :family "Hiragino Kaku Gothic ProN W3" :size 14))
+                      (font-spec :family "Hiragino Kaku Gothic ProN W3"))
     (set-fontset-font fontset-name 'japanese-jisx0213.2004-1
-                      (font-spec :family "Hiragino Kaku Gothic ProN W3" :size 14))
+                      (font-spec :family "Hiragino Kaku Gothic ProN W3"))
     (set-fontset-font fontset-name 'greek-iso8859-7
                       (font-spec :family "Menlo"))
     (set-fontset-font fontset-name 'iso-8859-1 (font-spec :family "Monaco"))
@@ -57,9 +57,19 @@
     (set-fontset-font fontset-name 'iso-8859-4 (font-spec :family "Monaco"))
     (set-fontset-font fontset-name 'iso-8859-5 (font-spec :family "Monaco"))
     (set-fontset-font fontset-name 'ascii (font-spec :family "Monaco"))
+    fontset-name
     ))
 ;; 確認用
 ;; (set-frame-font "fontset-MonacoHiraKaku")
+
+(defun create-monaco-hirakaku-face-font-rescale-alist ()
+  '(("^-apple-hiragino.*" . 1.2)
+    (".*osaka-bold.*" . 1.2)
+    (".*osaka-medium.*" . 1.2)
+    (".*courier-bold-.*-mac-roman" . 1.0)
+    (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
+    (".*monaco-bold-.*-mac-roman" . 0.9)
+    ("-cdac$" . 1.3)))
 
 
 ;;;
