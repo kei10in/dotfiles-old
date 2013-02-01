@@ -55,5 +55,15 @@
     ))
 
 
+;;; ENSIME
+(defvar ensime-dir
+  (concat private-lisp-dir "./ensime/elisp/"))
+(add-to-list 'load-path
+			 (expand-file-name ensime-dir))
+
+(require 'ensime)
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
+
 (provide 'init-scala)
 ;;; init-scala.el ends here
