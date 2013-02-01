@@ -58,10 +58,6 @@
                     (font-spec :family "Monaco")
                     nil 'append)
   (set-fontset-font "fontset-MonacoHiraKaku"
-                    'iso-8859-6
-                    (font-spec :family "Geeza Pro")
-                    nil 'append)
-  (set-fontset-font "fontset-MonacoHiraKaku"
                     'iso-8859-7
                     (font-spec :family "Monaco")
                     nil 'append)
