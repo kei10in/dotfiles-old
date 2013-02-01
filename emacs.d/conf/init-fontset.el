@@ -59,7 +59,7 @@
                     nil 'append)
   (set-fontset-font "fontset-MonacoHiraKaku"
                     'iso-8859-7
-                    (font-spec :family "Monaco")
+                    (font-spec :family "Menlo")
                     nil 'append)
   (set-fontset-font "fontset-MonacoHiraKaku"
                     'japanese-jisx0208
