@@ -167,6 +167,34 @@
 (global-set-key (kbd "C-c <tab>") 'ff-find-other-file)
 (global-unset-key (kbd "C-z"))
 
+;;; global text scale mode
+(define-globalized-minor-mode
+  global-text-scale-mode
+  text-scale-mode
+  (lambda () (text-scale-mode 1)))
+(defun global-text-scale-adjust (inc) (interactive "p")
+  (if (= inc 0)
+      (progn
+       (global-text-scale-adjust (- text-scale-mode-amount))
+       (global-text-scale-mode -1))
+    (progn
+     (text-scale-set 1)
+     (kill-local-variable 'text-scale-mode-amount)
+     (setq-default text-scale-mode-amount (+ text-scale-mode-amount inc))
+     (global-text-scale-mode 1))))
+(defun global-text-scale-reset () (interactive) (global-text-scale-adjust 0))
+(defun global-text-scale-increase (inc) (interactive "p")
+  (global-text-scale-adjust inc))
+(defun global-text-scale-decrease (dec) (interactive "p")
+  (global-text-scale-increase (- dec)))
+
+(global-set-key (kbd "M-0") 'global-text-scale-reset)
+(global-set-key (kbd "M-=") 'global-text-scale-increase)
+(global-set-key (kbd "M--") 'global-text-scale-decrease)
+(global-set-key (kbd "<M-wheel-up>") 'global-text-scale-increase)
+(global-set-key (kbd "<M-wheel-down>") 'global-text-scale-decrease)
+
+
 ;; Find File
 ;; C-x C-f を find-file-at-point にする
 (require 'find-file)
