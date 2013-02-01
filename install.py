@@ -36,6 +36,15 @@ class Zsh(object):
     def file_symlinks(self):
         return (('zshenv', '~/.zshenv'), ('zshrc', '~/.zshrc'))
 
+class Sbt(object):
+    @property
+    def directory_symlinks(self):
+        return (('sbt', '~/.sbt'),)
+
+    @property
+    def file_symlinks(self):
+        return ()
+
 
 class InstallCommandGenerator(object):
     def __init__(self, env, app):
@@ -102,7 +111,7 @@ class SymlinkCommand(object):
 
 def main():
     env = Environment()
-    applications = [Emacs(), Zsh()]
+    applications = [Emacs(), Zsh(), Sbt()]
     for app in applications:
         for command in InstallCommandGenerator(env, app):
             command.execute()
