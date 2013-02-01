@@ -138,18 +138,7 @@
   "My Own C/C++ Programming Style")
 (c-add-style "my-c" my-c-style)
 
-
-(defun newline-skeleton-pair-insert-brace ()
-  (interactive)
-  (if (and (eq (char-before) ?{)
-           (or (eq last-command 'yank)
-               (eq last-command 'self-insert-command)
-               (eq last-command 'c-electric-brace)))
-      (progn
-        (newline-and-indent)
-        (save-excursion (insert "\n}") (indent-according-to-mode)))
-    (newline-and-indent)))
-
+(require 'utils)
 
 (add-hook 'c-mode-common-hook
           '(lambda ()

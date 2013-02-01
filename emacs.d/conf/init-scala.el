@@ -43,11 +43,13 @@
  '(scala-indent:indent-value-expression t)
 )
 
+(require 'utils)
+
 (add-hook
  'scala-mode-hook
  '(lambda ()
     (local-set-key (kbd "RET")
-                   'newline-and-indent)
+                   'newline-skeleton-pair-insert-brace)
     (local-set-key (kbd "<backtab>")
                    'scala-indent:indent-with-reluctant-strategy)
     ))
