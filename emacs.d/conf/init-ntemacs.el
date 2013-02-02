@@ -66,7 +66,9 @@
 ;;; フォントの設定
 (require 'init-fontset)
 (create-consolas-msgothic)
+(create-consolas-meiryo)
 (add-to-list 'default-frame-alist '(font . "fontset-ConsolasMSGothic"))
+;; (add-to-list 'default-frame-alist '(font . "fontset-ConsolasMeiryo"))
 (setq face-font-rescale-alist (create-consolas-msgothic-face-font-rescale-alist))
 
 
