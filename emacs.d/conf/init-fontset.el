@@ -78,34 +78,50 @@
 (defun create-consolas-msgothic ()
   "Create font set, Conslas + MS Gothic for NTEmacs."
   (let ((fontset-name (create-fontset-from-ascii-font
-                       "Consolas-10:weight=normal:slant=normal" nil
+                       "Consolas-10:slant=normal" nil
                        "ConsolasMSGothic")))
-    (set-fontset-font fontset-name 'chinese-gb2312
-                      (font-spec :family "SimHei" :size 14))
-    (set-fontset-font fontset-name 'big5
-                      (font-spec :family "MingLiU" :size 14))
-    (set-fontset-font fontset-name 'korean-ksc5601
-                      (font-spec :family "Gulim" :size 14))
+    (set-fontset-font fontset-name 'ascii
+                      (font-spec :family "Consolas") nil 'append)
+    (set-fontset-font fontset-name 'iso-8859-1
+                      (font-spec :family "Consolas") nil 'append)
+    (set-fontset-font fontset-name 'iso-8859-2
+                      (font-spec :family "Consolas") nil 'append)
+    (set-fontset-font fontset-name 'iso-8859-3
+                      (font-spec :family "Consolas") nil 'append)
+    (set-fontset-font fontset-name 'iso-8859-4
+                      (font-spec :family "Consolas") nil 'append)
+    (set-fontset-font fontset-name 'iso-8859-5
+                      (font-spec :family "Consolas") nil 'append)
+    (set-fontset-font fontset-name 'iso-8859-7
+                      (font-spec :family "Consolas") nil 'append)
+    (set-fontset-font fontset-name 'iso-8859-6
+                      (font-spec :family "Geeza Pro") nil 'append)
     (set-fontset-font fontset-name 'japanese-jisx0208
-                      (font-spec :family "MS Gothic" :size 14))
+                      (font-spec :family "MS Gothic") nil 'append)
     (set-fontset-font fontset-name 'katakana-jisx0201
-                      (font-spec :family "MS Gothic" :size 14))
+                      (font-spec :family "MS Gothic") nil 'append)
     (set-fontset-font fontset-name 'japanese-jisx0213-2
-                      (font-spec :family "MS Gothic" :size 14))
+                      (font-spec :family "MS Gothic") nil 'append)
     (set-fontset-font fontset-name 'japanese-jisx0213.2004-1
-                      (font-spec :family "MS Gothic" :size 14))
-    (set-fontset-font fontset-name 'iso-8859-6 (font-spec :family "Geeza Pro" :size 10))
-    (set-fontset-font fontset-name 'iso-8859-1 (font-spec :family "Consolas" :size 10))
-    (set-fontset-font fontset-name 'iso-8859-2 (font-spec :family "Consolas" :size 10))
-    (set-fontset-font fontset-name 'iso-8859-3 (font-spec :family "Consolas" :size 10))
-    (set-fontset-font fontset-name 'iso-8859-4 (font-spec :family "Consolas" :size 10))
-    (set-fontset-font fontset-name 'iso-8859-5 (font-spec :family "Consolas" :size 10))
-    (set-fontset-font fontset-name 'iso-8859-7 (font-spec :family "Consolas" :size 10))
-    (set-fontset-font fontset-name 'ascii (font-spec :family "Consolas" :size 10))
+                      (font-spec :family "MS Gothic") nil 'append)
+    (set-fontset-font fontset-name 'chinese-gb2312
+                      (font-spec :family "SimHei") nil 'append)
+    (set-fontset-font fontset-name 'big5
+                      (font-spec :family "MingLiU") nil 'append)
+    (set-fontset-font fontset-name 'korean-ksc5601
+                      (font-spec :family "Gulim") nil 'append)
     fontset-name
     ))
   ;; 確認用。確認したいときは eval-region する。
   ;; (set-frame-font "fontset-ConsolasMSGothic")
+
+(defun create-consolas-msgothic-face-font-rescale-alist ()
+  '(("SimHei" . 1.0)
+    ("MingLiU" . 1.0)
+    ("Gulim" . 1.0)
+    ("MS Gothic" . 1.4)
+    ("Courier New" . 0.8)
+    ("-cdac$" . 1.3)))
 
 
   (provide 'init-fontset)

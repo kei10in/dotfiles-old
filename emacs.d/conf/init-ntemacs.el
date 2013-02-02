@@ -64,8 +64,27 @@
 (setq w32-use-w32-font-dialog t)
 
 ;;; フォントの設定
+(require 'init-fontset)
 (create-consolas-msgothic)
 (add-to-list 'default-frame-alist '(font . "fontset-ConsolasMSGothic"))
+(setq face-font-rescale-alist (create-consolas-msgothic-face-font-rescale-alist))
+
+
+;; (defun setup-my-fontset-Meiryo ()
+;;   ;;  (setq w32-enable-synthesized-fonts t)
+;;   (create-fontset-from-ascii-font "-outline-Consolas-normal-r-normal-normal-12-*-*-*-*-*-iso8859-1" nil "myfont")
+
+;;   (set-fontset-font "fontset-myfont" 'japanese-jisx0208 '("メイリオ"   . "jisx0208-sjis"))
+;;   (set-fontset-font "fontset-myfont" 'katakana-jisx0201 '("メイリオ*"  . "jisx0201-katakana"))
+
+
+;;   ;; 等幅フォントにするためマルチバイト文字はスケーリングする
+;;   (setq face-font-rescale-alist
+;;         '((".*メイリオ.*"  . 1.2)))
+;;   (add-to-list 'default-frame-alist '(font . "fontset-myfont"))
+;;  )
+;; (setup-my-fontset-Meiryo)
+
 
 
 ;; (when (and (featurep 'dos-w32) (locate-library "cygwin-mount"))
