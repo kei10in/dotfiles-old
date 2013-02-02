@@ -148,6 +148,8 @@
 (require 'init-css)
 ;; reStructured Text
 (require 'init-rst)
+;; Markdown
+(require 'init-markdown)
 ;; Org Mode
 (require 'init-org)
 ;; info Mode
