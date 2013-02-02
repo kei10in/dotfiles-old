@@ -286,6 +286,14 @@
 (setq completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
 
+
+;;; disable kill-buffer *scratch*
+(require 'emacs-lock)
+(save-excursion
+  (set-buffer "*scratch*")
+  (emacs-lock-mode 'kill)
+)
+
 ;;-----------------------------------------------------------------
 ;; Gabage Collection
 ;;-----------------------------------------------------------------
