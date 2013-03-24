@@ -1,4 +1,4 @@
-;;; init-anything.el --- anything configurations
+;;; init-helm.el --- helm configurations
 
 ;; Copyright (C) 2011  Keisuke Ijuin
 
@@ -20,32 +20,31 @@
 
 ;;; Commentary:
 
-;; (auto-install-batch "anything")
-
 ;;; Code:
 
 (require 'init-user-profile)
 
-(defvar anything-mode-dir
-  (concat private-lisp-dir "anything/"))
 
-(add-to-list 'load-path
-             (expand-file-name anything-mode-dir))
+(require 'helm-config)
 
-(require 'anything-startup)
+(global-set-key (kbd "C-x b") 'helm-for-files)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
+(helm-mode 1)
+(add-to-list 'helm-completing-read-handlers-alist '(find-file-at-point . nil))
+(add-to-list 'helm-completing-read-handlers-alist '(dired-at-point . nil))
 
-(global-set-key (kbd "C-x b") 'anything-for-files)
+(setq helm-for-files-prefered-list
+  '(helm-c-source-ffap-line
+    helm-c-source-ffap-guesser
+    helm-c-source-buffers+
+    helm-c-source-files-in-current-dir+
+    helm-c-source-recentf
+    helm-c-source-bookmarks
+    helm-c-source-file-cache
+    helm-c-source-locate
+    ))
 
-(setq anything-for-files-prefered-list
-  '(anything-c-source-ffap-line
-    anything-c-source-ffap-guesser
-    anything-c-source-buffers+
-    anything-c-source-files-in-current-dir+
-    anything-c-source-recentf
-    anything-c-source-bookmarks
-    anything-c-source-file-cache
-    anything-c-source-locate))
-
-(provide 'init-anything)
-;;; init-anything.el ends here
+(provide 'init-helm)
+;;; init-helm.el ends here

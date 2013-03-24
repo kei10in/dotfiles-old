@@ -80,7 +80,7 @@
          (load "init-no-window")))
 
 (require 'init-twitter)
-(require 'init-anything)
+(require 'init-helm)
 
 ;;;-------------------------
 ;;; Development Environment

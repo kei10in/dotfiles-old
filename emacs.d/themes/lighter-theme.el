@@ -44,9 +44,11 @@
  '(org-level-6 ((t (:foreground "CadetBlue"))))
  '(org-level-7 ((t (:foreground "Orchid"))))
  '(org-level-8 ((t (:foreground "RosyBrown"))))
- ;; anything mode face
- '(anything-ff-directory ((t (:foreground "Blue1"))))
- '(anything-ff-file ((t (:foreground "black"))))
+ ;; helm mode face
+ '(helm-ff-directory ((t (:foreground "Blue1"))))
+ '(helm-ff-file ((t (:foreground "black"))))
+ '(helm-selection ((t (:background "LightSteelBlue1" :underline nil))))
+ '(helm-visible-mark ((t (:inherit dired-flagged))))
  ;; auto-completion mode face
  '(ac-completion-face ((t (:background "blue" :foreground "*" :underline t))))
  ;; grap

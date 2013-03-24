@@ -61,6 +61,7 @@
     doc-mode
     twittering-mode
     multi-term
+    helm
     ))
 
 
