@@ -40,7 +40,6 @@
 ;;;-----------------------------------------------------------------
 ;;; Load every single settings
 ;;;-----------------------------------------------------------------
-(require 'detectenv)
 ;;; User Profile Settings
 (require 'init-user-profile)
 ;;; Global Settings
@@ -55,105 +54,15 @@
 (require 'init-term)
 (require 'init-goto-chg)
 (require 'init-undo)
-
-;; Configurate X Window System Emacs
-(when
-    (and run-x-window-system
-         (require 'init-fontset)
-         (load "init-x-window-system")))
-
-;; Configurate Cocoa Emacs
-(when
-    (and run-cocoa-emacs
-         (require 'init-fontset)
-         (load "init-cocoa-emacs")))
-
-;; Configurate NTEmacs
-(when
-    (and run-ntemacs
-         (require 'init-fontset)
-         (load "init-ntemacs")))
-
-;; Configurate no window Emacs
-(when
-    (and run-no-window
-         (load "init-no-window")))
-
-(require 'init-twitter)
 (require 'init-helm)
-
-;;;-------------------------
-;;; Development Environment
-;;;-------------------------
-(require 'init-flymake)
-(require 'init-pos-tip)
-(require 'init-auto-complete)
-(require 'init-yasnippet)
-
-;;;==================================;
-;;; Programing Language
-;;;==================================;
-
-;; cc-mode
-(require 'init-cc)
-;; C
-(require 'init-c)
-;; C++
-(require 'init-c++)
-;; Objective-C
-(require 'init-objc)
-;; C#
-; (require 'init-csharp)
-;; Python
-(require 'init-python)
-;; ;; Common Lisp
-;; (require 'init-lisp)
-;; (require 'init-slime)
-;; ;; Perl
-;; (require 'init-cperl)
-;; (require 'init-perl-setperl5lib)
-;; (require 'init-perl-flymake)
-;; (require 'init-perl-completion)
-;; (require 'init-pod)
-;; (require 'init-perltidy)
-;; (require 'init-perlcritic)
-;; (load "init-perlnow")
-;; (load "init-html-tt")
-;; (load "init-pde")
-;; Ruby
-;; (load "init-ruby")
-;; PHP
-;(require 'init-php)
-;(require 'init-php-flymake)
-;; SQL
-;(require 'init-sql)
-;; Java
-(require 'init-java)
-;; Scala
-(require 'init-scala)
-;; Groovy
-(require 'init-groovy)
-;; scheme
-;; (require 'init-scheme)
-;; JS + AS
-;; (require 'init-actionscript)
-(require 'init-javascript)
-;; HTML + CSS
-;; (require 'init-yahtml)
-;; (require 'init-nxml)
-(require 'init-html)
-;; (require 'init-html-helper)
-;; (require 'init-color-selection)
-;; (require 'init-sgml)
-(require 'init-css)
-;; reStructured Text
-(require 'init-rst)
-;; Markdown
-(require 'init-markdown)
-;; Org Mode
-(require 'init-org)
 ;; info Mode
 (require 'init-info)
+
+(require 'init-runtime-environment)
+
+(require 'init-progmodes)
+(require 'init-textmodes)
+
 
 (load-theme 'classical-console t)
 
