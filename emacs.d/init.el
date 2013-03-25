@@ -42,25 +42,25 @@
 ;;;-----------------------------------------------------------------
 ;;; User Profile Settings
 (require 'init-user-profile)
+
 ;;; Global Settings
 (require 'init-emacs)
 (require 'init-package)
 (require 'init-highlight)
-(require 'init-hl-line)
-(require 'init-linum)
-;(require 'init-color-moccur)
-(require 'init-grep)
+;; (require 'init-color-moccur)
 (require 'init-wdired)
 (require 'init-term)
-(require 'init-goto-chg)
-(require 'init-undo)
-(require 'init-helm)
-;; info Mode
-(require 'init-info)
 
+;;; Emacs helm
+(require 'init-helm)
+
+;;; Emacs runtime environment
 (require 'init-runtime-environment)
 
+;;; Program modes
 (require 'init-progmodes)
+
+;;; Text modes
 (require 'init-textmodes)
 
 

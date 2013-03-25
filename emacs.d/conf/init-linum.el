@@ -22,15 +22,13 @@
 
 ;;; Commentary:
 
-;; (install-elisp-from-emacswiki "linum-ex.el")
+;;
 
 ;;; Code:
 
 
 (require 'linum-ex)
 (setq linum-format "%4d")
-;; これを行うと query-replace が正しく動作しない．
-;; (setq linum-eager nil)
 ;; (global-linum-mode)
 
 
