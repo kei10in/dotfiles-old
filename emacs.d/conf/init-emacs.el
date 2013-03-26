@@ -290,6 +290,12 @@
 (setq igrep-options "--exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg -EIr")
 
 
+;;; Ack - http://betterthangrep.com/
+(require 'full-ack)
+(setq ack-context 0)
+(setq ack-prompt-for-directory t)
+
+
 ;;; Goto last change
 (require 'goto-chg)
 (global-set-key (kbd "C-.") 'goto-last-change)

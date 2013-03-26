@@ -40,6 +40,7 @@
 
 (defvar installing-package-list
   '(
+    full-ack
     undo-tree
     igrep
     grep-a-lot
