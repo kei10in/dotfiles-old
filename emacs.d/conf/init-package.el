@@ -53,6 +53,7 @@
     yasnippet
     ruby-mode
     python-mode
+	haskell-mode
     php-mode
     js2-mode
     scala-mode2
