@@ -9,6 +9,7 @@ zsh/aliases.hosts
 # emacs
 *.elc
 emacs.d/elpa/archives
+emacs.d/tramp
 ac-comphist.dat
 auto-save-list
 
