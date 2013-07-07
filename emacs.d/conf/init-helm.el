@@ -34,7 +34,6 @@
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
 
-
 (helm-mode 1)
 (add-to-list 'helm-completing-read-handlers-alist '(find-file-at-point . nil))
 (add-to-list 'helm-completing-read-handlers-alist '(dired-at-point . nil))
@@ -43,12 +42,15 @@
   '(helm-c-source-ffap-line
     helm-c-source-ffap-guesser
     helm-c-source-buffers+
-    helm-c-source-files-in-current-dir+
+    helm-c-source-files-in-current-dir
     helm-c-source-recentf
     helm-c-source-bookmarks
     helm-c-source-file-cache
     helm-c-source-locate
+    helm-c-source-buffer-not-found
     ))
+
+(setq helm-buffer-max-length 50)
 
 (provide 'init-helm)
 ;;; init-helm.el ends here
