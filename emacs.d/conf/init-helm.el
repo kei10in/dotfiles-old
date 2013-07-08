@@ -42,7 +42,7 @@
 (setq helm-ff-auto-update-initial-value nil)
 (setq helm-idle-delay 0.001)
 (setq helm-input-idle-delay 0.001)
-(setq helm-buffer-max-length 50)
+(setq helm-buffer-max-length 40)
 
 
 (defvar my/helm-source-files-in-current-dir
