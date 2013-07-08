@@ -44,15 +44,15 @@
 (setq helm-input-idle-delay 0.001)
 
 (setq helm-for-files-prefered-list
-  '(helm-c-source-ffap-line
-    helm-c-source-ffap-guesser
-    helm-c-source-buffers+
-    helm-c-source-files-in-current-dir
-    helm-c-source-recentf
-    helm-c-source-bookmarks
-    helm-c-source-file-cache
-    helm-c-source-locate
-    helm-c-source-buffer-not-found
+  '(helm-source-ffap-line
+    helm-source-ffap-guesser
+    helm-source-buffers+
+    helm-source-files-in-current-dir
+    helm-source-recentf
+    helm-source-bookmarks
+    helm-source-file-cache
+    helm-source-locate
+    helm-source-buffer-not-found
     ))
 
 (setq helm-buffer-max-length 50)
