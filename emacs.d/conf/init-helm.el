@@ -38,6 +38,11 @@
 (add-to-list 'helm-completing-read-handlers-alist '(find-file-at-point . nil))
 (add-to-list 'helm-completing-read-handlers-alist '(dired-at-point . nil))
 
+
+(setq helm-ff-auto-update-initial-value nil)
+(setq helm-idle-delay 0.001)
+(setq helm-input-idle-delay 0.001)
+
 (setq helm-for-files-prefered-list
   '(helm-c-source-ffap-line
     helm-c-source-ffap-guesser
