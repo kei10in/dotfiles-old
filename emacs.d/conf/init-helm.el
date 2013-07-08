@@ -42,20 +42,30 @@
 (setq helm-ff-auto-update-initial-value nil)
 (setq helm-idle-delay 0.001)
 (setq helm-input-idle-delay 0.001)
+(setq helm-buffer-max-length 50)
 
-(setq helm-for-files-prefered-list
-  '(helm-source-ffap-line
-    helm-source-ffap-guesser
-    helm-source-buffers+
-    helm-source-files-in-current-dir
+
+(defvar my/helm-source-files-in-current-dir
+  `((name . "Files from Current Directory")
+    (candidates . (lambda ()
+                    (with-helm-current-buffer
+                      (let ((dir (helm-current-directory)))
+                        (when (file-accessible-directory-p dir)
+                          (directory-files dir nil))))))
+    (keymap . ,helm-generic-files-map)
+    (no-delay-on-input)
+    (help-message . helm-generic-file-help-message)
+    (mode-line . helm-generic-file-mode-line-string)
+    (type . file)))
+
+(setq helm-for-files-preferred-list
+  '(helm-source-buffers-list
+    my/helm-source-files-in-current-dir
     helm-source-recentf
     helm-source-bookmarks
     helm-source-file-cache
-    helm-source-locate
     helm-source-buffer-not-found
     ))
-
-(setq helm-buffer-max-length 50)
 
 (provide 'init-helm)
 ;;; init-helm.el ends here
