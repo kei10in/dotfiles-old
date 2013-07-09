@@ -23,6 +23,8 @@
 ;;; Code:
 
 (require 'init-user-profile)
+(require 'init-package)
+(install-package-if-not-installed 'helm)
 
 (require 'helm)
 (require 'helm-config)

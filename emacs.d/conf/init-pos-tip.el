@@ -26,6 +26,9 @@
 
 ;;; Code:
 
+(require 'init-package)
+
+(install-package-if-not-installed 'pos-tip)
 (require 'pos-tip)
 
 

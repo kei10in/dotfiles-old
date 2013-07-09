@@ -38,45 +38,9 @@
 (package-initialize)
 
 
-(require 'cl)
-
-(defvar installing-package-list
-  '(
-    full-ack
-    undo-tree
-    igrep
-    grep-a-lot
-    auto-complete
-    auto-complete-clang
-    goto-chg
-    google-c-style
-    info+
-    pos-tip
-    yasnippet
-    ruby-mode
-    python-mode
-    haskell-mode
-    php-mode
-    js2-mode
-    markdown-mode
-    scala-mode2
-    groovy-mode
-    grails-mode
-    inf-groovy
-    doc-mode
-    twittering-mode
-    multi-term
-    helm
-    ))
-
-
-(let ((not-installed (loop for x in installing-package-list
-                            when (not (package-installed-p x))
-                            collect x)))
-  (when not-installed
-    (package-refresh-contents)
-    (dolist (pkg not-installed)
-        (package-install pkg))))
+(defun install-package-if-not-installed (name)
+  (unless (package-installed-p name)
+    (package-refresh-contents) (package-install name)))
 
 
 ;;; auto-install

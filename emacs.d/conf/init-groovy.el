@@ -24,8 +24,11 @@
 
 ;;; Code:
 
-
 (require 'init-user-profile)
+(require 'init-package)
+(install-package-if-not-installed 'groovy-mode)
+(install-package-if-not-installed 'grails-mode)
+(install-package-if-not-installed 'inf-groovy)
 
 (defvar groovy-mode-dir
   (concat private-lisp-dir "groovy/"))

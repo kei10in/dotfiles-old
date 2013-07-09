@@ -26,6 +26,9 @@
 
 ;;; Code:
 
+(require 'init-package)
+(install-package-if-not-installed 'doc-mode)
+
 
 ;; doc-mode
 ;; http://nschum.de/src/emacs/doc-mode/

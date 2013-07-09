@@ -24,6 +24,8 @@
 
 ;;; Code:
 
+(require 'init-package)
+(install-package-if-not-installed 'markdown-mode)
 
 (require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))

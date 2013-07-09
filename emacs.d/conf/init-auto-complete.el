@@ -31,6 +31,9 @@
 ;;; Code:
 
 (require 'init-user-profile)
+(require 'init-package)
+(install-package-if-not-installed 'auto-complete)
+(install-package-if-not-installed 'auto-complete-clang)
 
 ;;;----------------------------------------------------------------------;
 ;;; auto complete (for 1.2- )
@@ -44,6 +47,7 @@
 
 (require 'auto-complete-config)
 (require 'auto-complete-clang)
+
 (global-auto-complete-mode t)
 
 (add-to-list 'ac-dictionary-directories

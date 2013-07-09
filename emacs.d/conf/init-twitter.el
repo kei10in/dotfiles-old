@@ -24,6 +24,8 @@
 
 ;;; Code:
 
+(require 'init-package)
+(install-package-if-not-installed 'twittering-mode)
 
 ;;; http://twmode.sourceforge.net/ja/
 

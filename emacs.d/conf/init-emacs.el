@@ -269,6 +269,7 @@
 
 
 ;;; Info Mode:
+(install-package-if-not-installed 'info+)
 (eval-after-load "info" '(require 'info+))
 (require 'info)
 (setq Info-default-directory-list
@@ -282,6 +283,8 @@
 
 
 ;;; Grep
+(install-package-if-not-installed 'igrep)
+(install-package-if-not-installed 'grep-a-lot)
 (require 'igrep)
 (require 'grep-a-lot)
 (grep-a-lot-setup-keys)
@@ -291,18 +294,21 @@
 
 
 ;;; Ack - http://betterthangrep.com/
+(install-package-if-not-installed 'full-ack)
 (require 'full-ack)
 (setq ack-context 0)
 (setq ack-prompt-for-directory t)
 
 
 ;;; Goto last change
+(install-package-if-not-installed 'goto-chg)
 (require 'goto-chg)
 (global-set-key (kbd "C-.") 'goto-last-change)
 (global-set-key (kbd "C-,") 'goto-last-change-reverse)
 
 
 ;;; Undo / Redo
+(install-package-if-not-installed 'undo-tree)
 (require 'undo-tree)
 (global-undo-tree-mode)
 ;; 大量の undo に耐えれるようにする．

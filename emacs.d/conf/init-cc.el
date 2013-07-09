@@ -27,7 +27,10 @@
 ;;; Code:
 
 
+(require 'init-package)
 (require 'init-linum)
+
+(install-package-if-not-installed 'google-c-style)
 (require 'google-c-style)
 
 (defconst windows-c-style
