@@ -31,8 +31,10 @@
 
 ;;; emacs default package system
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list
+ 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list
+ 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
 
@@ -53,9 +55,10 @@
     yasnippet
     ruby-mode
     python-mode
-	haskell-mode
+    haskell-mode
     php-mode
     js2-mode
+    markdown-mode
     scala-mode2
     groovy-mode
     grails-mode
