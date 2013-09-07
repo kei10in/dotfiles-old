@@ -23,6 +23,19 @@ class Emacs(object):
         return ()
 
 
+class Vim(object):
+    def enviroments(self):
+        return ()
+
+    @property
+    def directory_symlinks(self):
+        return (('vim', '~/.vim'),)
+
+    @property
+    def file_symlinks(self):
+        return ()
+
+
 class Zsh(object):
     @property
     def enviroments(self):
@@ -111,7 +124,7 @@ class SymlinkCommand(object):
 
 def main():
     env = Environment()
-    applications = [Emacs(), Zsh(), Sbt()]
+    applications = [Emacs(), Vim(), Zsh(), Sbt()]
     for app in applications:
         for command in InstallCommandGenerator(env, app):
             command.execute()
