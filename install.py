@@ -2,6 +2,7 @@
 
 import os
 import sys
+import json
 
 
 class Environment(object):
@@ -10,41 +11,17 @@ class Environment(object):
         return os.path.dirname(os.path.abspath(__file__))
 
 
-class Emacs(object):
-    @property
-    def file_symlinks(self):
-        return (('emacs.d', '~/.emacs.d'),)
-
-
-class Vim(object):
-    @property
-    def file_symlinks(self):
-        return (('vim', '~/.vim'),)
-
-
-class Zsh(object):
-    @property
-    def file_symlinks(self):
-        return (('zshenv', '~/.zshenv'), ('zshrc', '~/.zshrc'), ('zsh', '~/.zsh'))
-
-
-class Sbt(object):
-    @property
-    def file_symlinks(self):
-        return (('sbt', '~/.sbt'),)
-
-
 class InstallCommandGenerator(object):
-    def __init__(self, env, app):
+    def __init__(self, env, targets):
         self._env = env
-        self._app = app
+        self._targets = targets
 
     def __iter__(self):
         for command in self._symlink_commands():
             yield command
     
     def _symlink_commands(self):
-        for src, dst in self._app.file_symlinks:
+        for src, dst in self._targets:
             yield self._create_symlink_command(src, dst, os.path.isdir(src))
 
     def _create_symlink_command(self, src, dst, target_is_directory=False):
@@ -83,15 +60,63 @@ class SymlinkCommand(object):
             symlink(source, destination, self.target_is_directory)
         except OSError as e:
             print('{}: {}'.format(self.dst, e.strerror), file=sys.stderr)
-        
+
+
+class PlatformFilter(object):
+    def __init__(self, platform=sys.platform):
+        self._platform = platform
+
+    def __iter__(self):
+        return iter(list())
+
+    def __call__(self, config):
+        for c in config:
+            if self._platform not in c['os']:
+                continue
+            for target in c['targets']:
+                yield tuple(target)
+
+
+def read_file(filepath):
+    with open(filepath) as f:
+        return f.read()
+
 
 def main():
     env = Environment()
-    applications = [Emacs(), Vim(), Zsh(), Sbt()]
-    for app in applications:
-        for command in InstallCommandGenerator(env, app):
-            command.execute()
-        
+    config = json.loads(read_file('config.json'))
+    filter = PlatformFilter()
+    for command in InstallCommandGenerator(env, filter(config)):
+        command.execute()
+
 
 if __name__ == '__main__':
     main()
+
+
+import unittest
+
+
+class TestPlatformFilter(unittest.TestCase):
+    def test_returns_empty_on_empty_config(self):
+        config = []
+        sut = PlatformFilter()
+        self.assertEqual(len(list(sut(config))), 0)
+
+    def test_returns_empty_on_no_supported_platform(self):
+        config = [{
+            'os' : ['win32'],
+            'targets' : [['src', 'dest']]
+        }]
+        sut = PlatformFilter('linux')
+        self.assertEqual(len(list(sut(config))), 0)
+
+    def test_returns_targets_if_platform_matched(self):
+        config = [{
+            'os' : ['linux'],
+            'targets' : [['src', 'dest']]
+        }]
+        sut = PlatformFilter('linux')
+        actual = list(sut(config))
+        self.assertEqual(len(actual), 1)
+        self.assertEqual(actual[0], ('src', 'dest'))
