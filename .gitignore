@@ -9,6 +9,7 @@ zsh/aliases.hosts
 *.elc
 emacs.d/elpa
 emacs.d/tramp
+emacs.d/url/cookies
 ac-comphist.dat
 auto-save-list
 
@@ -23,5 +24,5 @@ ipython/profile_*/security
 zsh/site-*
 
 # sbt
-sbt/boot
-sbt/target
+sbt/*/boot
+sbt/*/target
