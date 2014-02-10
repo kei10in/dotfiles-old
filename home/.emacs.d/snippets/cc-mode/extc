@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name : extern "C"
+# --
+#ifdef __cplusplus
+extern "C" {
+#endif  /* __cplusplus */
+
+$0
+
+#ifdef __cplusplus
+}
+#endif  /* __cplusplus */

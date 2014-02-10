@@ -3,26 +3,28 @@
 .DS_Store
 Thumbs.db
 abbrev_defs
-zsh/aliases.hosts
+
+# Zshell
+home/.zsh/aliases.hosts
 
 # emacs
 *.elc
-emacs.d/elpa
-emacs.d/tramp
-emacs.d/url/cookies
+home/.emacs.d/elpa
+home/.emacs.d/tramp
+home/.emacs.d/url/cookies
 ac-comphist.dat
 auto-save-list
 
 # ipython
-ipython/profile_*/db
-ipython/profile_*/history.sqlite
-ipython/profile_*/log
-ipython/profile_*/pid
-ipython/profile_*/security
+home/.ipython/profile_*/db
+home/.ipython/profile_*/history.sqlite
+home/.ipython/profile_*/log
+home/.ipython/profile_*/pid
+home/.ipython/profile_*/security
 
 # site mechanism
-zsh/site-*
+home/.zsh/site-*
 
 # sbt
-sbt/*/boot
-sbt/*/target
+home/.sbt/*/boot
+home/.sbt/*/target

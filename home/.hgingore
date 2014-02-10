@@ -1,0 +1,19 @@
+syntax: glob
+
+# emacs generating files
+*~
+*.orig
+.ensime
+auto-save-list
+
+# other vcs files
+.svn
+.git
+.gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Others
+TAGS

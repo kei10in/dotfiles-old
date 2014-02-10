@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+#name : #ifndef XXX; #define XXX; #endif
+# --
+#pragma once
+#ifndef ${1:`
+(upcase (replace-regexp-in-string "[\\.]" "_"
+         (file-name-nondirectory (directory-file-name (file-name-directory (buffer-file-name))))))
+`_}${2:`
+(upcase (replace-regexp-in-string "[\\.]" "_"
+         (file-name-nondirectory (buffer-file-name))))
+`_}
+#define $1$2
+
+$0
+
+#endif  /* $1$2 */
