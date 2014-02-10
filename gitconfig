@@ -9,6 +9,7 @@
 	co = checkout
 	ci = commit
 	glog = log --graph --decorate
+	lg = log --graph --all --format=format:'%C(bold blue)%h%C(reset):%C(bold red)%d%C(reset) %C(white)%s%C(reset) %C(bold white)- %cn%C(reset)' --abbrev-commit
 [color]
 	ui = auto
 [difftool "sourcetree"]
