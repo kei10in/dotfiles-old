@@ -26,5 +26,6 @@ home/.ipython/profile_*/security
 home/.zsh/site-*
 
 # sbt
+home/.sbt/boot
 home/.sbt/*/boot
 home/.sbt/*/target
