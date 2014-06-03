@@ -76,3 +76,6 @@ if VIRTUALENVWRAPPER=`which virtualenvwrapper.sh` ; then
     export VIRTUALENVWRAPPER_PYTHON=python3.2
 	source ${VIRTUALENVWRAPPER}
 fi
+
+## Heroku
+export PATH="/usr/local/heroku/bin:$PATH"

@@ -28,6 +28,3 @@ fi
 if [ -r ~/.zsh/site-zshrc ]; then
     source ~/.zsh/site-zshrc
 fi
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
