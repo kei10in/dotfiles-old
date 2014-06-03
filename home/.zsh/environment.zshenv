@@ -77,5 +77,10 @@ if VIRTUALENVWRAPPER=`which virtualenvwrapper.sh` ; then
 	source ${VIRTUALENVWRAPPER}
 fi
 
+## pyenv
+if whence pyenv >& /dev/null; then
+    eval "$(pyenv init -)"
+fi
+
 ## Heroku
 export PATH="/usr/local/heroku/bin:$PATH"
