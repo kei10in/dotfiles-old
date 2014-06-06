@@ -24,32 +24,5 @@
 
 ;;; Code:
 
-(require 'init-user-profile)
-(require 'init-package)
-(install-package-if-not-installed 'groovy-mode)
-(install-package-if-not-installed 'grails-mode)
-(install-package-if-not-installed 'inf-groovy)
-
-(defvar groovy-mode-dir
-  (concat private-lisp-dir "groovy/"))
-(add-to-list 'load-path
-             (expand-file-name groovy-mode-dir))
-
-(require 'groovy-mode)
-
-(add-to-list 'auto-mode-alist '("\.groovy$" . groovy-mode))
-(add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
-
-;;; make Groovy mode electric by default.
-(add-hook 'groovy-mode-hook
-          '(lambda ()
-             ;; (groovy-electric-mode)
-             ))
-
-(require 'init-auto-complete)
-(setq ac-modes (append ac-modes '(groovy-mode)))
-(setq ac-modes (append ac-modes '(grails-mode)))
-
-
 (provide 'init-groovy)
 ;;; init-groovy.el ends here
