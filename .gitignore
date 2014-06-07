@@ -9,6 +9,7 @@ home/.zsh/aliases.hosts
 
 # emacs
 *.elc
+home/.emacs.d/.cask
 home/.emacs.d/elpa
 home/.emacs.d/tramp
 home/.emacs.d/url/cookies
