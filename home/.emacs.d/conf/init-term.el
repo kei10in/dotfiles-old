@@ -27,7 +27,6 @@
 ;;; Code:
 
 (require 'init-package)
-(install-package-if-not-installed 'multi-term)
 
 ;;;
 ;;; Term mode

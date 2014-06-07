@@ -32,8 +32,6 @@
 
 (require 'init-user-profile)
 (require 'init-package)
-(install-package-if-not-installed 'auto-complete)
-(install-package-if-not-installed 'auto-complete-clang)
 
 ;;;----------------------------------------------------------------------;
 ;;; auto complete (for 1.2- )

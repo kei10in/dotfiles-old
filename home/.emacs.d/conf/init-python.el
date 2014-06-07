@@ -28,7 +28,6 @@
 ;;; Code:
 
 (require 'init-package)
-(install-package-if-not-installed 'python-mode)
 
 ;;;
 ;;; * An Emacs mode for editing Python code (python-mode.el)

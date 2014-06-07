@@ -33,20 +33,6 @@
 (cask-initialize)
 (require 'pallet)
 
-;;; emacs default package system
-(require 'package)
-(add-to-list
- 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list
- 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(package-initialize)
-
-
-(defun install-package-if-not-installed (name)
-  (unless (package-installed-p name)
-    (package-refresh-contents) (package-install name)))
-
-
 ;;; auto-install
 (require 'auto-install)
 (setq auto-install-directory "~/.emacs.d/site-lisp/")

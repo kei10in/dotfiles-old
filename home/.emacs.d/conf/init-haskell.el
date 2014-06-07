@@ -25,7 +25,6 @@
 ;;; Code:
 
 (require 'init-package)
-(install-package-if-not-installed 'haskell-mode)
 
 (require 'haskell-mode)
 

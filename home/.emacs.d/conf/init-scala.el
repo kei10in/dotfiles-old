@@ -31,8 +31,6 @@
 ;;; Code:
 
 (require 'init-package)
-(install-package-if-not-installed 'scala-mode2)
-
 
 ;;; Scala-mode
 (require 'scala-mode2)

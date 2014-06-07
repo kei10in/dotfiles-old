@@ -29,7 +29,6 @@
 
 (require 'init-user-profile)
 (require 'init-package)
-(install-package-if-not-installed 'yasnippet)
 
 ;;-----------------------------------------------------------------
 ;; yasnippet
