@@ -28,6 +28,10 @@
 
 ;;; Code:
 
+;;; Cask
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+(require 'pallet)
 
 ;;; emacs default package system
 (require 'package)
