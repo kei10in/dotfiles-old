@@ -46,6 +46,7 @@
 ;;; Global Settings
 (require 'init-emacs)
 (require 'init-package)
+(require 'init-fundamentals)
 (require 'init-highlight)
 ;; (require 'init-color-moccur)
 (require 'init-wdired)
@@ -54,16 +55,10 @@
 ;;; Emacs helm
 (require 'init-helm)
 
-;;; Emacs runtime environment
-(require 'init-runtime-environment)
-
 ;;; Program modes
 (require 'init-progmodes)
 
 ;;; Text modes
 (require 'init-textmodes)
-
-
-(load-theme 'classical-console t)
 
 ;;; init.el ends here

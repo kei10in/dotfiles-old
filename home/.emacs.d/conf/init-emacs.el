@@ -26,11 +26,7 @@
 
 ;;; Code:
 
-
 (require 'detectenv)
-(require 'init-user-profile)
-(require 'init-package)
-
 
 ;; Default major mode
 (setq major-mode 'text-mode)
@@ -268,53 +264,14 @@
   (emacs-lock-mode 'kill))
 
 
-;;; Info Mode:
-(install-package-if-not-installed 'info+)
-(eval-after-load "info" '(require 'info+))
-(require 'info)
-(setq Info-default-directory-list
-  (cons (expand-file-name "~/.emacs.d/info/")
-        Info-default-directory-list))
-
-
 ;;; Highlight line
 (require 'hl-line)
 (global-hl-line-mode)
 
+;;; Emacs runtime environment
+(require 'init-runtime-environment)
 
-;;; Grep
-(install-package-if-not-installed 'igrep)
-(install-package-if-not-installed 'grep-a-lot)
-(require 'igrep)
-(require 'grep-a-lot)
-(grep-a-lot-setup-keys)
-;; for igrep users
-(grep-a-lot-advise igrep)
-(setq igrep-options "--exclude-dir=.svn --exclude-dir=.git --exclude-dir=.hg -EIr")
-
-
-;;; Ack - http://betterthangrep.com/
-(install-package-if-not-installed 'full-ack)
-(require 'full-ack)
-(setq ack-context 0)
-(setq ack-prompt-for-directory t)
-
-
-;;; Goto last change
-(install-package-if-not-installed 'goto-chg)
-(require 'goto-chg)
-(global-set-key (kbd "C-.") 'goto-last-change)
-(global-set-key (kbd "C-,") 'goto-last-change-reverse)
-
-
-;;; Undo / Redo
-(install-package-if-not-installed 'undo-tree)
-(require 'undo-tree)
-(global-undo-tree-mode)
-;; 大量の undo に耐えれるようにする．
-(setq undo-limit 60000)
-(setq undo-strong-limit 90000)
-
+(load-theme 'classical-console t)
 
 (provide 'init-emacs)
 ;;; init-emacs.el ends here
