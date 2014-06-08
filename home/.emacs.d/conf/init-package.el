@@ -30,7 +30,10 @@
 
 ;;; Cask
 (require 'cask "~/.cask/cask.el")
-(cask-initialize)
+(setq user_bundle (cask-initialize "~/.emacs.d"))
+(cask-install user_bundle)
+(cask-update  user_bundle)
+
 (require 'pallet)
 
 ;;; auto-install
