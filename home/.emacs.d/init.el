@@ -47,7 +47,6 @@
 (require 'init-emacs)
 (require 'init-package)
 (require 'init-fundamentals)
-(require 'init-highlight)
 ;; (require 'init-color-moccur)
 (require 'init-wdired)
 (require 'init-term)
