@@ -288,7 +288,7 @@
 ;; (setq show-paren-style 'mixed)
 
 ;;; Highlight region
-(setq transient-mark-mode nil)
+(setq transient-mark-mode t)
 
 ;;; Highlight matches
 (setq search-highlight t)
