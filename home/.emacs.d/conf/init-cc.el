@@ -57,7 +57,6 @@
  						(statement-case-intro . +)
  						(statement-case-open . +)
 						(member-init-intro . +)
-						(member-init-cont . -/)
 						(inexpr-statement . +)
 						(do-while-closure . 0)
 						;;; C++ Symbols
@@ -67,7 +66,6 @@
 						(inline-open . 0)
 						(inline-close . 0)
 						(inher-intro . +)
-						(inher-cont . c-lineup-multi-inher)
 						(statement . 0)
                         (extern-lang-open . 0)
                         (extern-lang-close . 0)
