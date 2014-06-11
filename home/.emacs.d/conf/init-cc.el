@@ -72,7 +72,7 @@
                         (inextern-lang . 0)
                         (namespace-open . 0)
                         (namespace-close . 0)
-                        (innamespace . +)
+                        (innamespace . 0)
                         ))
 	(c-special-indent-hook . c-gnu-impose-minimum)
 	(c-block-comment-prefix . ""))
@@ -134,7 +134,13 @@
                         (statement-case-open . +)
                         (statement-case-intro . +) ; case w/o {
                         (access-label . /)
-                        (innamespace . 0))))
+                        (extern-lang-open . 0)
+                        (extern-lang-close . 0)
+                        (inextern-lang . 0)
+                        (namespace-open . 0)
+                        (namespace-close . 0)
+                        (innamespace . 0)
+                        )))
   "My Own C/C++ Programming Style")
 (c-add-style "my-c" my-c-style)
 
