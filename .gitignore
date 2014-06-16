@@ -30,3 +30,8 @@ home/.zsh/site-*
 home/.sbt/boot
 home/.sbt/*/boot
 home/.sbt/*/target
+
+# ATOM
+compile-cache/
+packages/
+storage/
