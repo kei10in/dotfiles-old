@@ -25,6 +25,6 @@ if [ -r ~/.zsh/zshrc ]; then
     source ~/.zsh/zshrc
 fi
 
-if [ -r ~/.zsh/site-zshrc ]; then
-    source ~/.zsh/site-zshrc
+if [ -r ~/.site-zshrc ]; then
+    source ~/.site-zshrc
 fi

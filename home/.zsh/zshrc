@@ -49,9 +49,3 @@ fi
 if [ -r ${zsh_environment} ]; then
     source ${zsh_environment}
 fi
-
-
-# import site configurations
-if [ -r ${HOME}/.site-zshrc ]; then
-    source ${HOME}/.site-zshrc
-fi

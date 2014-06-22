@@ -25,6 +25,6 @@ if [ -r ~/.zsh/zshenv ]; then
     source ~/.zsh/zshenv
 fi
 
-if [ -r ~/.zsh/site-zshenv ]; then
-    source ~/.zsh/site-zshenv
+if [ -r ~/.site-zshenv ]; then
+    source ~/.site-zshenv
 fi
