@@ -25,8 +25,8 @@
 (require 'init-user-profile)
 (require 'init-package)
 
-(require 'helm)
 (require 'helm-config)
+(helm-mode 1)
 
 (global-set-key (kbd "C-x b") 'helm-for-files)
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -35,7 +35,6 @@
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
 
-(helm-mode 1)
 (add-to-list 'helm-completing-read-handlers-alist '(find-file-at-point . nil))
 (add-to-list 'helm-completing-read-handlers-alist '(dired-at-point . nil))
 
