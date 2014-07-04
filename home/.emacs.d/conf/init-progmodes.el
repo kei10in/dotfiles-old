@@ -50,8 +50,6 @@
 (require 'init-python)
 ;; Ruby
 (require 'init-ruby)
-;; PHP
-(require 'init-php)
 ;; Java
 (require 'init-java)
 ;; Scala
