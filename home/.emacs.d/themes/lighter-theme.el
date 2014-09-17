@@ -45,7 +45,8 @@
  '(org-level-7 ((t (:foreground "Orchid"))))
  '(org-level-8 ((t (:foreground "RosyBrown"))))
  ;; helm mode face
- '(helm-ff-directory ((t (:foreground "Blue1"))))
+ '(helm-buffer-directory ((t (:foreground "Blue1" :background "white"))))
+ '(helm-ff-directory ((t (:foreground "Blue1" :background "white"))))
  '(helm-ff-file ((t (:foreground "black"))))
  '(helm-selection ((t (:background "LightSteelBlue1" :underline nil))))
  '(helm-visible-mark ((t (:inherit dired-flagged))))

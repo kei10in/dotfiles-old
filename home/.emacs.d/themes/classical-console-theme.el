@@ -45,6 +45,7 @@
  '(org-level-7 ((t (:foreground "#C0C0FF"))))
  '(org-level-8 ((t (:foreground "#FFC0C0"))))
  ;; helm mode face
+ '(helm-buffer-directory ((t (:background "*" :foreground "LightSkyBlue"))))
  '(helm-ff-directory ((t (:background "*" :foreground "LightSkyBlue"))))
  '(helm-ff-file ((t (:foreground "PaleGreen"))))
  '(helm-selection ((t (:background "#222244" :underline nil))))
