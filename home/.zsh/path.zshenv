@@ -50,6 +50,11 @@ if [ -d /Library/Frameworks/Python.framework/Versions/3.3/bin ]; then
     path=( ${path} /Library/Frameworks/Python.framework/Versions/3.3/bin )
 fi
 
+# Setting PATH for RubyGems installed by Homebrew
+if [ -d /usr/local/opt/ruby/bin ]; then
+    path=( ${path} /usr/local/opt/ruby/bin )
+fi
+
 # Platform oriented path
 case "${OSTYPE}" in
     linux*)
