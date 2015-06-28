@@ -1,12 +1,12 @@
 ;;; cask.el --- Cask: Project management for Emacs package development  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2012-2014 Johan Andersson
-;; Copyright (C) 2013 Sebastian Wiesner
+;; Copyright (C) 2013 Sebastian Wiesner <swiesner@lunaryorn.com>
 ;; Copyright (C) 2013 Takafumi Arakaki
 
 ;; Author: Johan Andersson <johan.rejeep@gmail.com>
 ;; Maintainer: Johan Andersson <johan.rejeep@gmail.com>
-;; Version: 0.7.0
+;; Version: 0.7.3
 ;; Keywords: speed, convenience
 ;; URL: http://github.com/cask/cask
 ;; Package-Requires: ((s "1.8.0") (dash "2.2.0") (f "0.16.0") (epl "0.5") (shut-up "0.1.0") (cl-lib "0.3") (package-build "0.1"))
@@ -158,8 +158,8 @@ Slots:
 
 (defvar cask-source-mapping
   '((gnu          . "http://elpa.gnu.org/packages/")
-    (melpa        . "http://melpa.milkbox.net/packages/")
-    (melpa-stable . "http://melpa-stable.milkbox.net/packages/")
+    (melpa        . "http://melpa.org/packages/")
+    (melpa-stable . "http://stable.melpa.org/packages/")
     (marmalade    . "http://marmalade-repo.org/packages/")
     (SC           . "http://joseito.republika.pl/sunrise-commander/")
     (org          . "http://orgmode.org/elpa/"))
@@ -182,7 +182,7 @@ the function `cask--with-environment'.")
   "List of supported fetchers.")
 
 (defconst cask-tmp-path
-  (f-expand "tmp" cask-directory))
+  (f-expand "cask" temporary-file-directory))
 
 (defconst cask-tmp-checkout-path
   (f-expand "checkout" cask-tmp-path))
@@ -360,7 +360,7 @@ If BUNDLE is not a package, the error `cask-not-a-package' is signaled."
        (signal 'cask-not-a-package nil))))
 
 (defun cask--eval (bundle forms &optional scope)
-  "Populare BUNDLE by evaluating FORMS in SCOPE.
+  "Populate BUNDLE by evaluating FORMS in SCOPE.
 
 SCOPE may be nil or 'development."
   (-each forms
@@ -376,8 +376,12 @@ SCOPE may be nil or 'development."
            (setf (cask-bundle-description bundle) description)))
         (package-file
          (cl-destructuring-bind (_ filename) form
-           (let ((package (epl-package-from-file
-                           (f-expand filename (cask-bundle-path bundle)))))
+           (let ((package
+                  (condition-case err
+                      (epl-package-from-file
+                       (f-expand filename (cask-bundle-path bundle)))
+                    (epl-invalid-package
+                     (error "Unbalanced parens in Package-Requires in file %s" filename)))))
              (cask--from-epl-package bundle package))))
         (depends-on
          (cl-destructuring-bind (_ name &rest args) form
@@ -423,8 +427,8 @@ The BUNDLE is initialized when the elpa directory exists."
   (car (epl-find-available-packages name)))
 
 (defun cask--find-installed-package (name)
-  "Find installed package with NAME."
-  (epl-find-installed-package name))
+  "Find installed package of highest version with NAME."
+  (car (epl-find-installed-packages name)))
 
 (defun cask--uniq-dependencies (dependencies)
   "Return new list with all duplicates in DEPENDENCIES removed."
@@ -824,7 +828,7 @@ URL is the url to the mirror."
   "Build BUNDLE Elisp files."
   (cask--with-file bundle
     (require 'bytecomp)
-    (let ((load-path (cons (cask-path bundle) load-path)))
+    (let ((load-path (cons (cask-path bundle) (cask-load-path bundle))))
       (-each (cask-files bundle)
         (lambda (path)
           (when (and (f-file? path) (f-ext? path "el"))
