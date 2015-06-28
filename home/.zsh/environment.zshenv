@@ -32,20 +32,7 @@ if where brew >& /dev/null; then
         export CPPFLAGS=${CFLAGS}
         export LDFLAGS="${LDFLAGS} -L/usr/local/opt/readline/lib"
     fi
-fi    
-
-## Grep
-# Exclude vcs directories
-if grep --help | grep -q -- --exclude-dir; then
-    GREP_OPTIONS="--exclude-dir=.git $GREP_OPTIONS"
-    GREP_OPTIONS="--exclude-dir=.hg $GREP_OPTIONS"
-    GREP_OPTIONS="--exclude-dir=.svn $GREP_OPTIONS"
 fi
-# colorize if enable
-if grep --help | grep -q -- --color; then
-    GREP_OPTIONS="--color $GREP_OPTIONS"
-fi
-export GREP_OPTIONS="-EIr"
 
 ## less
 export LESSCHARSET=utf-8
