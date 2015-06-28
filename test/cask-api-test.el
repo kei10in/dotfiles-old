@@ -863,10 +863,10 @@
   (cask-test/with-bundle
       '((package "package-a" "0.0.1" "PACKAGE-A"))
     (should-not (cask-bundle-sources bundle))
-    (cask-add-source bundle "melpa" "http://melpa.milkbox.net/packages/")
+    (cask-add-source bundle "melpa" "http://melpa.org/packages/")
     (let ((source (car (cask-bundle-sources bundle))))
       (should (string= (cask-source-name source) "melpa"))
-      (should (string= (cask-source-url source) "http://melpa.milkbox.net/packages/")))))
+      (should (string= (cask-source-url source) "http://melpa.org/packages/")))))
 
 (ert-deftest cask-add-source-test/alias ()
   (cask-test/with-bundle
@@ -875,7 +875,7 @@
     (cask-add-source bundle 'melpa)
     (let ((source (car (cask-bundle-sources bundle))))
       (should (string= (cask-source-name source) "melpa"))
-      (should (string= (cask-source-url source) "http://melpa.milkbox.net/packages/")))))
+      (should (string= (cask-source-url source) "http://melpa.org/packages/")))))
 
 
 ;;;; cask-remove-source
@@ -919,6 +919,14 @@
     (should (f-file? "foo.el"))
     (should (f-file? "bar.el"))
     (should (f-file? "bar.elc"))))
+
+(ert-deftest cask-build-test/with-dependencies ()
+  (cask-test/with-bundle '((source localhost)
+                           (files "foo.el")
+                           (depends-on "package-a" "0.0.1"))
+    (f-write-text "(require 'package-a)" 'utf-8 "foo.el")
+    (cask-install bundle)
+    (cask-build bundle)))
 
 
 ;;;; cask-clean-elc
