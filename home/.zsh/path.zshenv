@@ -55,6 +55,11 @@ if [ -d /usr/local/opt/ruby/bin ]; then
     path=( ${path} /usr/local/opt/ruby/bin )
 fi
 
+# Setting PATH for Cargo
+if [ -d ~/.cargo/bin ]; then
+    path=( ${path} ~/.cargo/bin )
+fi
+
 # Platform oriented path
 case "${OSTYPE}" in
     linux*)
